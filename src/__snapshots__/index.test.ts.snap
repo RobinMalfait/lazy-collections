@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should export all the things 1`] = `
+Object {
+  "compose": [Function],
+  "filter": [Function],
+  "flatten": [Function],
+  "map": [Function],
+  "pipe": [Function],
+  "range": [Function],
+  "reduce": [Function],
+  "slice": [Function],
+  "take": [Function],
+  "takeWhile": [Function],
+  "unique": [Function],
+}
+`;
