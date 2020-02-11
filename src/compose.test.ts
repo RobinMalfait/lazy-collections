@@ -1,4 +1,6 @@
 import { compose } from './compose';
+import { generate } from './generate';
+import { take } from './take';
 
 it('should be possible to compose multiple functions', () => {
   const program = compose(
@@ -8,4 +10,10 @@ it('should be possible to compose multiple functions', () => {
   );
 
   expect(program(2, 3)).toEqual('fn1(fn2(fn3(2, 3)))');
+});
+
+it('should be possible to pass a generator as first argument', () => {
+  const program = compose(Array.from, take(10), generate(Math.random));
+  const result = program();
+  expect(result).toHaveLength(10);
 });

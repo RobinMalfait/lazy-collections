@@ -13,7 +13,7 @@ it('should be possible to create a stream using the generate function', () => {
 
 it('should be possible to create a fibonacci iterator', () => {
   const fibonacci = pipe(
-    () => generate(
+    generate(
       (function() {
         let x = 1;
         let y = 1;
