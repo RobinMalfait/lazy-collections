@@ -2,9 +2,11 @@
 
 exports[`should export all the things 1`] = `
 Object {
+  "chunk": [Function],
   "compose": [Function],
   "filter": [Function],
   "flatten": [Function],
+  "generate": [Function],
   "map": [Function],
   "pipe": [Function],
   "range": [Function],
