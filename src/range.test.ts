@@ -2,9 +2,10 @@ import * as fc from 'fast-check';
 import { range } from './range';
 import { take } from './take';
 import { pipe } from './pipe';
+import { chunk } from './chunk';
 
 it('should create a range', () => {
-  const program = pipe(take(1e3), Array.from);
+  const program = pipe(take(1e3), chunk(2));
 
   fc.assert(
     fc.property(
@@ -15,18 +16,15 @@ it('should create a range', () => {
         const data = program(range(lowerbound, upperbound, step));
 
         // Verify that it generates an ordered list, ascending or descending
-        for (let idx = 1; idx < data.length; ++idx) {
-          if (step === undefined) {
-            if (lowerbound < upperbound) {
-              expect(data[idx - 1]).toBeLessThan(data[idx]);
+        for (let chunk of data) {
+          if (chunk.length === 2) {
+            const [a, b] = chunk;
+            if (step === undefined) {
+              // We should default to a step of 1
+              expect(Math.abs(a - b)).toBe(1);
             } else {
-              expect(data[idx - 1]).toBeGreaterThan(data[idx]);
-            }
-          } else {
-            if (lowerbound < upperbound) {
-              expect(data[idx - 1]).toBeLessThanOrEqual(data[idx]);
-            } else {
-              expect(data[idx - 1]).toBeGreaterThanOrEqual(data[idx]);
+              // We should verify that 2 values next to eachother are a step away
+              expect(Math.abs(a - b)).toBe(Math.abs(step));
             }
           }
         }
