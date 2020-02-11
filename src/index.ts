@@ -1,3 +1,6 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
 // Main program composers
 export * from './compose';
 export * from './pipe';

@@ -2,8 +2,9 @@
   "include": ["src", "types"],
   "compilerOptions": {
     "target": "ESNext",
-    "module": "esnext",
-    "lib": ["esnext"],
+    "module": "ESNext",
+    "lib": ["ESNext"],
+    "downlevelIteration": true,
     "importHelpers": true,
     "declaration": true,
     "sourceMap": true,
@@ -19,7 +20,7 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "esModuleInterop": true
   }
 }
