@@ -102,6 +102,22 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // 55
 ```
 
+### `concat`
+
+Concat multiple iterators or arrays into a single iterator.
+
+```js
+import { pipe, concat } from 'lazy-collections';
+
+const program = pipe(
+  concat([0, 1, 2], [3, 4, 5], [6, 7, 8], [9, 10]),
+  Array.from
+);
+
+program();
+// [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+```
+
 ### `chunk`
 
 Chunk the data into pieces of a certain size
@@ -192,11 +208,7 @@ index.
 ```js
 import { pipe, range, slice } from 'lazy-collections';
 
-const program = pipe(
-  range(0, 10),
-  slice(3, 5),
-  Array.from
-);
+const program = pipe(range(0, 10), slice(3, 5), Array.from);
 
 program();
 // [ 3, 4, 5 ]
