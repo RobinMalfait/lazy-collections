@@ -1,7 +1,8 @@
-*.
+.*
 !.gitignore
 !.nvmrc
 !.github
+!.babelrc
 
 node_modules/
 coverage/
