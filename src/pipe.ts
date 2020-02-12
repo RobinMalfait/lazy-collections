@@ -1,9 +1,13 @@
 type Fn = (...args: any) => any;
 
+function ensureFunction(input: any): Fn {
+  return typeof input === 'function' ? input : () => input;
+}
+
 export function pipe(...fns: (Fn | Iterable<any>)[]): Fn {
-  return fns.reduceRight((f, g) => (...args) => {
-    const f_ = typeof f === 'function' ? f : () => f;
-    const g_ = typeof g === 'function' ? g : () => g;
-    return f_(g_(...args));
-  }) as Fn;
+  const fn = fns.pop();
+  return fns.reduceRight((f: Fn, g) => {
+    const g_ = ensureFunction(g);
+    return (...args) => f(g_(...args));
+  }, ensureFunction(fn));
 }
