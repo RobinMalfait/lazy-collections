@@ -16,7 +16,7 @@ const program = pipe(
   Array.from
 );
 
-program(range(0, 1_000_000));
+program(range(0, 1000000));
 ```
 
 ## API
