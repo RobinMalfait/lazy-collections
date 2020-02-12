@@ -20,25 +20,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        # Skip post-install scripts here, as a malicious
-        # script could steal NODE_AUTH_TOKEN.
-        run: npm ci --ignore-scripts
-        env:
-          CI: true
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        # `npm rebuild` will run all those post-install scripts for us.
-      - run: npm rebuild && npm run prepare --if-present
-        env:
-          CI: true
+        run: npm ci
 
       - name: Build
         run: npm run build
 
       - name: Test
         run: npm run test
-        env:
-          NODE_ENV: test
-          CI: true
 
       - name: Publish
         run: npm publish
