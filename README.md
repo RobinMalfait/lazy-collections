@@ -19,6 +19,77 @@ const program = pipe(
 program(range(0, 1000000));
 ```
 
+## Benchmark
+
+> :warning: This is not a scientify benchmark, there are flaws with this. This
+> is just meant to showcase the power of lazy-collections.
+
+```js
+// Lazy example
+const program = pipe(
+  range(0, 10_000_000),
+  filter(x => x % 100 === 0),
+  filter(x => x % 4 === 0),
+  filter(x => x % 400 === 0),
+  takeWhile(x => x < 1_000),
+  slice(0, 1_000),
+  Array.from
+);
+
+program(); // [ 0, 400, 800 ]
+```
+
+> Duration: `2.19ms`
+
+Memory usage:
+
+| Key       | Value    |
+| --------- | -------- |
+| rss       | 34.55 MB |
+| heapTotal | 9.48 MB  |
+| heapUsed  | 5.89 MB  |
+| external  | 0.94 MB  |
+
+```js
+// Eager example
+function program() {
+  return (
+    // Equivalent of the range()
+    [...new Array(10_000_000).keys()]
+      .filter(x => x % 100 === 0)
+      .filter(x => x % 4 === 0)
+      .filter(x => x % 400 === 0)
+
+      // Equivalent of the takeWhile
+      .reduce((acc, current) => {
+        return current < 1_000 ? (acc.push(current), acc) : acc;
+      }, [])
+      .slice(0, 1_000)
+  );
+}
+
+program(); // [ 0, 400, 800 ]
+```
+
+> Duration: `1.29s` (Notice that this one is expressed in seconds)
+
+Memory usage:
+
+| Key       | Value     |
+| --------- | --------- |
+| rss       | 318.3 MB  |
+| heapTotal | 297.96 MB |
+| heapUsed  | 265.46 MB |
+| external  | 0.84 MB   |
+
+---
+
+This is actually a stupid non-real-world example. However, it is way more
+efficient at doing things. That said, *yes* you can optimize the eager example
+way more if you want to. You can combine the `filter` / `reduce` / `...`. However,
+what I want to achieve is that we can have separated logic in different `filter`
+or `map` steps _without_ thinking about performance bottlenecks.
+
 ## API
 
 > In a lot of the examples I will use the `Array.from` as a function, because it
