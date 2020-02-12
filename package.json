@@ -1,26 +1,26 @@
 {
-  "version": "0.1.4",
   "name": "lazy-collections",
-  "author": "Robin Malfait",
-  "module": "dist/lazy-collections.esm.js",
-  "license": "MIT",
+  "version": "0.1.4",
+  "description": "Collection of fast and lazy operations",
   "main": "dist/index.js",
+  "module": "dist/lazy-collections.esm.js",
   "typings": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skedify/lazy-collections.git"
+  },
+  "author": {
+    "name": "Robin Malfait",
+    "email": "malfait.robin@gmail.com"
+  },
   "engines": {
     "node": ">=13"
   },
-  "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "tdd": "tsdx test --watch",
-    "lint": "tsdx lint",
-    "format": "tsdx lint --fix",
-    "prepare": "npm run build"
-  },
+  "license": "MIT",
+  "homepage": "https://github.com/RobinMalfait/lazy-collections",
+  "files": [
+    "dist"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
@@ -34,6 +34,15 @@
   },
   "browserslist": {
     "node": "current node"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "tdd": "tsdx test --watch",
+    "lint": "tsdx lint",
+    "format": "tsdx lint --fix",
+    "prepare": "npm run build"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.8.4",
