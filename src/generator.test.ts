@@ -29,5 +29,5 @@ it('should be possible to create a fibonacci iterator', () => {
     take(10),
     Array.from
   );
-  expect(fibonacci(10)).toEqual([1, 1, 2, 3, 5, 8, 13, 21, 34, 55]);
+  expect(fibonacci()).toEqual([1, 1, 2, 3, 5, 8, 13, 21, 34, 55]);
 });
