@@ -11,4 +11,3 @@ export function takeWhile<T>(fn: Fn<T>) {
     }
   };
 }
-

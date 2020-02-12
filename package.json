@@ -1,20 +1,26 @@
 {
   "version": "0.1.2",
+  "name": "lazy-collections",
+  "author": "Robin Malfait",
+  "module": "dist/lazy-collections.esm.js",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=13"
+  },
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
-    "tdd": "tsdx test --watchAll",
+    "tdd": "tsdx test --watch",
     "lint": "tsdx lint",
-    "prepare": "tsdx build"
+    "format": "tsdx lint --fix",
+    "prepare": "npm run build"
   },
-  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
@@ -26,19 +32,19 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "lazy-collections",
-  "author": "Robin Malfait",
-  "module": "dist/lazy-collections.esm.js",
+  "browserslist": {
+    "node": "current node"
+  },
   "devDependencies": {
+    "@babel/preset-env": "^7.8.4",
     "@types/jest": "^25.1.2",
     "fast-check": "^1.22.2",
-    "husky": "^4.2.1",
+    "husky": "^4.2.2",
     "tsdx": "^0.12.3",
     "tslib": "^1.10.0",
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "core-js": "^3.6.4",
-    "regenerator-runtime": "^0.13.3"
+    "core-js": "^3.6.4"
   }
 }
