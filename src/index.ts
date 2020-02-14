@@ -21,6 +21,7 @@ export * from './some';
 export * from './chunk';
 export * from './flatten';
 export * from './generate';
+export * from './max';
 export * from './range';
 export * from './skip';
 export * from './sum';

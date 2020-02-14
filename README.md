@@ -376,6 +376,19 @@ program([1, 1, 2, 3, 2, 4, 5]);
 // 18
 ```
 
+### `max`
+
+Find the maximum value of the given list
+
+```js
+import { pipe, range, max } from 'lazy-collections';
+
+const program = pipe(range(0, 5), max());
+
+program();
+// 5
+```
+
 ### `tap`
 
 Allows you to tap into the stream, this way you can intercept each value.

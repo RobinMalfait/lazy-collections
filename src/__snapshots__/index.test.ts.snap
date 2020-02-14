@@ -12,6 +12,7 @@ Object {
   "flatten": [Function],
   "generate": [Function],
   "map": [Function],
+  "max": [Function],
   "pipe": [Function],
   "range": [Function],
   "reduce": [Function],
