@@ -1,8 +1,6 @@
-type Fn = (...args: any) => any;
+import { ensureFunction } from './utils/ensureFunction';
 
-function ensureFunction(input: any): Fn {
-  return typeof input === 'function' ? input : () => input;
-}
+type Fn = (...args: any) => any;
 
 export function pipe(...fns: (Fn | Iterable<any>)[]): Fn {
   const fn = fns.pop();

@@ -1,8 +1,6 @@
-type Fn = (...args: any) => any;
+import { ensureFunction } from './utils/ensureFunction';
 
-function ensureFunction(input: any): Fn {
-  return typeof input === 'function' ? input : () => input;
-}
+type Fn = (...args: any) => any;
 
 export function compose(
   fn: Fn | Iterable<any>,
