@@ -17,6 +17,7 @@ Object {
   "reduce": [Function],
   "slice": [Function],
   "some": [Function],
+  "sum": [Function],
   "take": [Function],
   "takeWhile": [Function],
   "unique": [Function],

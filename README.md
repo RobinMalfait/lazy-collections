@@ -353,6 +353,19 @@ program([1, 1, 2, 3, 2, 4, 5]);
 // [ 1, 2, 3, 4, 5 ]
 ```
 
+### `sum`
+
+Should sum an array or iterator.
+
+```js
+import { pipe, sum } from 'lazy-collections';
+
+const program = pipe(sum());
+
+program([1, 1, 2, 3, 2, 4, 5]);
+// 18
+```
+
 ### `generate`
 
 Generate accepts a function that function will be called over and over again.
