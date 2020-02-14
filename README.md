@@ -253,7 +253,7 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
 ### `flatten`
 
-By default we will only flatten 1 level deep.
+By default we will flatten recursively deep.
 
 ```js
 import { pipe, flatten, toArray } from 'lazy-collections';
@@ -261,18 +261,18 @@ import { pipe, flatten, toArray } from 'lazy-collections';
 const program = pipe(flatten(), toArray());
 
 program([1, 2, 3, [4, 5, 6, [7, 8], 9, 10]]);
-// [ 1, 2, 3, 4, 5, 6, [ 7, 8 ], 9, 10 ]
+// [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 ```
 
-But you can also go deep
+But you can also just flatten shallowly
 
 ```js
 import { pipe, flatten, toArray } from 'lazy-collections';
 
-const program = pipe(flatten({ deep: true }), toArray());
+const program = pipe(flatten({ shallow: true }), toArray());
 
 program([1, 2, 3, [4, 5, 6, [7, 8], 9, 10]]);
-// [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+// [ 1, 2, 3, 4, 5, 6, [ 7, 8 ], 9, 10 ]
 ```
 
 ### `range`

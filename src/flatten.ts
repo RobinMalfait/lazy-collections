@@ -1,19 +1,16 @@
 type Options = {
-  deep?: boolean;
+  shallow?: boolean;
 };
 
 export function flatten(options: Options = {}) {
-  const { deep = false } = options;
+  const { shallow = false } = options;
 
   return function* flattenFn<T>(data: T[]): any {
     if (!Array.isArray(data) && !data[Symbol.iterator]) {
       yield data;
     } else {
       for (let datum of data) {
-        if (deep) {
-          // Let's go recursive
-          yield* flattenFn(datum as any);
-        } else {
+        if (shallow) {
           // If the value itself is an iterator, we have to flatten that as
           // well.
           if ((datum as any)[Symbol.iterator]) {
@@ -21,6 +18,9 @@ export function flatten(options: Options = {}) {
           } else {
             yield datum;
           }
+        } else {
+          // Let's go recursive
+          yield* flattenFn(datum as any);
         }
       }
     }
