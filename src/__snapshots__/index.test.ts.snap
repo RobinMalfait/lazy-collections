@@ -5,6 +5,7 @@ Object {
   "chunk": [Function],
   "compose": [Function],
   "concat": [Function],
+  "every": [Function],
   "filter": [Function],
   "find": [Function],
   "findIndex": [Function],

@@ -8,6 +8,7 @@ export * from './pipe';
 
 // Known array methods
 export * from './concat';
+export * from './every';
 export * from './filter';
 export * from './find';
 export * from './findIndex';
