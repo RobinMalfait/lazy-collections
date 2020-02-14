@@ -376,6 +376,31 @@ program([1, 1, 2, 3, 2, 4, 5]);
 // 18
 ```
 
+### `tap`
+
+Allows you to tap into the stream, this way you can intercept each value.
+
+```js
+import { pipe, range, tap, toArray } from 'lazy-collections';
+
+const program = pipe(
+  range(0, 5),
+  tap(x => {
+    console.log('x:', x);
+  }),
+  toArray()
+);
+
+program();
+// x: 0
+// x: 1
+// x: 2
+// x: 3
+// x: 4
+// x: 5
+// [ 0, 1, 2, 3, 4, 5 ]
+```
+
 ### `generate`
 
 Generate accepts a function that function will be called over and over again.

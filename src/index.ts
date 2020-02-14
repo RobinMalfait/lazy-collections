@@ -26,5 +26,6 @@ export * from './skip';
 export * from './sum';
 export * from './take';
 export * from './takeWhile';
+export * from './tap';
 export * from './toArray';
 export * from './unique';

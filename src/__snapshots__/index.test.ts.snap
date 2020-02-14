@@ -21,6 +21,7 @@ Object {
   "sum": [Function],
   "take": [Function],
   "takeWhile": [Function],
+  "tap": [Function],
   "toArray": [Function],
   "unique": [Function],
 }
