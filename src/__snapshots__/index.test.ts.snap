@@ -16,6 +16,7 @@ Object {
   "range": [Function],
   "reduce": [Function],
   "slice": [Function],
+  "some": [Function],
   "take": [Function],
   "takeWhile": [Function],
   "unique": [Function],

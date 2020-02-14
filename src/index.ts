@@ -15,6 +15,7 @@ export * from './findIndex';
 export * from './map';
 export * from './reduce';
 export * from './slice';
+export * from './some';
 
 // Useful utilities
 export * from './chunk';

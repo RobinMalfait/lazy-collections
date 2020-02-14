@@ -212,6 +212,19 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // false
 ```
 
+### `some`
+
+Should return true if some of the values match the predicate.
+
+```js
+import { pipe, some } from 'lazy-collections';
+
+const program = pipe(some(x => x === 2));
+
+program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+// true
+```
+
 ### `concat`
 
 Concat multiple iterators or arrays into a single iterator.
