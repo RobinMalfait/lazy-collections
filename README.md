@@ -1,4 +1,6 @@
-# Lazy Collections ![Node CI](https://github.com/RobinMalfait/lazy-collections/workflows/Node%20CI/badge.svg)
+# Lazy Collections
+
+> ![Node CI](https://github.com/RobinMalfait/lazy-collections/workflows/Node%20CI/badge.svg)
 
 Working with methods like `.map()`, `.filter()` and `.reduce()` are nice,
 however they create new arrays and everything is eagerly done before going to
@@ -18,6 +20,35 @@ const program = pipe(
 
 program(range(0, 1000000));
 ```
+
+- [Lazy Collections](#lazy-collections)
+  - [Benchmark](#benchmark)
+  - [API](#api)
+    - [`compose`](#compose)
+    - [`pipe`](#pipe)
+    - [`map`](#map)
+    - [`filter`](#filter)
+    - [`reduce`](#reduce)
+    - [`find`](#find)
+    - [`findIndex`](#findindex)
+    - [`every`](#every)
+    - [`some`](#some)
+    - [`concat`](#concat)
+    - [`head`](#head)
+    - [`chunk`](#chunk)
+    - [`flatten`](#flatten)
+    - [`range`](#range)
+    - [`take`](#take)
+    - [`takeWhile`](#takewhile)
+    - [`skip`](#skip)
+    - [`slice`](#slice)
+    - [`unique`](#unique)
+    - [`sum`](#sum)
+    - [`max`](#max)
+    - [`min`](#min)
+    - [`tap`](#tap)
+    - [`generate`](#generate)
+    - [`toArray`](#toarray)
 
 ## Benchmark
 
