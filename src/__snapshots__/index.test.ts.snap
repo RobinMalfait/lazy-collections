@@ -15,6 +15,7 @@ Object {
   "pipe": [Function],
   "range": [Function],
   "reduce": [Function],
+  "skip": [Function],
   "slice": [Function],
   "some": [Function],
   "sum": [Function],

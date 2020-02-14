@@ -294,12 +294,12 @@ program();
 Allows you to take X values of the input.
 
 ```js
-import { pipe, take, toArray } from 'lazy-collections';
+import { pipe, range, take, toArray } from 'lazy-collections';
 
-const program = pipe(take(3), toArray());
+const program = pipe(range(0, 10), take(3), toArray());
 
 program();
-// [ 1, 2, 3, 4, 5, 6, [ 7, 8 ], 9, 10 ]
+// [ 1, 2, 3 ]
 ```
 
 ### `takeWhile`
@@ -318,6 +318,19 @@ const program = pipe(
 
 program();
 // [ 0, 1, 2, 3, 4 ]
+```
+
+### `skip`
+
+Allows you to skip X values of the input.
+
+```js
+import { pipe, range, skip, toArray } from 'lazy-collections';
+
+const program = pipe(range(0, 10), skip(3), toArray());
+
+program();
+// [ 4, 5, 6, 7, 8, 9, 10 ]
 ```
 
 ### `slice`
