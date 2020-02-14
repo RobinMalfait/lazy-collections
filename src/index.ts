@@ -7,12 +7,13 @@ export * from './compose';
 export * from './pipe';
 
 // Known array methods
+export * from './concat';
 export * from './filter';
-export * from './map';
 export * from './find';
+export * from './findIndex';
+export * from './map';
 export * from './reduce';
 export * from './slice';
-export * from './concat';
 
 // Useful utilities
 export * from './chunk';

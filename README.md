@@ -186,6 +186,19 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // 2
 ```
 
+### `findIndex`
+
+Find an index based on the given predicate.
+
+```js
+import { pipe, findIndex } from 'lazy-collections';
+
+const program = pipe(findIndex(x => x === 2));
+
+program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+// 2
+```
+
 ### `concat`
 
 Concat multiple iterators or arrays into a single iterator.
