@@ -238,6 +238,22 @@ program();
 // [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 ```
 
+### `head`
+
+> Alias: `first`
+
+Gets the first value of the array / iterator. Returns `undefined` if there is no
+value.
+
+```js
+import { pipe, chunk, toArray } from 'lazy-collections';
+
+const program = pipe(head());
+
+program([6, 7, 8, 9, 10]);
+// 6
+```
+
 ### `chunk`
 
 Chunk the data into pieces of a certain size
