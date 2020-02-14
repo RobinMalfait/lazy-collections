@@ -21,7 +21,7 @@ program(range(0, 1000000));
 
 ## Benchmark
 
-> :warning: This is not a scientify benchmark, there are flaws with this. This
+> :warning: This is not a scientific benchmark, there are flaws with this. This
 > is just meant to showcase the power of lazy-collections.
 
 ```js
