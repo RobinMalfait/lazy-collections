@@ -22,6 +22,7 @@ export * from './chunk';
 export * from './flatten';
 export * from './generate';
 export * from './max';
+export * from './min';
 export * from './range';
 export * from './skip';
 export * from './sum';

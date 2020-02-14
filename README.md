@@ -389,6 +389,19 @@ program();
 // 5
 ```
 
+### `min`
+
+Find the minimum value of the given list
+
+```js
+import { pipe, range, min } from 'lazy-collections';
+
+const program = pipe(range(5, 10), min());
+
+program();
+// 5
+```
+
 ### `tap`
 
 Allows you to tap into the stream, this way you can intercept each value.

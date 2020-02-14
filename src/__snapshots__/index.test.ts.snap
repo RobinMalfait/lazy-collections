@@ -13,6 +13,7 @@ Object {
   "generate": [Function],
   "map": [Function],
   "max": [Function],
+  "min": [Function],
   "pipe": [Function],
   "range": [Function],
   "reduce": [Function],
