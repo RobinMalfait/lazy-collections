@@ -2,6 +2,7 @@ import { compose } from './compose';
 import { generate } from './generate';
 import { take } from './take';
 import { range } from './range';
+import { toArray } from './toArray';
 
 it('should be possible to compose multiple functions', () => {
   const program = compose(
@@ -14,7 +15,7 @@ it('should be possible to compose multiple functions', () => {
 });
 
 it('should be possible to pass a generator as first argument', () => {
-  const program = compose(Array.from, take(10), generate(Math.random));
+  const program = compose(toArray(), take(10), generate(Math.random));
   const result = program();
   expect(result).toHaveLength(10);
 });

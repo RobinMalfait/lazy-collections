@@ -13,7 +13,7 @@ const program = pipe(
   filter(x => x % 4 === 0),
   filter(x => x % 100 === 0),
   filter(x => x % 400 === 0),
-  Array.from
+  toArray()
 );
 
 program(range(0, 1000000));
@@ -33,7 +33,7 @@ const program = pipe(
   filter(x => x % 400 === 0),
   takeWhile(x => x < 1_000),
   slice(0, 1_000),
-  Array.from
+  toArray()
 );
 
 program(); // [ 0, 400, 800 ]
@@ -92,9 +92,6 @@ or `map` steps _without_ thinking about performance bottlenecks.
 
 ## API
 
-> In a lot of the examples I will use the `Array.from` as a function, because it
-> will convert an iterator to an actual array.
-
 ### `compose`
 
 We can use compose to compose functions together and return a new function which
@@ -125,7 +122,7 @@ import { pipe } from 'lazy-collections';
 const program = pipe(fn1, fn2, fn3);
 
 program();
-// fn3(fn2(fn1))
+// fn3(fn2(fn1()))
 ```
 
 ### `map`
@@ -133,11 +130,11 @@ program();
 Map a value from A to B.
 
 ```js
-import { pipe, map } from 'lazy-collections';
+import { pipe, map, toArray } from 'lazy-collections';
 
 const program = pipe(
   map(x => x * 2),
-  Array.from
+  toArray()
 );
 
 program([1, 2, 3]);
@@ -149,11 +146,11 @@ program([1, 2, 3]);
 Filter out values that do not meet the condition.
 
 ```js
-import { pipe, filter } from 'lazy-collections';
+import { pipe, filter, toArray } from 'lazy-collections';
 
 const program = pipe(
   filter(x => x % 2 === 0),
-  Array.from
+  toArray()
 );
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -230,11 +227,11 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 Concat multiple iterators or arrays into a single iterator.
 
 ```js
-import { pipe, concat } from 'lazy-collections';
+import { pipe, concat, toArray } from 'lazy-collections';
 
 const program = pipe(
   concat([0, 1, 2], [3, 4, 5], [6, 7, 8], [9, 10]),
-  Array.from
+  toArray()
 );
 
 program();
@@ -246,9 +243,9 @@ program();
 Chunk the data into pieces of a certain size
 
 ```js
-import { pipe, chunk } from 'lazy-collections';
+import { pipe, chunk, toArray } from 'lazy-collections';
 
-const program = pipe(chunk(3), Array.from);
+const program = pipe(chunk(3), toArray());
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ], [ 10 ] ];
@@ -259,9 +256,9 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 By default we will only flatten 1 level deep.
 
 ```js
-import { pipe, flatten } from 'lazy-collections';
+import { pipe, flatten, toArray } from 'lazy-collections';
 
-const program = pipe(flatten(), Array.from);
+const program = pipe(flatten(), toArray());
 
 program([1, 2, 3, [4, 5, 6, [7, 8], 9, 10]]);
 // [ 1, 2, 3, 4, 5, 6, [ 7, 8 ], 9, 10 ]
@@ -270,9 +267,9 @@ program([1, 2, 3, [4, 5, 6, [7, 8], 9, 10]]);
 But you can also go deep
 
 ```js
-import { pipe, flatten } from 'lazy-collections';
+import { pipe, flatten, toArray } from 'lazy-collections';
 
-const program = pipe(flatten({ deep: true }), Array.from);
+const program = pipe(flatten({ deep: true }), toArray());
 
 program([1, 2, 3, [4, 5, 6, [7, 8], 9, 10]]);
 // [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
@@ -284,9 +281,9 @@ Create a range of data using a lowerbound, upperbound and step. The step is
 optional and defaults to `1`.
 
 ```js
-import { pipe, range } from 'lazy-collections';
+import { pipe, range, toArray } from 'lazy-collections';
 
-const program = pipe(range(5, 20, 5), Array.from);
+const program = pipe(range(5, 20, 5), toArray());
 
 program();
 // [ 5, 10, 15, 20 ]
@@ -297,9 +294,9 @@ program();
 Allows you to take X values of the input.
 
 ```js
-import { pipe, take } from 'lazy-collections';
+import { pipe, take, toArray } from 'lazy-collections';
 
-const program = pipe(take(3), Array.from);
+const program = pipe(take(3), toArray());
 
 program();
 // [ 1, 2, 3, 4, 5, 6, [ 7, 8 ], 9, 10 ]
@@ -311,12 +308,12 @@ This is similar to `take`, but instead of a number as a value it takes a
 function as a condition.
 
 ```js
-import { pipe, range, takeWhile } from 'lazy-collections';
+import { pipe, range, takeWhile, toArray } from 'lazy-collections';
 
 const program = pipe(
   range(0, 10),
   takeWhile(x => x < 5),
-  Array.from
+  toArray()
 );
 
 program();
@@ -329,9 +326,9 @@ Slice a certain portion from your data set. It accepts a start index and an end
 index.
 
 ```js
-import { pipe, range, slice } from 'lazy-collections';
+import { pipe, range, slice, toArray } from 'lazy-collections';
 
-const program = pipe(range(0, 10), slice(3, 5), Array.from);
+const program = pipe(range(0, 10), slice(3, 5), toArray());
 
 program();
 // [ 3, 4, 5 ]
@@ -345,9 +342,9 @@ program();
 Make your data unique.
 
 ```js
-import { pipe, unique } from 'lazy-collections';
+import { pipe, unique, toArray } from 'lazy-collections';
 
-const program = pipe(unique(), Array.from);
+const program = pipe(unique(), toArray());
 
 program([1, 1, 2, 3, 2, 4, 5]);
 // [ 1, 2, 3, 4, 5 ]
@@ -373,9 +370,9 @@ Don't forget to combine this with a function that ensures that the data stream
 will end. For example, you can use `take`, `takeWhile` or `slice`.
 
 ```js
-import { pipe, generate, take } from 'lazy-collections';
+import { pipe, generate, take, toArray } from 'lazy-collections';
 
-const program = pipe(generate(Math.random), take(3), Array.from);
+const program = pipe(generate(Math.random), take(3), toArray());
 
 program();
 // [ 0.7495421596380878, 0.09819118640607383, 0.2453718461872143 ]

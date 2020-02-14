@@ -1,4 +1,4 @@
-import { pipe, generate, take } from '..';
+import { pipe, generate, take, toArray } from '..';
 
 const fibonacci = pipe(
   generate(
@@ -15,7 +15,7 @@ const fibonacci = pipe(
     })()
   ),
   take(10),
-  Array.from
+  toArray()
 );
 
 fibonacci(); // [ 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 ]

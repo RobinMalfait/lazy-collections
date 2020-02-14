@@ -2,6 +2,7 @@ import { pipe } from './pipe';
 import { generate } from './generate';
 import { take } from './take';
 import { range } from './range';
+import { toArray } from './toArray';
 
 it('should be possible to pipe multiple functions', () => {
   const program = pipe(
@@ -14,7 +15,7 @@ it('should be possible to pipe multiple functions', () => {
 });
 
 it('should be possible to pass a generator as first argument', () => {
-  const program = pipe(generate(Math.random), take(10), Array.from);
+  const program = pipe(generate(Math.random), take(10), toArray());
   const result = program();
   expect(result).toHaveLength(10);
 });

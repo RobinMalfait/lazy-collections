@@ -19,7 +19,7 @@ it('should be possible to create a chain of actions and combine them in a nice s
     lazy.take(10),
 
     // To array
-    Array.from
+    lazy.toArray()
   );
 
   expect(program(lazy.range(1_000, 1_000_000))).toEqual([
