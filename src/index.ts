@@ -25,4 +25,5 @@ export * from './range';
 export * from './sum';
 export * from './take';
 export * from './takeWhile';
+export * from './toArray';
 export * from './unique';

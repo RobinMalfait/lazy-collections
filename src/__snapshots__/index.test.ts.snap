@@ -20,6 +20,7 @@ Object {
   "sum": [Function],
   "take": [Function],
   "takeWhile": [Function],
+  "toArray": [Function],
   "unique": [Function],
 }
 `;

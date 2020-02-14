@@ -85,7 +85,7 @@ Memory usage:
 ---
 
 This is actually a stupid non-real-world example. However, it is way more
-efficient at doing things. That said, *yes* you can optimize the eager example
+efficient at doing things. That said, _yes_ you can optimize the eager example
 way more if you want to. You can combine the `filter` / `reduce` / `...`. However,
 what I want to achieve is that we can have separated logic in different `filter`
 or `map` steps _without_ thinking about performance bottlenecks.
@@ -379,4 +379,17 @@ const program = pipe(generate(Math.random), take(3), Array.from);
 
 program();
 // [ 0.7495421596380878, 0.09819118640607383, 0.2453718461872143 ]
+```
+
+### `toArray`
+
+Converts an array or an iterator to an actual array.
+
+```js
+import { pipe, range, toArray } from 'lazy-collections';
+
+const program = pipe(range(0, 10), toArray());
+
+program();
+// [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 ```
