@@ -6,6 +6,7 @@ Object {
   "compose": [Function],
   "concat": [Function],
   "filter": [Function],
+  "find": [Function],
   "flatten": [Function],
   "generate": [Function],
   "map": [Function],

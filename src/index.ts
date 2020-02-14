@@ -9,6 +9,7 @@ export * from './pipe';
 // Known array methods
 export * from './filter';
 export * from './map';
+export * from './find';
 export * from './reduce';
 export * from './slice';
 export * from './concat';
