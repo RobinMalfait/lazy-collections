@@ -8,8 +8,7 @@ const fibonacci = pipe(
 
       return () => {
         let previous = x;
-        x = y;
-        y += previous;
+        [x, y] = [y, x + y];
         return previous;
       };
     })()
