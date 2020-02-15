@@ -23,6 +23,7 @@ export * from './average';
 export * from './chunk';
 export * from './flatten';
 export * from './generate';
+export * from './groupBy';
 export * from './head';
 export * from './max';
 export * from './min';

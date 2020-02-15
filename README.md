@@ -67,6 +67,7 @@ program(range(0, 1000000));
     - [`slice`](#slice)
     - [`unique`](#unique)
     - [`tap`](#tap)
+    - [`groupBy`](#groupby)
     - [`generate`](#generate)
     - [`toArray`](#toarray)
 
@@ -325,11 +326,7 @@ Reverses the iterator.
 ```js
 import { pipe, reverse, toArray } from 'lazy-collections';
 
-const program = pipe(
-  range(0, 5),
-  reverse(),
-  toArray()
-);
+const program = pipe(range(0, 5), reverse(), toArray());
 
 program();
 // [ 5, 4, 3, 2, 1, 0 ]
@@ -445,7 +442,10 @@ import { pipe, zip, toArray } from 'lazy-collections';
 
 const program = pipe(zip(), toArray());
 
-program([[0, 1, 2], ['A', 'B', 'C']]);
+program([
+  [0, 1, 2],
+  ['A', 'B', 'C'],
+]);
 // [ [ 0, 'A' ], [ 1, 'B' ], [ 2, 'C' ] ]
 ```
 
@@ -600,6 +600,35 @@ program();
 // x: 4
 // x: 5
 // [ 0, 1, 2, 3, 4, 5 ]
+```
+
+#### `groupBy`
+
+[Table of contents](#table-of-contents)
+
+Groups the iterator to an object, using the keySelector function.
+
+```js
+import { pipe, groupBy, range } from 'lazy-collections';
+
+// A function that will map the value to the nearest multitude. In this example
+// we will map values to the nearest multitude of 5. So that we can group by
+// this value.
+function snap(multitude: number, value: number) {
+  return Math.ceil(value / multitude) * multitude;
+}
+
+const program = pipe(
+  range(0, 10),
+  groupBy((x: number) => snap(5, x))
+);
+
+program();
+// {
+//   0: [0],
+//   5: [1, 2, 3, 4, 5],
+//   10: [6, 7, 8, 9, 10],
+// }
 ```
 
 #### `generate`

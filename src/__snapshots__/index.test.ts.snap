@@ -13,6 +13,7 @@ Object {
   "first": [Function],
   "flatten": [Function],
   "generate": [Function],
+  "groupBy": [Function],
   "head": [Function],
   "map": [Function],
   "max": [Function],
