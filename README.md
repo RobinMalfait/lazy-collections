@@ -49,6 +49,7 @@ program(range(0, 1000000));
     - [`every`](#every)
     - [`some`](#some)
     - [`concat`](#concat)
+    - [`reverse`](#reverse)
   - [Math / Statistics](#math--statistics)
     - [`sum`](#sum)
     - [`average`](#average)
@@ -309,6 +310,28 @@ const program = pipe(
 
 program();
 // [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+```
+
+#### `reverse`
+
+[Table of contents](#table-of-contents)
+
+Reverses the iterator.
+
+> **note**: This is currently very slow because it has to go through the full
+> iterator first!
+
+```js
+import { pipe, reverse, toArray } from 'lazy-collections';
+
+const program = pipe(
+  range(0, 5),
+  reverse(),
+  toArray()
+);
+
+program();
+// [ 5, 4, 3, 2, 1, 0 ]
 ```
 
 ### Math / Statistics

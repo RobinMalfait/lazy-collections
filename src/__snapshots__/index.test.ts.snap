@@ -21,6 +21,7 @@ Object {
   "pipe": [Function],
   "range": [Function],
   "reduce": [Function],
+  "reverse": [Function],
   "skip": [Function],
   "slice": [Function],
   "some": [Function],

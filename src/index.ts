@@ -14,6 +14,7 @@ export * from './find';
 export * from './findIndex';
 export * from './map';
 export * from './reduce';
+export * from './reverse';
 export * from './slice';
 export * from './some';
 
