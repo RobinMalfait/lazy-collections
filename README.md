@@ -31,6 +31,8 @@ const program = pipe(
 program(range(0, 1000000));
 ```
 
+### Table of Contents
+
 - [Benchmark](#benchmark)
 - [API](#api)
   - [`compose`](#compose)
@@ -134,6 +136,8 @@ or `map` steps _without_ thinking about performance bottlenecks.
 
 ### `compose`
 
+[Table of contents](#table-of-contents)
+
 We can use compose to compose functions together and return a new function which
 combines all other functions.
 
@@ -148,6 +152,8 @@ program();
 ```
 
 ### `pipe`
+
+[Table of contents](#table-of-contents)
 
 We can use pipe to compose functions together and return a new function which
 combines all other functions.
@@ -167,6 +173,8 @@ program();
 
 ### `map`
 
+[Table of contents](#table-of-contents)
+
 Map a value from A to B.
 
 ```js
@@ -182,6 +190,8 @@ program([1, 2, 3]);
 ```
 
 ### `filter`
+
+[Table of contents](#table-of-contents)
 
 Filter out values that do not meet the condition.
 
@@ -199,6 +209,8 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
 ### `reduce`
 
+[Table of contents](#table-of-contents)
+
 Reduce the data to a single value.
 
 ```js
@@ -211,6 +223,8 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 ```
 
 ### `find`
+
+[Table of contents](#table-of-contents)
 
 Find a value based on the given predicate.
 
@@ -225,6 +239,8 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
 ### `findIndex`
 
+[Table of contents](#table-of-contents)
+
 Find an index based on the given predicate.
 
 ```js
@@ -237,6 +253,8 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 ```
 
 ### `every`
+
+[Table of contents](#table-of-contents)
 
 Should return true if all values match the predicate.
 
@@ -251,6 +269,8 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
 ### `some`
 
+[Table of contents](#table-of-contents)
+
 Should return true if some of the values match the predicate.
 
 ```js
@@ -263,6 +283,8 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 ```
 
 ### `concat`
+
+[Table of contents](#table-of-contents)
 
 Concat multiple iterators or arrays into a single iterator.
 
@@ -280,6 +302,8 @@ program();
 
 ### `head`
 
+[Table of contents](#table-of-contents)
+
 > Alias: `first`
 
 Gets the first value of the array / iterator. Returns `undefined` if there is no
@@ -296,6 +320,8 @@ program([6, 7, 8, 9, 10]);
 
 ### `chunk`
 
+[Table of contents](#table-of-contents)
+
 Chunk the data into pieces of a certain size
 
 ```js
@@ -308,6 +334,8 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 ```
 
 ### `flatten`
+
+[Table of contents](#table-of-contents)
 
 By default we will flatten recursively deep.
 
@@ -333,6 +361,8 @@ program([1, 2, 3, [4, 5, 6, [7, 8], 9, 10]]);
 
 ### `range`
 
+[Table of contents](#table-of-contents)
+
 Create a range of data using a lowerbound, upperbound and step. The step is
 optional and defaults to `1`.
 
@@ -347,6 +377,8 @@ program();
 
 ### `take`
 
+[Table of contents](#table-of-contents)
+
 Allows you to take X values of the input.
 
 ```js
@@ -359,6 +391,8 @@ program();
 ```
 
 ### `takeWhile`
+
+[Table of contents](#table-of-contents)
 
 This is similar to `take`, but instead of a number as a value it takes a
 function as a condition.
@@ -378,6 +412,8 @@ program();
 
 ### `skip`
 
+[Table of contents](#table-of-contents)
+
 Allows you to skip X values of the input.
 
 ```js
@@ -390,6 +426,8 @@ program();
 ```
 
 ### `slice`
+
+[Table of contents](#table-of-contents)
 
 Slice a certain portion from your data set. It accepts a start index and an end
 index.
@@ -408,6 +446,8 @@ program();
 
 ### `unique`
 
+[Table of contents](#table-of-contents)
+
 Make your data unique.
 
 ```js
@@ -420,6 +460,8 @@ program([1, 1, 2, 3, 2, 4, 5]);
 ```
 
 ### `sum`
+
+[Table of contents](#table-of-contents)
 
 Should sum an array or iterator.
 
@@ -434,6 +476,8 @@ program([1, 1, 2, 3, 2, 4, 5]);
 
 ### `max`
 
+[Table of contents](#table-of-contents)
+
 Find the maximum value of the given list
 
 ```js
@@ -447,6 +491,8 @@ program();
 
 ### `min`
 
+[Table of contents](#table-of-contents)
+
 Find the minimum value of the given list
 
 ```js
@@ -459,6 +505,8 @@ program();
 ```
 
 ### `tap`
+
+[Table of contents](#table-of-contents)
 
 Allows you to tap into the stream, this way you can intercept each value.
 
@@ -485,6 +533,8 @@ program();
 
 ### `generate`
 
+[Table of contents](#table-of-contents)
+
 Generate accepts a function that function will be called over and over again.
 Don't forget to combine this with a function that ensures that the data stream
 will end. For example, you can use `take`, `takeWhile` or `slice`.
@@ -499,6 +549,8 @@ program();
 ```
 
 ### `toArray`
+
+[Table of contents](#table-of-contents)
 
 Converts an array or an iterator to an actual array.
 
