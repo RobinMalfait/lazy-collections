@@ -35,32 +35,36 @@ program(range(0, 1000000));
 
 - [Benchmark](#benchmark)
 - [API](#api)
-  - [`compose`](#compose)
-  - [`pipe`](#pipe)
-  - [`map`](#map)
-  - [`filter`](#filter)
-  - [`reduce`](#reduce)
-  - [`find`](#find)
-  - [`findIndex`](#findindex)
-  - [`every`](#every)
-  - [`some`](#some)
-  - [`concat`](#concat)
-  - [`head`](#head)
-  - [`chunk`](#chunk)
-  - [`flatten`](#flatten)
-  - [`range`](#range)
-  - [`take`](#take)
-  - [`takeWhile`](#takewhile)
-  - [`skip`](#skip)
-  - [`slice`](#slice)
-  - [`unique`](#unique)
-  - [`sum`](#sum)
-  - [`average`](#average)
-  - [`max`](#max)
-  - [`min`](#min)
-  - [`tap`](#tap)
-  - [`generate`](#generate)
-  - [`toArray`](#toarray)
+  - [Composing functions](#composing-functions)
+    - [`compose`](#compose)
+    - [`pipe`](#pipe)
+  - [Known array functions](#known-array-functions)
+    - [`map`](#map)
+    - [`filter`](#filter)
+    - [`reduce`](#reduce)
+    - [`find`](#find)
+    - [`findIndex`](#findindex)
+    - [`every`](#every)
+    - [`some`](#some)
+    - [`concat`](#concat)
+  - [Math / Statistics](#math--statistics)
+    - [`sum`](#sum)
+    - [`average`](#average)
+    - [`max`](#max)
+    - [`min`](#min)
+  - [Utilities](#utilities)
+    - [`head`](#head)
+    - [`chunk`](#chunk)
+    - [`flatten`](#flatten)
+    - [`range`](#range)
+    - [`take`](#take)
+    - [`takeWhile`](#takewhile)
+    - [`skip`](#skip)
+    - [`slice`](#slice)
+    - [`unique`](#unique)
+    - [`tap`](#tap)
+    - [`generate`](#generate)
+    - [`toArray`](#toarray)
 
 ## Benchmark
 
@@ -135,7 +139,9 @@ or `map` steps _without_ thinking about performance bottlenecks.
 
 ## API
 
-### `compose`
+### Composing functions
+
+#### `compose`
 
 [Table of contents](#table-of-contents)
 
@@ -152,7 +158,7 @@ program();
 // fn1(fn2(fn3()))
 ```
 
-### `pipe`
+#### `pipe`
 
 [Table of contents](#table-of-contents)
 
@@ -172,7 +178,9 @@ program();
 // fn3(fn2(fn1()))
 ```
 
-### `map`
+### Known array functions
+
+#### `map`
 
 [Table of contents](#table-of-contents)
 
@@ -190,7 +198,7 @@ program([1, 2, 3]);
 // [ 2, 4, 6 ]
 ```
 
-### `filter`
+#### `filter`
 
 [Table of contents](#table-of-contents)
 
@@ -208,7 +216,7 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // [ 2, 4, 6, 8, 10 ]
 ```
 
-### `reduce`
+#### `reduce`
 
 [Table of contents](#table-of-contents)
 
@@ -223,7 +231,7 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // 55
 ```
 
-### `find`
+#### `find`
 
 [Table of contents](#table-of-contents)
 
@@ -238,7 +246,7 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // 2
 ```
 
-### `findIndex`
+#### `findIndex`
 
 [Table of contents](#table-of-contents)
 
@@ -253,7 +261,7 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // 2
 ```
 
-### `every`
+#### `every`
 
 [Table of contents](#table-of-contents)
 
@@ -268,7 +276,7 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // false
 ```
 
-### `some`
+#### `some`
 
 [Table of contents](#table-of-contents)
 
@@ -283,7 +291,7 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // true
 ```
 
-### `concat`
+#### `concat`
 
 [Table of contents](#table-of-contents)
 
@@ -301,7 +309,73 @@ program();
 // [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 ```
 
-### `head`
+### Math / Statistics
+
+#### `sum`
+
+[Table of contents](#table-of-contents)
+
+Should sum an array or iterator.
+
+```js
+import { pipe, sum } from 'lazy-collections';
+
+const program = pipe(sum());
+
+program([1, 1, 2, 3, 2, 4, 5]);
+// 18
+```
+
+#### `average`
+
+[Table of contents](#table-of-contents)
+
+> Alias: `mean`
+
+Gets the average of number of values.
+
+```js
+import { pipe, average, toArray } from 'lazy-collections';
+
+const program = pipe(average());
+
+program([6, 7, 8, 9, 10]);
+// 8
+```
+
+#### `max`
+
+[Table of contents](#table-of-contents)
+
+Find the maximum value of the given list
+
+```js
+import { pipe, range, max } from 'lazy-collections';
+
+const program = pipe(range(0, 5), max());
+
+program();
+// 5
+```
+
+#### `min`
+
+[Table of contents](#table-of-contents)
+
+Find the minimum value of the given list
+
+```js
+import { pipe, range, min } from 'lazy-collections';
+
+const program = pipe(range(5, 10), min());
+
+program();
+// 5
+```
+
+### Utilities
+
+#### `head`
 
 [Table of contents](#table-of-contents)
 
@@ -319,7 +393,7 @@ program([6, 7, 8, 9, 10]);
 // 6
 ```
 
-### `chunk`
+#### `chunk`
 
 [Table of contents](#table-of-contents)
 
@@ -334,7 +408,7 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ], [ 10 ] ];
 ```
 
-### `flatten`
+#### `flatten`
 
 [Table of contents](#table-of-contents)
 
@@ -360,7 +434,7 @@ program([1, 2, 3, [4, 5, 6, [7, 8], 9, 10]]);
 // [ 1, 2, 3, 4, 5, 6, [ 7, 8 ], 9, 10 ]
 ```
 
-### `range`
+#### `range`
 
 [Table of contents](#table-of-contents)
 
@@ -376,7 +450,7 @@ program();
 // [ 5, 10, 15, 20 ]
 ```
 
-### `take`
+#### `take`
 
 [Table of contents](#table-of-contents)
 
@@ -391,7 +465,7 @@ program();
 // [ 1, 2, 3 ]
 ```
 
-### `takeWhile`
+#### `takeWhile`
 
 [Table of contents](#table-of-contents)
 
@@ -411,7 +485,7 @@ program();
 // [ 0, 1, 2, 3, 4 ]
 ```
 
-### `skip`
+#### `skip`
 
 [Table of contents](#table-of-contents)
 
@@ -426,7 +500,7 @@ program();
 // [ 4, 5, 6, 7, 8, 9, 10 ]
 ```
 
-### `slice`
+#### `slice`
 
 [Table of contents](#table-of-contents)
 
@@ -445,7 +519,7 @@ program();
 // [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 ```
 
-### `unique`
+#### `unique`
 
 [Table of contents](#table-of-contents)
 
@@ -460,69 +534,7 @@ program([1, 1, 2, 3, 2, 4, 5]);
 // [ 1, 2, 3, 4, 5 ]
 ```
 
-### `sum`
-
-[Table of contents](#table-of-contents)
-
-Should sum an array or iterator.
-
-```js
-import { pipe, sum } from 'lazy-collections';
-
-const program = pipe(sum());
-
-program([1, 1, 2, 3, 2, 4, 5]);
-// 18
-```
-
-### `average`
-
-[Table of contents](#table-of-contents)
-
-> Alias: `mean`
-
-Gets the average of number of values.
-
-```js
-import { pipe, average, toArray } from 'lazy-collections';
-
-const program = pipe(average());
-
-program([6, 7, 8, 9, 10]);
-// 8
-```
-
-### `max`
-
-[Table of contents](#table-of-contents)
-
-Find the maximum value of the given list
-
-```js
-import { pipe, range, max } from 'lazy-collections';
-
-const program = pipe(range(0, 5), max());
-
-program();
-// 5
-```
-
-### `min`
-
-[Table of contents](#table-of-contents)
-
-Find the minimum value of the given list
-
-```js
-import { pipe, range, min } from 'lazy-collections';
-
-const program = pipe(range(5, 10), min());
-
-program();
-// 5
-```
-
-### `tap`
+#### `tap`
 
 [Table of contents](#table-of-contents)
 
@@ -549,7 +561,7 @@ program();
 // [ 0, 1, 2, 3, 4, 5 ]
 ```
 
-### `generate`
+#### `generate`
 
 [Table of contents](#table-of-contents)
 
@@ -566,7 +578,7 @@ program();
 // [ 0.7495421596380878, 0.09819118640607383, 0.2453718461872143 ]
 ```
 
-### `toArray`
+#### `toArray`
 
 [Table of contents](#table-of-contents)
 
