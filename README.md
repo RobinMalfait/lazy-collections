@@ -55,6 +55,7 @@ program(range(0, 1000000));
   - [`slice`](#slice)
   - [`unique`](#unique)
   - [`sum`](#sum)
+  - [`average`](#average)
   - [`max`](#max)
   - [`min`](#min)
   - [`tap`](#tap)
@@ -472,6 +473,23 @@ const program = pipe(sum());
 
 program([1, 1, 2, 3, 2, 4, 5]);
 // 18
+```
+
+### `average`
+
+[Table of contents](#table-of-contents)
+
+> Alias: `mean`
+
+Gets the average of number of values.
+
+```js
+import { pipe, average, toArray } from 'lazy-collections';
+
+const program = pipe(average());
+
+program([6, 7, 8, 9, 10]);
+// 8
 ```
 
 ### `max`

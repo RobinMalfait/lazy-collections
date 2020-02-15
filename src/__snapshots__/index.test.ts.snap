@@ -2,6 +2,7 @@
 
 exports[`should export all the things 1`] = `
 Object {
+  "average": [Function],
   "chunk": [Function],
   "compose": [Function],
   "concat": [Function],
@@ -15,6 +16,7 @@ Object {
   "head": [Function],
   "map": [Function],
   "max": [Function],
+  "mean": [Function],
   "min": [Function],
   "pipe": [Function],
   "range": [Function],

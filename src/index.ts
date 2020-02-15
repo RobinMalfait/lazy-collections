@@ -18,6 +18,7 @@ export * from './slice';
 export * from './some';
 
 // Useful utilities
+export * from './average';
 export * from './chunk';
 export * from './flatten';
 export * from './generate';
