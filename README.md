@@ -58,6 +58,7 @@ program(range(0, 1000000));
   - [Utilities](#utilities)
     - [`head`](#head)
     - [`chunk`](#chunk)
+    - [`zip`](#zip)
     - [`flatten`](#flatten)
     - [`range`](#range)
     - [`take`](#take)
@@ -431,6 +432,21 @@ const program = pipe(chunk(3), toArray());
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ], [ 10 ] ];
+```
+
+#### `zip`
+
+[Table of contents](#table-of-contents)
+
+Zips multiple arrays / iterators together.
+
+```js
+import { pipe, zip, toArray } from 'lazy-collections';
+
+const program = pipe(zip(), toArray());
+
+program([[0, 1, 2], ['A', 'B', 'C']]);
+// [ [ 0, 'A' ], [ 1, 'B' ], [ 2, 'C' ] ]
 ```
 
 #### `flatten`

@@ -31,5 +31,6 @@ Object {
   "tap": [Function],
   "toArray": [Function],
   "unique": [Function],
+  "zip": [Function],
 }
 `;
