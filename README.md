@@ -12,6 +12,8 @@
   <a href="https://github.com/RobinMalfait/lazy-collections/actions"><img src="https://img.shields.io/github/workflow/status/RobinMalfait/lazy-collections/Node%20CI/master?style=flat-square"></a>
 </p>
 
+---
+
 Working with methods like `.map()`, `.filter()` and `.reduce()` are nice,
 however they create new arrays and everything is eagerly done before going to
 the next step.
