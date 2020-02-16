@@ -1,13 +1,13 @@
 import { filter } from './filter';
 
 export function where<T>(properties: Record<string | number, any>) {
+  const entries = Object.entries(properties);
+
   return filter((datum: T) => {
     if (!(typeof datum === 'object' && datum !== null)) {
       return false;
     }
 
-    return Object.entries(properties).every(([key, value]) => {
-      return (datum as any)[key] === value;
-    });
+    return entries.every(([key, value]) => (datum as any)[key] === value);
   });
 }
