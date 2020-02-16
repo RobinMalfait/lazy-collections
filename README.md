@@ -41,37 +41,37 @@ program(range(0, 1000000));
     - [`compose`](#compose)
     - [`pipe`](#pipe)
   - [Known array functions](#known-array-functions)
-    - [`map`](#map)
+    - [`concat`](#concat)
+    - [`every`](#every)
     - [`filter`](#filter)
-    - [`reduce`](#reduce)
     - [`find`](#find)
     - [`findIndex`](#findindex)
-    - [`every`](#every)
-    - [`some`](#some)
-    - [`concat`](#concat)
+    - [`map`](#map)
+    - [`reduce`](#reduce)
     - [`reverse`](#reverse)
+    - [`some`](#some)
   - [Math / Statistics](#math--statistics)
-    - [`sum`](#sum)
     - [`average`](#average)
     - [`max`](#max)
     - [`min`](#min)
+    - [`sum`](#sum)
   - [Utilities](#utilities)
-    - [`head`](#head)
     - [`chunk`](#chunk)
-    - [`zip`](#zip)
     - [`flatten`](#flatten)
+    - [`generate`](#generate)
+    - [`groupBy`](#groupby)
+    - [`head`](#head)
+    - [`partition`](#partition)
     - [`range`](#range)
-    - [`take`](#take)
-    - [`takeWhile`](#takewhile)
     - [`skip`](#skip)
     - [`slice`](#slice)
-    - [`unique`](#unique)
+    - [`take`](#take)
+    - [`takeWhile`](#takewhile)
     - [`tap`](#tap)
-    - [`groupBy`](#groupby)
-    - [`partition`](#partition)
-    - [`where`](#where)
-    - [`generate`](#generate)
     - [`toArray`](#toarray)
+    - [`unique`](#unique)
+    - [`where`](#where)
+    - [`zip`](#zip)
 
 ## Benchmark
 
@@ -187,22 +187,37 @@ program();
 
 ### Known array functions
 
-#### `map`
+#### `concat`
 
 [Table of contents](#table-of-contents)
 
-Map a value from A to B.
+Concat multiple iterators or arrays into a single iterator.
 
 ```js
-import { pipe, map, toArray } from 'lazy-collections';
+import { pipe, concat, toArray } from 'lazy-collections';
 
 const program = pipe(
-  map(x => x * 2),
+  concat([0, 1, 2], [3, 4, 5], [6, 7, 8], [9, 10]),
   toArray()
 );
 
-program([1, 2, 3]);
-// [ 2, 4, 6 ]
+program();
+// [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+```
+
+#### `every`
+
+[Table of contents](#table-of-contents)
+
+Should return true if all values match the predicate.
+
+```js
+import { pipe, every } from 'lazy-collections';
+
+const program = pipe(every(x => x === 2));
+
+program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+// false
 ```
 
 #### `filter`
@@ -221,21 +236,6 @@ const program = pipe(
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // [ 2, 4, 6, 8, 10 ]
-```
-
-#### `reduce`
-
-[Table of contents](#table-of-contents)
-
-Reduce the data to a single value.
-
-```js
-import { pipe, reduce } from 'lazy-collections';
-
-const program = pipe(reduce((total, current) => total + current, 0));
-
-program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-// 55
 ```
 
 #### `find`
@@ -268,52 +268,37 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // 2
 ```
 
-#### `every`
+#### `map`
 
 [Table of contents](#table-of-contents)
 
-Should return true if all values match the predicate.
+Map a value from A to B.
 
 ```js
-import { pipe, every } from 'lazy-collections';
-
-const program = pipe(every(x => x === 2));
-
-program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-// false
-```
-
-#### `some`
-
-[Table of contents](#table-of-contents)
-
-Should return true if some of the values match the predicate.
-
-```js
-import { pipe, some } from 'lazy-collections';
-
-const program = pipe(some(x => x === 2));
-
-program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-// true
-```
-
-#### `concat`
-
-[Table of contents](#table-of-contents)
-
-Concat multiple iterators or arrays into a single iterator.
-
-```js
-import { pipe, concat, toArray } from 'lazy-collections';
+import { pipe, map, toArray } from 'lazy-collections';
 
 const program = pipe(
-  concat([0, 1, 2], [3, 4, 5], [6, 7, 8], [9, 10]),
+  map(x => x * 2),
   toArray()
 );
 
-program();
-// [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+program([1, 2, 3]);
+// [ 2, 4, 6 ]
+```
+
+#### `reduce`
+
+[Table of contents](#table-of-contents)
+
+Reduce the data to a single value.
+
+```js
+import { pipe, reduce } from 'lazy-collections';
+
+const program = pipe(reduce((total, current) => total + current, 0));
+
+program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+// 55
 ```
 
 #### `reverse`
@@ -334,22 +319,22 @@ program();
 // [ 5, 4, 3, 2, 1, 0 ]
 ```
 
-### Math / Statistics
-
-#### `sum`
+#### `some`
 
 [Table of contents](#table-of-contents)
 
-Should sum an array or iterator.
+Should return true if some of the values match the predicate.
 
 ```js
-import { pipe, sum } from 'lazy-collections';
+import { pipe, some } from 'lazy-collections';
 
-const program = pipe(sum());
+const program = pipe(some(x => x === 2));
 
-program([1, 1, 2, 3, 2, 4, 5]);
-// 18
+program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+// true
 ```
+
+### Math / Statistics
 
 #### `average`
 
@@ -398,25 +383,22 @@ program();
 // 5
 ```
 
-### Utilities
-
-#### `head`
+#### `sum`
 
 [Table of contents](#table-of-contents)
 
-> Alias: `first`
-
-Gets the first value of the array / iterator. Returns `undefined` if there is no
-value.
+Should sum an array or iterator.
 
 ```js
-import { pipe, chunk, toArray } from 'lazy-collections';
+import { pipe, sum } from 'lazy-collections';
 
-const program = pipe(head());
+const program = pipe(sum());
 
-program([6, 7, 8, 9, 10]);
-// 6
+program([1, 1, 2, 3, 2, 4, 5]);
+// 18
 ```
+
+### Utilities
 
 #### `chunk`
 
@@ -431,24 +413,6 @@ const program = pipe(chunk(3), toArray());
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ], [ 10 ] ];
-```
-
-#### `zip`
-
-[Table of contents](#table-of-contents)
-
-Zips multiple arrays / iterators together.
-
-```js
-import { pipe, zip, toArray } from 'lazy-collections';
-
-const program = pipe(zip(), toArray());
-
-program([
-  [0, 1, 2],
-  ['A', 'B', 'C'],
-]);
-// [ [ 0, 'A' ], [ 1, 'B' ], [ 2, 'C' ] ]
 ```
 
 #### `flatten`
@@ -477,6 +441,89 @@ program([1, 2, 3, [4, 5, 6, [7, 8], 9, 10]]);
 // [ 1, 2, 3, 4, 5, 6, [ 7, 8 ], 9, 10 ]
 ```
 
+#### `generate`
+
+[Table of contents](#table-of-contents)
+
+Generate accepts a function that function will be called over and over again.
+Don't forget to combine this with a function that ensures that the data stream
+will end. For example, you can use `take`, `takeWhile` or `slice`.
+
+```js
+import { pipe, generate, take, toArray } from 'lazy-collections';
+
+const program = pipe(generate(Math.random), take(3), toArray());
+
+program();
+// [ 0.7495421596380878, 0.09819118640607383, 0.2453718461872143 ]
+```
+
+#### `groupBy`
+
+[Table of contents](#table-of-contents)
+
+Groups the iterator to an object, using the keySelector function.
+
+```js
+import { pipe, groupBy, range } from 'lazy-collections';
+
+// A function that will map the value to the nearest multitude. In this example
+// we will map values to the nearest multitude of 5. So that we can group by
+// this value.
+function snap(multitude: number, value: number) {
+  return Math.ceil(value / multitude) * multitude;
+}
+
+const program = pipe(
+  range(0, 10),
+  groupBy((x: number) => snap(5, x))
+);
+
+program();
+// {
+//   0: [0],
+//   5: [1, 2, 3, 4, 5],
+//   10: [6, 7, 8, 9, 10],
+// }
+```
+
+#### `head`
+
+[Table of contents](#table-of-contents)
+
+> Alias: `first`
+
+Gets the first value of the array / iterator. Returns `undefined` if there is no
+value.
+
+```js
+import { pipe, chunk, toArray } from 'lazy-collections';
+
+const program = pipe(head());
+
+program([6, 7, 8, 9, 10]);
+// 6
+```
+
+#### `partition`
+
+[Table of contents](#table-of-contents)
+
+Partition data into 2 groups based on the predicate.
+
+```js
+import { pipe, partition, range, toArray } from 'lazy-collections';
+
+const program = pipe(
+  range(1, 4),
+  partition(x => x % 2 !== 0),
+  toArray()
+);
+
+program();
+// [ [ 1, 3 ], [ 2, 4 ] ]
+```
+
 #### `range`
 
 [Table of contents](#table-of-contents)
@@ -491,6 +538,40 @@ const program = pipe(range(5, 20, 5), toArray());
 
 program();
 // [ 5, 10, 15, 20 ]
+```
+
+#### `skip`
+
+[Table of contents](#table-of-contents)
+
+Allows you to skip X values of the input.
+
+```js
+import { pipe, range, skip, toArray } from 'lazy-collections';
+
+const program = pipe(range(0, 10), skip(3), toArray());
+
+program();
+// [ 4, 5, 6, 7, 8, 9, 10 ]
+```
+
+#### `slice`
+
+[Table of contents](#table-of-contents)
+
+Slice a certain portion from your data set. It accepts a start index and an end
+index.
+
+```js
+import { pipe, range, slice, toArray } from 'lazy-collections';
+
+const program = pipe(range(0, 10), slice(3, 5), toArray());
+
+program();
+// [ 3, 4, 5 ]
+
+// Without the slice this would have generated
+// [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 ```
 
 #### `take`
@@ -528,55 +609,6 @@ program();
 // [ 0, 1, 2, 3, 4 ]
 ```
 
-#### `skip`
-
-[Table of contents](#table-of-contents)
-
-Allows you to skip X values of the input.
-
-```js
-import { pipe, range, skip, toArray } from 'lazy-collections';
-
-const program = pipe(range(0, 10), skip(3), toArray());
-
-program();
-// [ 4, 5, 6, 7, 8, 9, 10 ]
-```
-
-#### `slice`
-
-[Table of contents](#table-of-contents)
-
-Slice a certain portion from your data set. It accepts a start index and an end
-index.
-
-```js
-import { pipe, range, slice, toArray } from 'lazy-collections';
-
-const program = pipe(range(0, 10), slice(3, 5), toArray());
-
-program();
-// [ 3, 4, 5 ]
-
-// Without the slice this would have generated
-// [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
-```
-
-#### `unique`
-
-[Table of contents](#table-of-contents)
-
-Make your data unique.
-
-```js
-import { pipe, unique, toArray } from 'lazy-collections';
-
-const program = pipe(unique(), toArray());
-
-program([1, 1, 2, 3, 2, 4, 5]);
-// [ 1, 2, 3, 4, 5 ]
-```
-
 #### `tap`
 
 [Table of contents](#table-of-contents)
@@ -604,52 +636,34 @@ program();
 // [ 0, 1, 2, 3, 4, 5 ]
 ```
 
-#### `groupBy`
+#### `toArray`
 
 [Table of contents](#table-of-contents)
 
-Groups the iterator to an object, using the keySelector function.
+Converts an array or an iterator to an actual array.
 
 ```js
-import { pipe, groupBy, range } from 'lazy-collections';
+import { pipe, range, toArray } from 'lazy-collections';
 
-// A function that will map the value to the nearest multitude. In this example
-// we will map values to the nearest multitude of 5. So that we can group by
-// this value.
-function snap(multitude: number, value: number) {
-  return Math.ceil(value / multitude) * multitude;
-}
-
-const program = pipe(
-  range(0, 10),
-  groupBy((x: number) => snap(5, x))
-);
+const program = pipe(range(0, 10), toArray());
 
 program();
-// {
-//   0: [0],
-//   5: [1, 2, 3, 4, 5],
-//   10: [6, 7, 8, 9, 10],
-// }
+// [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 ```
 
-#### `partition`
+#### `unique`
 
 [Table of contents](#table-of-contents)
 
-Partition data into 2 groups based on the predicate.
+Make your data unique.
 
 ```js
-import { pipe, partition, range, toArray } from 'lazy-collections';
+import { pipe, unique, toArray } from 'lazy-collections';
 
-const program = pipe(
-  range(1, 4),
-  partition(x => x % 2 !== 0),
-  toArray()
-);
+const program = pipe(unique(), toArray());
 
-program();
-// [ [ 1, 3 ], [ 2, 4 ] ]
+program([1, 1, 2, 3, 2, 4, 5]);
+// [ 1, 2, 3, 4, 5 ]
 ```
 
 #### `where`
@@ -672,34 +686,20 @@ program();
 // [ { age: 18 } ]
 ```
 
-#### `generate`
+#### `zip`
 
 [Table of contents](#table-of-contents)
 
-Generate accepts a function that function will be called over and over again.
-Don't forget to combine this with a function that ensures that the data stream
-will end. For example, you can use `take`, `takeWhile` or `slice`.
+Zips multiple arrays / iterators together.
 
 ```js
-import { pipe, generate, take, toArray } from 'lazy-collections';
+import { pipe, zip, toArray } from 'lazy-collections';
 
-const program = pipe(generate(Math.random), take(3), toArray());
+const program = pipe(zip(), toArray());
 
-program();
-// [ 0.7495421596380878, 0.09819118640607383, 0.2453718461872143 ]
-```
-
-#### `toArray`
-
-[Table of contents](#table-of-contents)
-
-Converts an array or an iterator to an actual array.
-
-```js
-import { pipe, range, toArray } from 'lazy-collections';
-
-const program = pipe(range(0, 10), toArray());
-
-program();
-// [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+program([
+  [0, 1, 2],
+  ['A', 'B', 'C'],
+]);
+// [ [ 0, 'A' ], [ 1, 'B' ], [ 2, 'C' ] ]
 ```
