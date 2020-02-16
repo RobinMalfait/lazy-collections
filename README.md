@@ -68,6 +68,7 @@ program(range(0, 1000000));
     - [`unique`](#unique)
     - [`tap`](#tap)
     - [`groupBy`](#groupby)
+    - [`partition`](#partition)
     - [`where`](#where)
     - [`generate`](#generate)
     - [`toArray`](#toarray)
@@ -630,6 +631,25 @@ program();
 //   5: [1, 2, 3, 4, 5],
 //   10: [6, 7, 8, 9, 10],
 // }
+```
+
+#### `partition`
+
+[Table of contents](#table-of-contents)
+
+Partition data into 2 groups based on the predicate.
+
+```js
+import { pipe, partition, range, toArray } from 'lazy-collections';
+
+const program = pipe(
+  range(1, 4),
+  partition(x => x % 2 !== 0),
+  toArray()
+);
+
+program();
+// [ [ 1, 3 ], [ 2, 4 ] ]
 ```
 
 #### `where`

@@ -27,6 +27,7 @@ export * from './groupBy';
 export * from './head';
 export * from './max';
 export * from './min';
+export * from './partition';
 export * from './range';
 export * from './skip';
 export * from './sum';
