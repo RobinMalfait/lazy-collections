@@ -57,6 +57,7 @@ program(range(0, 1000000));
     - [`sum`](#sum)
   - [Utilities](#utilities)
     - [`chunk`](#chunk)
+    - [`compact`](#compact)
     - [`flatten`](#flatten)
     - [`generate`](#generate)
     - [`groupBy`](#groupby)
@@ -404,7 +405,7 @@ program([1, 1, 2, 3, 2, 4, 5]);
 
 [Table of contents](#table-of-contents)
 
-Chunk the data into pieces of a certain size
+Chunk the data into pieces of a certain size.
 
 ```js
 import { pipe, chunk, toArray } from 'lazy-collections';
@@ -413,6 +414,21 @@ const program = pipe(chunk(3), toArray());
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ], [ 10 ] ];
+```
+
+#### `compact`
+
+[Table of contents](#table-of-contents)
+
+Filters out all falsey values.
+
+```js
+import { pipe, compact, toArray } from 'lazy-collections';
+
+const program = pipe(compact(), toArray());
+
+program([0, 1, true, false, null, undefined, '', 'test', NaN]);
+// [ 1, true, 'test' ];
 ```
 
 #### `flatten`

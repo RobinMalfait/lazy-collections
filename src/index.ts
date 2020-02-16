@@ -21,6 +21,7 @@ export * from './some';
 // Useful utilities
 export * from './average';
 export * from './chunk';
+export * from './compact';
 export * from './flatten';
 export * from './generate';
 export * from './groupBy';
