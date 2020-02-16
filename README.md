@@ -68,6 +68,7 @@ program(range(0, 1000000));
     - [`unique`](#unique)
     - [`tap`](#tap)
     - [`groupBy`](#groupby)
+    - [`where`](#where)
     - [`generate`](#generate)
     - [`toArray`](#toarray)
 
@@ -629,6 +630,26 @@ program();
 //   5: [1, 2, 3, 4, 5],
 //   10: [6, 7, 8, 9, 10],
 // }
+```
+
+#### `where`
+
+[Table of contents](#table-of-contents)
+
+Filter out values based on the given properties.
+
+```js
+import { pipe, where, range, map, where, toArray } from 'lazy-collections';
+
+const program = pipe(
+  range(15, 20),
+  map(age => ({ age })),
+  where({ age: 18 }),
+  toArray()
+);
+
+program();
+// [ { age: 18 } ]
 ```
 
 #### `generate`

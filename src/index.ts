@@ -35,4 +35,5 @@ export * from './takeWhile';
 export * from './tap';
 export * from './toArray';
 export * from './unique';
+export * from './where';
 export * from './zip';
