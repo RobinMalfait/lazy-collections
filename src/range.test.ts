@@ -5,7 +5,7 @@ import { pipe } from './pipe';
 import { chunk } from './chunk';
 
 it('should create a range', () => {
-  const program = pipe(take(1e3), chunk(2));
+  const program = pipe(take(10), chunk(2));
 
   fc.assert(
     fc.property(
