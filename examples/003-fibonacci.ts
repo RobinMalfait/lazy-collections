@@ -1,20 +1,18 @@
 import { pipe, generate, take, toArray } from '..';
 
-const fibonacci = pipe(
-  generate(
-    (function() {
-      let x = 1;
-      let y = 1;
+function createFibonacciGenerator() {
+  let x = 1;
+  let y = 1;
 
-      return () => {
-        let previous = x;
-        [x, y] = [y, x + y];
-        return previous;
-      };
-    })()
-  ),
-  take(10),
-  toArray()
-);
+  return () => {
+    let previous = x;
+    [x, y] = [y, x + y];
+    return previous;
+  };
+}
 
-fibonacci(); // [ 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 ]
+function fibonacci(x: number) {
+  return pipe(generate(createFibonacciGenerator()), take(x), toArray())();
+}
+
+fibonacci(10); // [ 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 ]
