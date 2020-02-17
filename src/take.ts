@@ -1,5 +1,5 @@
 import { slice } from './slice';
 
-export function take(amount: number) {
-  return slice(0, Math.max(0, amount - 1));
+export function take<T>(amount: number) {
+  return slice<T>(0, Math.max(0, amount - 1));
 }

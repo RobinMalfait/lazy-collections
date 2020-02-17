@@ -1,7 +1,7 @@
 type Fn<T> = (input: T) => boolean;
 
 export function partition<T>(predicate: Fn<T>) {
-  return function partitionFn(data: T[]) {
+  return function partitionFn(data: T[]): [T[], T[]] {
     let a = [];
     let b = [];
 

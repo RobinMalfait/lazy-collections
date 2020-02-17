@@ -1,5 +1,5 @@
-export function average<T extends number>() {
-  return function averageFn(data: T[]) {
+export function average() {
+  return function averageFn(data: number[]) {
     let sum = 0;
     let count = 0;
 

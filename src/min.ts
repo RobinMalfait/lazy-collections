@@ -1,5 +1,5 @@
-export function min<T extends number>() {
-  return function minFn(data: T[]) {
+export function min() {
+  return function minFn(data: number[]) {
     let min: number | undefined = undefined;
     for (let datum of data) {
       if (min === undefined) {

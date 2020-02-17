@@ -1,5 +1,5 @@
-export function max<T extends number>() {
-  return function maxFn(data: T[]) {
+export function max() {
+  return function maxFn(data: number[]) {
     let max: number | undefined = undefined;
     for (let datum of data) {
       if (max === undefined) {

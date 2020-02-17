@@ -2,10 +2,10 @@ type Options = {
   shallow?: boolean;
 };
 
-export function flatten(options: Options = {}) {
+export function flatten<T>(options: Options = {}) {
   const { shallow = false } = options;
 
-  return function* flattenFn<T>(data: T[]): any {
+  return function* flattenFn(data: T[]): any {
     if (!Array.isArray(data) && !data[Symbol.iterator]) {
       yield data;
     } else {

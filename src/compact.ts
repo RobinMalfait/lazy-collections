@@ -1,5 +1,5 @@
 import { filter } from './filter';
 
-export function compact() {
-  return filter(Boolean);
+export function compact<T>() {
+  return filter<T>(Boolean);
 }
