@@ -79,7 +79,24 @@ program(range(0, 1000000));
 > :warning: This is not a scientific benchmark, there are flaws with this. This
 > is just meant to showcase the power of lazy-collections.
 
+|           &nbsp; |   Lazy    |    Eager    | &nbsp;            |
+| ---------------: | :-------: | :---------: | ----------------- |
+|         Duration | `2.19ms`  |   `1.29s`   | `589x` faster     |
+| Memory heapTotal | `9.48 MB` | `297.96 MB` | `31x` less memory |
+|  Memory heapUsed | `5.89 MB` | `265.46 MB` | `45x` less memory |
+
+Memory data collected using: http://nodejs.org/api/process.html#process_process_memoryusage
+
 ```js
+import {
+  pipe,
+  range,
+  filter,
+  takeWhile,
+  slice,
+  toArray,
+} from 'lazy-collections';
+
 // Lazy example
 const program = pipe(
   range(0, 10_000_000),
@@ -93,17 +110,6 @@ const program = pipe(
 
 program(); // [ 0, 400, 800 ]
 ```
-
-> Duration: `2.19ms`
-
-Memory usage:
-
-| Key       | Value    |
-| --------- | -------- |
-| rss       | 34.55 MB |
-| heapTotal | 9.48 MB  |
-| heapUsed  | 5.89 MB  |
-| external  | 0.94 MB  |
 
 ```js
 // Eager example
@@ -125,17 +131,6 @@ function program() {
 
 program(); // [ 0, 400, 800 ]
 ```
-
-> Duration: `1.29s` (Notice that this one is expressed in seconds)
-
-Memory usage:
-
-| Key       | Value     |
-| --------- | --------- |
-| rss       | 318.3 MB  |
-| heapTotal | 297.96 MB |
-| heapUsed  | 265.46 MB |
-| external  | 0.84 MB   |
 
 ---
 
