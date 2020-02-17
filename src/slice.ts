@@ -1,6 +1,9 @@
 export function slice<T>(begin = 0, end = Infinity) {
-  return function* sliceFn(data: T[]) {
-    const iterator = data[Symbol.iterator]();
+  return function* sliceFn(data: Iterable<T>) {
+    const iterator = Array.isArray(data)
+      ? (data[Symbol.iterator]() as IterableIterator<T>)
+      : (data as IterableIterator<T>);
+
     let actual_end = end - begin;
 
     // Skip the first X values

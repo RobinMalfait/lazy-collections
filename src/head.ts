@@ -1,5 +1,5 @@
 export function head<T>() {
-  return function headFn(data: T[]): T | undefined {
+  return function headFn(data: Iterable<T>): T | undefined {
     if (data == null || (!Array.isArray(data) && !data[Symbol.iterator])) {
       return undefined;
     }

@@ -5,7 +5,7 @@ type Options = {
 export function flatten<T>(options: Options = {}) {
   const { shallow = false } = options;
 
-  return function* flattenFn(data: T[]): any {
+  return function* flattenFn(data: Iterable<T>): any {
     if (!Array.isArray(data) && !data[Symbol.iterator]) {
       yield data;
     } else {

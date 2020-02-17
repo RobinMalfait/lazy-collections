@@ -1,5 +1,5 @@
 export function average() {
-  return function averageFn(data: number[]) {
+  return function averageFn(data: Iterable<number>) {
     let sum = 0;
     let count = 0;
 

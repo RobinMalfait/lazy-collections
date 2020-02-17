@@ -1,7 +1,7 @@
 type Fn<T> = (datum: T) => boolean;
 
 export function filter<T>(fn: Fn<T>) {
-  return function* filterFn(data: T[]) {
+  return function* filterFn(data: Iterable<T>) {
     for (let datum of data) {
       // Ignore values that do not meet the criteria
       if (!fn(datum)) {

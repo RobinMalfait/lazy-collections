@@ -3,7 +3,7 @@ import { filter } from './filter';
 export function where<T>(properties: Record<string | number, any>) {
   const entries = Object.entries(properties);
 
-  return filter((datum: T) => {
+  return filter<T>(datum => {
     if (!(typeof datum === 'object' && datum !== null)) {
       return false;
     }

@@ -1,5 +1,5 @@
 export function chunk<T>(size: number) {
-  return function* chunkFn(data: T[]) {
+  return function* chunkFn(data: Iterable<T>) {
     // Let's have a placeholder for our current chunk
     let chunk = [];
 

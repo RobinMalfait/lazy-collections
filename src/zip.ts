@@ -1,5 +1,5 @@
 export function zip<T>() {
-  return function* zipFn(data: T[][]) {
+  return function* zipFn(data: Iterable<Iterable<T>>) {
     // Map each item of `data` to an iterator
     const iterators = Array.from(data).map(datum => datum[Symbol.iterator]());
 
