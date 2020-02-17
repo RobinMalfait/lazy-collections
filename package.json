@@ -48,7 +48,7 @@
     "@babel/preset-env": "^7.8.4",
     "@types/jest": "^25.1.2",
     "fast-check": "^1.22.2",
-    "husky": "^4.2.2",
+    "husky": "^4.2.3",
     "tsdx": "^0.12.3",
     "tslib": "^1.10.0",
     "typescript": "^3.7.5"
