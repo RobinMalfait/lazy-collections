@@ -23,3 +23,5 @@ jobs:
 
       - name: Test
         run: npm run test
+        env:
+          FAST_CHECK_RUNS: 1000

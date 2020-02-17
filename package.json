@@ -35,6 +35,9 @@
   "browserslist": {
     "node": "current node"
   },
+  "jest": {
+    "setupFiles": ["./jest.setup.js"]
+  },
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
