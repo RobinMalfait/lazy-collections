@@ -45,7 +45,7 @@
     "tdd": "tsdx test --watch",
     "lint": "tsdx lint",
     "format": "tsdx lint --fix",
-    "prepare": "npm run build"
+    "prepack": "npm run build"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.8.4",
