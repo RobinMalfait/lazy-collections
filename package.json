@@ -1,6 +1,6 @@
 {
   "name": "lazy-collections",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Collection of fast and lazy operations",
   "main": "dist/index.js",
   "module": "dist/lazy-collections.esm.js",
@@ -36,7 +36,9 @@
     "node": "current node"
   },
   "jest": {
-    "setupFiles": ["./jest.setup.js"]
+    "setupFiles": [
+      "./jest.setup.js"
+    ]
   },
   "scripts": {
     "start": "tsdx watch",
