@@ -13,12 +13,11 @@ export function slice<T>(begin = 0, end = Infinity) {
 
     // Loop through the remaining items until the end is reached
     for (let datum of iterator) {
+      yield datum;
+
       if (--actual_end < 0) {
-        yield datum;
         return;
       }
-
-      yield datum;
     }
   };
 }
