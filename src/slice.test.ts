@@ -10,6 +10,7 @@ it.each([
   const program = pipe(slice(start, end), toArray());
 
   expect(program(range(0, 1_000_000_000))).toEqual(expected);
+  expect(program(range(0, 1_000_000_000))).toEqual(expected);
 });
 
 it('should be possible to pass an array to slice', () => {
