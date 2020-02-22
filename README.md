@@ -14,16 +14,18 @@
 
 ---
 
-Working with methods like `.map()`, `.filter()` and `.reduce()` are nice,
+Working with methods like `.map()`, `.filter()` and `.reduce()` is nice,
 however they create new arrays and everything is eagerly done before going to
 the next step.
 
-This is where lazy collections come in, under the hood we use generators so that
-your data flows like a stream to have the optimal speed.
+This is where lazy collections come in, under the hood we use [iterators][1] and
+async iterators so that your data flows like a stream to have the optimal speed.
 
 All functions should work with both `iterator` and `asyncIterator`, if one of
 the functions uses an `asyncIterator` (for example when you introduce
 `delay(100)`), don't forget to `await` the result!
+
+[1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterator_protocol
 
 ```js
 const program = pipe(

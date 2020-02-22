@@ -1,7 +1,35 @@
+import { MaybePromise } from './shared-types';
+import { isAsyncIterable } from './utils/iterator';
+
 type Fn<T> = (input: T) => boolean;
 
 export function partition<T>(predicate: Fn<T>) {
-  return function partitionFn(data: Iterable<T>): [T[], T[]] {
+  return function partitionFn(
+    data: MaybePromise<Iterable<T> | AsyncIterable<T>>
+  ): MaybePromise<[T[], T[]]> | undefined {
+    if (data == null) {
+      return;
+    }
+
+    if (isAsyncIterable(data) || data instanceof Promise) {
+      return (async () => {
+        const stream = data instanceof Promise ? await data : data;
+
+        let a: T[] = [];
+        let b: T[] = [];
+
+        for await (let datum of stream) {
+          if (predicate(datum)) {
+            a.push(datum);
+          } else {
+            b.push(datum);
+          }
+        }
+
+        return [a, b] as [T[], T[]];
+      })();
+    }
+
     let a = [];
     let b = [];
 

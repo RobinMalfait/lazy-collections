@@ -1,5 +1,11 @@
+import { reduce } from './reduce';
+import { MaybePromise } from './shared-types';
+
 export function toArray<T>() {
-  return function toArrayFn(data: Iterable<T>): T[] {
-    return Array.from(data);
+  return (data: MaybePromise<Iterable<T> | AsyncIterable<T>>) => {
+    return reduce<T[], T>((acc, current) => {
+      acc.push(current);
+      return acc;
+    }, [])(data);
   };
 }
