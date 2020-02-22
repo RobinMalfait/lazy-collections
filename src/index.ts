@@ -22,6 +22,7 @@ export * from './some';
 export * from './average';
 export * from './chunk';
 export * from './compact';
+export * from './delay';
 export * from './flatten';
 export * from './generate';
 export * from './groupBy';
