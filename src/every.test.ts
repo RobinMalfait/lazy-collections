@@ -12,6 +12,12 @@ it('should return true when every value matches the predicate', () => {
   expect(program()).toEqual(true);
 });
 
+it('should return false when no stream is passing through it', () => {
+  const program = pipe(every(x => typeof x === 'number'));
+
+  expect(program()).toEqual(false);
+});
+
 it("should return false when one of the values doesn't meet the predicate", () => {
   const program = pipe(
     range(0, 100),

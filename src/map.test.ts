@@ -13,6 +13,16 @@ it('should be possible to map data from A to B', () => {
   expect(program([1, 2, 3])).toEqual([2, 4, 6]);
 });
 
+it('should return undefined when no stream is passing through it', () => {
+  const program = pipe(
+    map((x: number) => x * 2), // Double
+    toArray()
+  );
+
+  expect(program()).toEqual(undefined);
+  expect(program()).toEqual(undefined);
+});
+
 it('should be possible to map data from A to B (async)', async () => {
   const program = pipe(
     delay(0),

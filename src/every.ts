@@ -6,7 +6,7 @@ type Fn<T> = (input: T) => boolean;
 export function every<T>(predicate: Fn<T>) {
   return function everyFn(data: LazyIterable<T>) {
     if (data == null) {
-      return;
+      return false;
     }
 
     if (isAsyncIterable(data) || data instanceof Promise) {

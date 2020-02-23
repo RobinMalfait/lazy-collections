@@ -24,3 +24,18 @@ it('should remove all falsey values (async)', async () => {
     await program([0, 1, true, false, null, undefined, '', 'test', NaN])
   ).toEqual([1, true, 'test']);
 });
+
+it('should remove all falsey values (Promise async)', async () => {
+  const program = pipe(compact(), toArray());
+
+  expect(
+    await program(
+      Promise.resolve([0, 1, true, false, null, undefined, '', 'test', NaN])
+    )
+  ).toEqual([1, true, 'test']);
+  expect(
+    await program(
+      Promise.resolve([0, 1, true, false, null, undefined, '', 'test', NaN])
+    )
+  ).toEqual([1, true, 'test']);
+});

@@ -16,6 +16,22 @@ it('should be possible to get the items containing certain properties', () => {
   expect(program()).toEqual([{ x: 3, y: 4 }]);
 });
 
+it('should not crash on values that it does not understand', () => {
+  const program = pipe(where({ include: true }), toArray());
+
+  expect(
+    program([
+      0,
+      null,
+      true,
+      false,
+      'hello',
+      Object.assign(function() {}, { include: false }),
+      { include: true, name: 'winner' },
+    ])
+  ).toEqual([{ include: true, name: 'winner' }]);
+});
+
 it('should be possible to get the items containing certain magic properties like array lengths', () => {
   const program = pipe(
     range(0, 3),

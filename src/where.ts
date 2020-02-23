@@ -4,7 +4,7 @@ export function where<T>(properties: Record<string | number, any>) {
   const entries = Object.entries(properties);
 
   return filter<T>(datum => {
-    if (!(typeof datum === 'object' && datum !== null)) {
+    if (datum == null) {
       return false;
     }
 

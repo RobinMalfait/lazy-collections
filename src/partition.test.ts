@@ -17,6 +17,15 @@ it('should partition the data into 2 streams based on the predicate', () => {
   ]);
 });
 
+it('should return undefined when no stream is passing through it', () => {
+  const program = pipe(
+    partition((x: number) => x % 2 !== 0),
+    toArray()
+  );
+
+  expect(program()).toEqual(undefined);
+});
+
 it('should partition the data into 2 streams based on the predicate (async)', async () => {
   const program = pipe(
     range(1, 4),
