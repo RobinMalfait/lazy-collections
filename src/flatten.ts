@@ -1,4 +1,4 @@
-import { MaybePromise } from './shared-types';
+import { LazyIterable } from './shared-types';
 import { isAsyncIterable, isIterable } from './utils/iterator';
 
 type Options = {
@@ -8,9 +8,7 @@ type Options = {
 export function flatten<T>(options: Options = {}) {
   const { shallow = false } = options;
 
-  return function flattenFn(
-    data: MaybePromise<Iterable<T> | AsyncIterable<T>>
-  ): any {
+  return function flattenFn(data: LazyIterable<T>): any {
     if (data == null) {
       return;
     }

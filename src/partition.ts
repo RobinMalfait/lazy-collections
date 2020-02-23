@@ -1,11 +1,11 @@
-import { MaybePromise } from './shared-types';
+import { MaybePromise, LazyIterable } from './shared-types';
 import { isAsyncIterable } from './utils/iterator';
 
 type Fn<T> = (input: T) => boolean;
 
 export function partition<T>(predicate: Fn<T>) {
   return function partitionFn(
-    data: MaybePromise<Iterable<T> | AsyncIterable<T>>
+    data: LazyIterable<T>
   ): MaybePromise<[T[], T[]]> | undefined {
     if (data == null) {
       return;

@@ -1,10 +1,10 @@
 import { isAsyncIterable } from './utils/iterator';
-import { MaybePromise } from './shared-types';
+import { LazyIterable } from './shared-types';
 
 type Fn<T, R = T> = (acc: R, datum: T) => R;
 
 export function reduce<R, T = R>(fn: Fn<T, R>, initial: R) {
-  return function reduceFn(data: MaybePromise<Iterable<T> | AsyncIterable<T>>) {
+  return function reduceFn(data: LazyIterable<T>) {
     let acc = initial;
 
     if (isAsyncIterable(data) || data instanceof Promise) {

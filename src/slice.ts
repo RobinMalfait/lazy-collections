@@ -1,8 +1,8 @@
 import { isAsyncIterable } from './utils/iterator';
-import { MaybePromise } from './shared-types';
+import { LazyIterable } from './shared-types';
 
 export function slice<T>(begin = 0, end = Infinity) {
-  return function sliceFn(data: MaybePromise<Iterable<T> | AsyncIterable<T>>) {
+  return function sliceFn(data: LazyIterable<T>) {
     if (isAsyncIterable(data) || data instanceof Promise) {
       return {
         async *[Symbol.asyncIterator]() {

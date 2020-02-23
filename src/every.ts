@@ -1,10 +1,10 @@
 import { isAsyncIterable } from './utils/iterator';
-import { MaybePromise } from './shared-types';
+import { LazyIterable } from './shared-types';
 
 type Fn<T> = (input: T) => boolean;
 
 export function every<T>(predicate: Fn<T>) {
-  return function everyFn(data: MaybePromise<Iterable<T> | AsyncIterable<T>>) {
+  return function everyFn(data: LazyIterable<T>) {
     if (data == null) {
       return;
     }

@@ -1,10 +1,10 @@
 import { isAsyncIterable } from './utils/iterator';
-import { MaybePromise } from './shared-types';
+import { LazyIterable } from './shared-types';
 
 type Fn<T, R> = (datum: T) => R;
 
 export function map<T, R>(fn: Fn<T, R>) {
-  return function mapFn(data: MaybePromise<Iterable<T> | AsyncIterable<T>>) {
+  return function mapFn(data: LazyIterable<T>) {
     if (data == null) {
       return;
     }

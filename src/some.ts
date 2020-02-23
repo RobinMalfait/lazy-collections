@@ -1,12 +1,10 @@
 import { isAsyncIterable } from './utils/iterator';
-import { MaybePromise } from './shared-types';
+import { LazyIterable } from './shared-types';
 
 type Fn<T> = (input: T) => boolean;
 
 export function some<T>(predicate: Fn<T>) {
-  return function someFn(
-    data: MaybePromise<Iterable<T> | AsyncIterable<T>>
-  ): boolean | Promise<boolean> {
+  return function someFn(data: LazyIterable<T>): boolean | Promise<boolean> {
     if (isAsyncIterable(data) || data instanceof Promise) {
       return (async () => {
         const stream = data instanceof Promise ? await data : data;

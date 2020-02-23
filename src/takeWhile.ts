@@ -1,12 +1,10 @@
 import { isAsyncIterable } from './utils/iterator';
-import { MaybePromise } from './shared-types';
+import { LazyIterable } from './shared-types';
 
 type Fn<T> = (datum: T) => boolean;
 
 export function takeWhile<T>(fn: Fn<T>) {
-  return function takeWhileFn(
-    data: MaybePromise<Iterable<T> | AsyncIterable<T>>
-  ) {
+  return function takeWhileFn(data: LazyIterable<T>) {
     if (isAsyncIterable(data) || data instanceof Promise) {
       return {
         async *[Symbol.asyncIterator]() {

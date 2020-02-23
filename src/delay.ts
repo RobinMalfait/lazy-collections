@@ -1,13 +1,11 @@
-import { MaybePromise } from './shared-types';
+import { LazyIterable } from './shared-types';
 
 function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 export function delay<T>(ms: number) {
-  return async function* delayFn(
-    data: MaybePromise<Iterable<T> | AsyncIterable<T>>
-  ) {
+  return async function* delayFn(data: LazyIterable<T>) {
     if (data == null) {
       return;
     }

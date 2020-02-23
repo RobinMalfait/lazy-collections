@@ -1,7 +1,7 @@
 import { isAsyncIterable } from './utils/iterator';
 import { pipe } from './pipe';
 import { toArray } from './toArray';
-import { MaybePromise } from './shared-types';
+import { LazyIterable } from './shared-types';
 
 /**
  * This is pretty slow because it has to first go through the whole iterator
@@ -9,9 +9,7 @@ import { MaybePromise } from './shared-types';
  * yielding again.
  */
 export function reverse<T>() {
-  return function reverseFn(
-    data: MaybePromise<Iterable<T> | AsyncIterable<T>>
-  ) {
+  return function reverseFn(data: LazyIterable<T>) {
     if (isAsyncIterable(data) || data instanceof Promise) {
       return {
         async *[Symbol.asyncIterator]() {

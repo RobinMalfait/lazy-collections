@@ -1,8 +1,8 @@
 import { isAsyncIterable } from './utils/iterator';
-import { MaybePromise } from './shared-types';
+import { LazyIterable } from './shared-types';
 
 export function unique<T>() {
-  return function uniqueFn(data: MaybePromise<Iterable<T> | AsyncIterable<T>>) {
+  return function uniqueFn(data: LazyIterable<T>) {
     const seen = new Set<T>([]);
 
     if (isAsyncIterable(data) || data instanceof Promise) {

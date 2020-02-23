@@ -1,8 +1,8 @@
 import { reduce } from './reduce';
-import { MaybePromise } from './shared-types';
+import { LazyIterable } from './shared-types';
 
 export function toArray<T>() {
-  return (data: MaybePromise<Iterable<T> | AsyncIterable<T>>) => {
+  return (data: LazyIterable<T>) => {
     return reduce<T[], T>((acc, current) => {
       acc.push(current);
       return acc;

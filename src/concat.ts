@@ -1,9 +1,7 @@
 import { isAsyncIterable } from './utils/iterator';
-import { MaybePromise } from './shared-types';
+import { LazyIterable } from './shared-types';
 
-export function concat<T>(
-  ...data: MaybePromise<Iterable<T> | AsyncIterable<T>>[]
-) {
+export function concat<T>(...data: LazyIterable<T>[]) {
   if (
     data.some(isAsyncIterable) ||
     data.some(datum => datum instanceof Promise)

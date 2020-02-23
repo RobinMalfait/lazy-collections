@@ -1,8 +1,8 @@
 import { isAsyncIterable } from './utils/iterator';
-import { MaybePromise } from './shared-types';
+import { LazyIterable } from './shared-types';
 
 export function chunk<T>(size: number) {
-  return function chunkFn(data: MaybePromise<Iterable<T> | AsyncIterable<T>>) {
+  return function chunkFn(data: LazyIterable<T>) {
     if (isAsyncIterable(data) || data instanceof Promise) {
       return {
         async *[Symbol.asyncIterator]() {

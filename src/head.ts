@@ -1,8 +1,9 @@
 import { isAsyncIterable } from './utils/iterator';
+import { LazyIterable } from './shared-types';
 
 export function head<T>() {
   return function headFn(
-    data: Iterable<T> | AsyncIterable<T>
+    data: LazyIterable<T>
   ): T | undefined | Promise<T | undefined> {
     if (data == null) {
       return;

@@ -3,12 +3,10 @@ import { chunk } from './chunk';
 import { map } from './map';
 import { head } from './head';
 import { pipe } from './pipe';
-import { MaybePromise } from './shared-types';
+import { LazyIterable } from './shared-types';
 
 export function average() {
-  return function averageFn(
-    data: MaybePromise<Iterable<number> | AsyncIterable<number>>
-  ) {
+  return function averageFn(data: LazyIterable<number>) {
     const program = pipe(
       reduce<[number, number], number>(
         (acc, current) => {
