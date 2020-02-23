@@ -37,7 +37,7 @@ it('should be possible to reverse an iterator (async)', async () => {
 
 it('should be possible to reverse an iterator (Promise async)', async () => {
   const program = pipe(
-    Promise.resolve(range(0, 1_000)) as any,
+    Promise.resolve(range(0, 1_000)),
     reverse(),
     take(5),
     toArray()

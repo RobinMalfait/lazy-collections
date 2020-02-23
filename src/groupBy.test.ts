@@ -36,7 +36,7 @@ it('should be possible to group an iterator by something (async)', async () => {
 
 it('should be possible to group an iterator by something (Promise async)', async () => {
   const program = pipe(
-    Promise.resolve(range(0, 10)) as any,
+    Promise.resolve(range(0, 10)),
     groupBy((x: number) => snap(5, x))
   );
 

@@ -16,7 +16,7 @@ it('should convert an iterator to an array (async)', async () => {
 });
 
 it('should convert an iterator to an array (Promise async)', async () => {
-  const program = pipe(Promise.resolve(range(0, 10)) as any, toArray());
+  const program = pipe(Promise.resolve(range(0, 10)), toArray());
 
   expect(await program()).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 });

@@ -36,7 +36,7 @@ it('should be possible to tap into the current sequence (async)', async () => {
 it('should be possible to tap into the current sequence (Promise async)', async () => {
   const fn = jest.fn();
   const program = pipe(
-    Promise.resolve(range(0, 5)) as any,
+    Promise.resolve(range(0, 5)),
     tap(value => {
       fn(value);
     }),

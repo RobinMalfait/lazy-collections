@@ -63,7 +63,7 @@ it('should be possible to get the items containing certain magic properties like
 
 it('should be possible to get the items containing certain properties (Promise async)', async () => {
   const program = pipe(
-    Promise.resolve(range(0, 10)) as any,
+    Promise.resolve(range(0, 10)),
     map((x: number) => ({ x, y: x + 1 })),
     where({ x: 3, y: 4 }),
     toArray()
@@ -74,7 +74,7 @@ it('should be possible to get the items containing certain properties (Promise a
 
 it('should be possible to get the items containing certain magic properties like array lengths (Promise async)', async () => {
   const program = pipe(
-    Promise.resolve(range(0, 3)) as any,
+    Promise.resolve(range(0, 3)),
     map((x: number) => [x, x]),
     where({ length: 2 }),
     toArray()

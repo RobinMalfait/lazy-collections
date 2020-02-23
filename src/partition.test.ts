@@ -33,7 +33,7 @@ it('should partition the data into 2 streams based on the predicate (async)', as
 
 it('should partition the data into 2 streams based on the predicate (Promise async)', async () => {
   const program = pipe(
-    Promise.resolve(range(1, 4)) as any,
+    Promise.resolve(range(1, 4)),
     partition((x: number) => x % 2 !== 0),
     toArray()
   );
