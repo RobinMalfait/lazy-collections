@@ -14,12 +14,18 @@
 
 ---
 
-Working with methods like `.map()`, `.filter()` and `.reduce()` are nice,
+Working with methods like `.map()`, `.filter()` and `.reduce()` is nice,
 however they create new arrays and everything is eagerly done before going to
 the next step.
 
-This is where lazy collections come in, under the hood we use generators so that
-your data flows like a stream to have the optimal speed.
+This is where lazy collections come in, under the hood we use [iterators][1] and
+async iterators so that your data flows like a stream to have the optimal speed.
+
+All functions should work with both `iterator` and `asyncIterator`, if one of
+the functions uses an `asyncIterator` (for example when you introduce
+`delay(100)`), don't forget to `await` the result!
+
+[1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterator_protocol
 
 ```js
 const program = pipe(
@@ -58,6 +64,7 @@ program(range(0, 1000000));
   - [Utilities](#utilities)
     - [`chunk`](#chunk)
     - [`compact`](#compact)
+    - [`delay`](#delay)
     - [`flatten`](#flatten)
     - [`generate`](#generate)
     - [`groupBy`](#groupby)
@@ -424,6 +431,27 @@ const program = pipe(compact(), toArray());
 
 program([0, 1, true, false, null, undefined, '', 'test', NaN]);
 // [ 1, true, 'test' ];
+```
+
+#### `delay`
+
+[Table of contents](#table-of-contents)
+
+Will make he whole program async. It will add a delay of x milliseconds when an
+item goes through the stream.
+
+```js
+import { pipe, range, delay, map, toArray } from 'lazy-collections';
+
+const program = pipe(
+  range(0, 4),
+  delay(5000), // 5 seconds
+  map(() => new Date().toLocaleTimeString()),
+  toArray()
+);
+
+await program();
+// [ '10:00:00', '10:00:05', '10:00:10', '10:00:15', '10:00:20' ];
 ```
 
 #### `flatten`
