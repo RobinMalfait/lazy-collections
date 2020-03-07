@@ -23,3 +23,10 @@ it('should be possible to sum numbers (via reduce) (Promise async)', async () =>
   expect(await program(Promise.resolve([1, 2, 3]))).toEqual(6);
   expect(await program(Promise.resolve([1, 2, 3]))).toEqual(6);
 });
+
+it('should take the index as second argument', async () => {
+  const program = pipe(reduce((total, current, i) => total + current + i, 0));
+
+  expect(await program(Promise.resolve([1, 2, 3]))).toEqual(9);
+  expect(await program(Promise.resolve([1, 2, 3]))).toEqual(9);
+});

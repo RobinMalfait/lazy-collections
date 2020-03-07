@@ -52,3 +52,16 @@ it('should partition the data into 2 streams based on the predicate (Promise asy
     [2, 4],
   ]);
 });
+
+it('should take the index as second argument', async () => {
+  const program = pipe(
+    Promise.resolve(range(1, 4)),
+    partition((_x: number, i) => i % 2 !== 0),
+    toArray()
+  );
+
+  expect(await program()).toEqual([
+    [2, 4],
+    [1, 3],
+  ]);
+});

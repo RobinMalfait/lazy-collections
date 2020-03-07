@@ -1,5 +1,5 @@
 import { reduce } from './reduce';
 
 export function max() {
-  return reduce(Math.max, -Infinity);
+  return reduce((lhs, rhs) => Math.max(lhs, rhs), -Infinity);
 }

@@ -44,3 +44,13 @@ it('should be possible to map data from A to B (Promise async)', async () => {
   expect(await program(Promise.resolve([1, 2, 3]))).toEqual([2, 4, 6]);
   expect(await program(Promise.resolve([1, 2, 3]))).toEqual([2, 4, 6]);
 });
+
+it('should take the index as second argument', () => {
+  const program = pipe(
+    map((_x: number, i) => i),
+    toArray()
+  );
+
+  expect(program([1, 2, 3])).toEqual([0, 1, 2]);
+  expect(program([1, 2, 3])).toEqual([0, 1, 2]);
+});

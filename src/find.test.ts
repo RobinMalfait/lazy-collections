@@ -50,3 +50,10 @@ it('should return undefined when the value is not found (Promise async)', async 
   expect(await program(Promise.resolve(range(0, 100)))).toEqual(undefined);
   expect(await program(Promise.resolve(range(0, 100)))).toEqual(undefined);
 });
+
+it('should take the index as second argument', async () => {
+  const program = pipe(find((_x: number, i) => i === 50));
+
+  expect(await program(Promise.resolve(range(0, 100)))).toEqual(50);
+  expect(await program(Promise.resolve(range(0, 100)))).toEqual(50);
+});

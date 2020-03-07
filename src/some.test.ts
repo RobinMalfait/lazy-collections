@@ -54,3 +54,10 @@ it('should return false when non of the values match the predicate (Promise asyn
   expect(await program(Promise.resolve(range(0, 100)))).toEqual(false);
   expect(await program(Promise.resolve(range(0, 100)))).toEqual(false);
 });
+
+it('should take the index as second argument', async () => {
+  const program = pipe(some((_x: number, i) => i > 100));
+
+  expect(await program(Promise.resolve(range(0, 100)))).toEqual(false);
+  expect(await program(Promise.resolve(range(0, 100)))).toEqual(false);
+});

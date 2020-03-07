@@ -1,7 +1,7 @@
 import { MaybePromise, LazyIterable } from './shared-types';
 import { isAsyncIterable } from './utils/iterator';
 
-type Fn<T> = (input: T) => boolean;
+type Fn<T> = (input: T, index: number) => boolean;
 
 export function partition<T>(predicate: Fn<T>) {
   return function partitionFn(
@@ -18,8 +18,9 @@ export function partition<T>(predicate: Fn<T>) {
         let a: T[] = [];
         let b: T[] = [];
 
+        let i = 0;
         for await (let datum of stream) {
-          if (predicate(datum)) {
+          if (predicate(datum, i++)) {
             a.push(datum);
           } else {
             b.push(datum);
@@ -33,8 +34,9 @@ export function partition<T>(predicate: Fn<T>) {
     let a = [];
     let b = [];
 
+    let i = 0;
     for (let datum of data) {
-      if (predicate(datum)) {
+      if (predicate(datum, i++)) {
         a.push(datum);
       } else {
         b.push(datum);

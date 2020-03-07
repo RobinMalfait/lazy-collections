@@ -37,3 +37,18 @@ it('should be possible to take values as long as they meet a certain condition (
     4,
   ]);
 });
+
+it('should take the index as second argument', async () => {
+  const program = pipe(
+    takeWhile((_x: number, i) => i < 5),
+    toArray()
+  );
+
+  expect(await program(Promise.resolve(range(0, 1_000)))).toEqual([
+    0,
+    1,
+    2,
+    3,
+    4,
+  ]);
+});

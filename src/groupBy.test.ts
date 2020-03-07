@@ -46,3 +46,16 @@ it('should be possible to group an iterator by something (Promise async)', async
     10: [6, 7, 8, 9, 10],
   });
 });
+
+it('should take the index as second argument', async () => {
+  const program = pipe(
+    Promise.resolve(range(0, 10)),
+    groupBy((_x: number, i) => snap(5, i))
+  );
+
+  expect(await program()).toEqual({
+    0: [0],
+    5: [1, 2, 3, 4, 5],
+    10: [6, 7, 8, 9, 10],
+  });
+});

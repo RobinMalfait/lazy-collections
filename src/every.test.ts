@@ -62,3 +62,12 @@ it("should return false when one of the values doesn't meet the predicate (Promi
   expect(await program(Promise.resolve(range(0, 100)))).toEqual(false);
   expect(await program(Promise.resolve(range(0, 100)))).toEqual(false);
 });
+
+it('should take the index as second argument', async () => {
+  const program = pipe(
+    every((_x: number, i) => i < 100) // 100 is not less than 100
+  );
+
+  expect(await program(Promise.resolve(range(0, 100)))).toEqual(false);
+  expect(await program(Promise.resolve(range(0, 100)))).toEqual(false);
+});

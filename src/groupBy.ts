@@ -1,7 +1,7 @@
 import { isAsyncIterable } from './utils/iterator';
 import { LazyIterable } from './shared-types';
 
-type KeyFn<T> = (input: T) => string | number;
+type KeyFn<T> = (input: T, index: number) => string | number;
 
 export function groupBy<T>(keySelector: KeyFn<T>) {
   return function groupByFn(data: LazyIterable<T>) {
@@ -9,8 +9,9 @@ export function groupBy<T>(keySelector: KeyFn<T>) {
       return (async () => {
         const stream = data instanceof Promise ? await data : data;
         let map: Record<ReturnType<typeof keySelector>, T[]> = {};
+        let i = 0;
         for await (let datum of stream) {
-          const key = keySelector(datum);
+          const key = keySelector(datum, i++);
           if (map[key] === undefined) {
             map[key] = [];
           }
@@ -23,8 +24,9 @@ export function groupBy<T>(keySelector: KeyFn<T>) {
     }
 
     let map: Record<ReturnType<typeof keySelector>, T[]> = {};
+    let i = 0;
     for (let datum of data) {
-      const key = keySelector(datum);
+      const key = keySelector(datum, i++);
       if (map[key] === undefined) {
         map[key] = [];
       }
