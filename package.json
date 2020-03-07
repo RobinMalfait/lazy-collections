@@ -1,6 +1,6 @@
 {
   "name": "lazy-collections",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Collection of fast and lazy operations",
   "main": "dist/index.js",
   "module": "dist/lazy-collections.esm.js",
