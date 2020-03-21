@@ -2,7 +2,7 @@
 !.gitignore
 !.nvmrc
 !.github
-!.babelrc
+!.babelrc.js
 
 node_modules/
 coverage/
