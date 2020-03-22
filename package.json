@@ -2,9 +2,13 @@
   "name": "lazy-collections",
   "version": "0.6.2",
   "description": "Collection of fast and lazy operations",
-  "main": "dist/index.js",
-  "module": "dist/lazy-collections.esm.js",
-  "typings": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/lazy-collections.esm.js",
+  "typings": "./dist/index.d.ts",
+  "exports": {
+    "require": "./dist/index.js",
+    "import": "./dist/lazy-collections.esm.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/RobinMalfait/lazy-collections.git"
@@ -53,5 +57,8 @@
     "tsdx": "^0.13.0",
     "tslib": "^1.11.1",
     "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.9.2"
   }
 }

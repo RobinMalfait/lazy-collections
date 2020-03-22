@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "lib": [],
+    "lib": ["ESNext"],
     "downlevelIteration": true,
     "importHelpers": true,
     "declaration": true,
