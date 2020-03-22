@@ -7,7 +7,7 @@
   "typings": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/skedify/lazy-collections.git"
+    "url": "https://github.com/RobinMalfait/lazy-collections.git"
   },
   "author": {
     "name": "Robin Malfait",
