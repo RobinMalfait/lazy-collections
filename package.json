@@ -3,12 +3,6 @@
   "version": "0.6.3",
   "description": "Collection of fast and lazy operations",
   "main": "./dist/index.js",
-  "module": "./dist/lazy-collections.esm.js",
-  "typings": "./dist/index.d.ts",
-  "exports": {
-    "require": "./dist/index.js",
-    "import": "./dist/lazy-collections.esm.js"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/RobinMalfait/lazy-collections.git"
@@ -42,8 +36,7 @@
     ]
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
+    "build": "rm -rf dist && tsc --project tsconfig.json",
     "test": "tsdx test",
     "tdd": "tsdx test --watch",
     "lint": "tsdx lint",
@@ -58,7 +51,5 @@
     "tslib": "^1.11.1",
     "typescript": "^3.8.3"
   },
-  "dependencies": {
-    "@babel/runtime": "^7.9.2"
-  }
+  "dependencies": {}
 }

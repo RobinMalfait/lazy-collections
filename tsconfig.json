@@ -1,13 +1,15 @@
 {
   "include": ["src", "types"],
+  "exclude": ["src/**/*.test.ts"],
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
     "lib": ["ESNext"],
+    "outDir": "./dist",
     "downlevelIteration": true,
     "importHelpers": true,
     "declaration": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "rootDir": "./src",
     "strict": true,
     "noImplicitAny": true,
