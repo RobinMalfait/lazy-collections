@@ -7,7 +7,7 @@
     "lib": ["ESNext"],
     "outDir": "./dist",
     "downlevelIteration": true,
-    "importHelpers": true,
+    "importHelpers": false,
     "declaration": true,
     "sourceMap": false,
     "rootDir": "./src",

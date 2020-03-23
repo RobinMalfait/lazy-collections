@@ -3,6 +3,7 @@
   "version": "0.7.0",
   "description": "Collection of fast and lazy operations",
   "main": "./dist/index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/RobinMalfait/lazy-collections.git"
@@ -37,11 +38,13 @@
   },
   "scripts": {
     "build": "rm -rf dist && tsc --project tsconfig.json",
+    "fix-imports": "./scripts/fix-imports.sh ./dist/*.js",
+    "fix-imports-nested": "./scripts/fix-imports.sh ./dist/**/*.js",
     "test": "tsdx test",
     "tdd": "tsdx test --watch",
     "lint": "tsdx lint",
     "format": "tsdx lint --fix",
-    "prepack": "npm run build"
+    "prepack": "npm run build && npm run fix-imports && npm run fix-imports-nested"
   },
   "devDependencies": {
     "@types/jest": "^25.1.4",
