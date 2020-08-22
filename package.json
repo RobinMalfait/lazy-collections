@@ -47,11 +47,11 @@
     "prepack": "npm run build && npm run fix-imports && npm run fix-imports-nested"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.6",
-    "fast-check": "^1.26.0",
+    "@types/jest": "^26.0.10",
+    "fast-check": "^2.2.0",
     "husky": "^4.2.5",
     "tsdx": "^0.13.2",
-    "tslib": "^2.0.0",
+    "tslib": "^2.0.1",
     "typescript": "^3.9.7"
   },
   "dependencies": {}
