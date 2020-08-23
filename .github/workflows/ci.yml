@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [13.x]
+        node-version: [13.x, 14.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -23,7 +23,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: node_modules
-          key: nodeModules-${{ hashFiles('**/yarn.lock') }}
+          key: nodeModules-${{ hashFiles('**/yarn.lock') }}-${{ matrix.node-version }}
           restore-keys: |
             nodeModules-
 
