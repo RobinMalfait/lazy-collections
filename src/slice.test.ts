@@ -17,15 +17,12 @@ it.each([
 it.each([
   [0, 10, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]],
   [4, 6, [4, 5, 6]],
-])(
-  'should be possible to slice from %p until %p (async)',
-  async (start, end, expected) => {
-    const program = pipe(delay(0), slice(start, end), toArray())
+])('should be possible to slice from %p until %p (async)', async (start, end, expected) => {
+  const program = pipe(delay(0), slice(start, end), toArray())
 
-    expect(await program(range(0, 1_000_000_000))).toEqual(expected)
-    expect(await program(range(0, 1_000_000_000))).toEqual(expected)
-  }
-)
+  expect(await program(range(0, 1_000_000_000))).toEqual(expected)
+  expect(await program(range(0, 1_000_000_000))).toEqual(expected)
+})
 
 it('should be possible to pass an array to slice', () => {
   const program = pipe(slice(0, 1), toArray())

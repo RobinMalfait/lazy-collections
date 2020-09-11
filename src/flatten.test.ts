@@ -21,12 +21,8 @@ it('should be possible to deep flatten data', () => {
 it('should be possible to deep flatten data (async)', async () => {
   const program = pipe(delay(0), flatten(), toArray())
 
-  expect(await program([1, [2, [3, [[[4]], [5]]]]])).toEqual(
-    Array.from(range(1, 5))
-  )
-  expect(await program([1, [2, [3, [[[4]], [5]]]]])).toEqual(
-    Array.from(range(1, 5))
-  )
+  expect(await program([1, [2, [3, [[[4]], [5]]]]])).toEqual(Array.from(range(1, 5)))
+  expect(await program([1, [2, [3, [[[4]], [5]]]]])).toEqual(Array.from(range(1, 5)))
 })
 
 it('should be possible to deep flatten data (Promise async)', async () => {

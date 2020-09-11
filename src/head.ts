@@ -2,9 +2,7 @@ import { isAsyncIterable } from './utils/iterator'
 import { LazyIterable } from './shared-types'
 
 export function head<T>() {
-  return function headFn(
-    data: LazyIterable<T>
-  ): T | undefined | Promise<T | undefined> {
+  return function headFn(data: LazyIterable<T>): T | undefined | Promise<T | undefined> {
     if (data == null) {
       return
     }

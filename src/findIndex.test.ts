@@ -10,12 +10,8 @@ it('should find the index based on the predicate', () => {
     findIndex(x => x === 'T')
   )
 
-  expect(program(range(0, 25))).toEqual(
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf('T')
-  )
-  expect(program(range(0, 25))).toEqual(
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf('T')
-  )
+  expect(program(range(0, 25))).toEqual('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf('T'))
+  expect(program(range(0, 25))).toEqual('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf('T'))
 })
 
 it('should return -1 when the index is not found', () => {
@@ -32,12 +28,8 @@ it('should find the index based on the predicate (async)', async () => {
     findIndex(x => x === 'T')
   )
 
-  expect(await program(range(0, 25))).toEqual(
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf('T')
-  )
-  expect(await program(range(0, 25))).toEqual(
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf('T')
-  )
+  expect(await program(range(0, 25))).toEqual('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf('T'))
+  expect(await program(range(0, 25))).toEqual('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf('T'))
 })
 
 it('should return -1 when the index is not found (async)', async () => {

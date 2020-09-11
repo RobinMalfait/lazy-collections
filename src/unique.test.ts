@@ -33,9 +33,5 @@ it('should be possible to create a unique stream (async)', async () => {
 it('should be possible to create a unique stream (Promise async)', async () => {
   const program = pipe(unique(), toArray())
 
-  expect(await program(Promise.resolve([0, 0, 5, 5, 5, 10, 10]))).toEqual([
-    0,
-    5,
-    10,
-  ])
+  expect(await program(Promise.resolve([0, 0, 5, 5, 5, 10, 10]))).toEqual([0, 5, 10])
 })

@@ -29,13 +29,7 @@ it('should be possible to take values as long as they meet a certain condition (
     toArray()
   )
 
-  expect(await program(Promise.resolve(range(0, 1_000)))).toEqual([
-    0,
-    1,
-    2,
-    3,
-    4,
-  ])
+  expect(await program(Promise.resolve(range(0, 1_000)))).toEqual([0, 1, 2, 3, 4])
 })
 
 it('should take the index as second argument', async () => {
@@ -44,11 +38,5 @@ it('should take the index as second argument', async () => {
     toArray()
   )
 
-  expect(await program(Promise.resolve(range(0, 1_000)))).toEqual([
-    0,
-    1,
-    2,
-    3,
-    4,
-  ])
+  expect(await program(Promise.resolve(range(0, 1_000)))).toEqual([0, 1, 2, 3, 4])
 })

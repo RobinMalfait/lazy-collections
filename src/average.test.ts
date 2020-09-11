@@ -19,8 +19,6 @@ it('should be possible to get an average of all the values (async)', async () =>
 it('should be possible to get an average of all the values (Promise async)', async () => {
   const program = pipe(average())
 
-  expect(
-    await program(Promise.resolve([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
-  ).toEqual(5)
+  expect(await program(Promise.resolve([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))).toEqual(5)
   expect(await program(Promise.resolve([10, 10, 10]))).toEqual(10)
 })

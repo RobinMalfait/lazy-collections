@@ -34,12 +34,8 @@ it('should be possible to sum an iterator (async)', async () => {
 it('should be possible to sum an array (Promise async)', async () => {
   const program = pipe(sum())
 
-  expect(
-    await program(Promise.resolve([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
-  ).toEqual(55)
-  expect(
-    await program(Promise.resolve([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
-  ).toEqual(55)
+  expect(await program(Promise.resolve([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))).toEqual(55)
+  expect(await program(Promise.resolve([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))).toEqual(55)
 })
 
 it('should be possible to sum an iterator (Promise async)', async () => {

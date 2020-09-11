@@ -19,11 +19,5 @@ it('should take a only X values (async)', async () => {
 it('should take a only X values (Promise async)', async () => {
   const program = pipe(take(5), toArray())
 
-  expect(await program(Promise.resolve(range(0, 1_000)))).toEqual([
-    0,
-    1,
-    2,
-    3,
-    4,
-  ])
+  expect(await program(Promise.resolve(range(0, 1_000)))).toEqual([0, 1, 2, 3, 4])
 })
