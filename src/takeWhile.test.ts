@@ -1,33 +1,33 @@
-import { pipe } from './pipe';
-import { takeWhile } from './takeWhile';
-import { range } from './range';
-import { toArray } from './toArray';
-import { delay } from './delay';
+import { pipe } from './pipe'
+import { takeWhile } from './takeWhile'
+import { range } from './range'
+import { toArray } from './toArray'
+import { delay } from './delay'
 
 it('should be possible to take values as long as they meet a certain condition', () => {
   const program = pipe(
     takeWhile((x: number) => x < 5),
     toArray()
-  );
+  )
 
-  expect(program(range(0, 1_000))).toEqual([0, 1, 2, 3, 4]);
-});
+  expect(program(range(0, 1_000))).toEqual([0, 1, 2, 3, 4])
+})
 
 it('should be possible to take values as long as they meet a certain condition (async)', async () => {
   const program = pipe(
     delay(0),
     takeWhile((x: number) => x < 5),
     toArray()
-  );
+  )
 
-  expect(await program(range(0, 1_000))).toEqual([0, 1, 2, 3, 4]);
-});
+  expect(await program(range(0, 1_000))).toEqual([0, 1, 2, 3, 4])
+})
 
 it('should be possible to take values as long as they meet a certain condition (Promise async)', async () => {
   const program = pipe(
     takeWhile((x: number) => x < 5),
     toArray()
-  );
+  )
 
   expect(await program(Promise.resolve(range(0, 1_000)))).toEqual([
     0,
@@ -35,14 +35,14 @@ it('should be possible to take values as long as they meet a certain condition (
     2,
     3,
     4,
-  ]);
-});
+  ])
+})
 
 it('should take the index as second argument', async () => {
   const program = pipe(
     takeWhile((_x: number, i) => i < 5),
     toArray()
-  );
+  )
 
   expect(await program(Promise.resolve(range(0, 1_000)))).toEqual([
     0,
@@ -50,5 +50,5 @@ it('should take the index as second argument', async () => {
     2,
     3,
     4,
-  ]);
-});
+  ])
+})

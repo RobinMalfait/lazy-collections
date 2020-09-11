@@ -1,5 +1,5 @@
-import { reduce } from './reduce';
+import { reduce } from './reduce'
 
 export function min() {
-  return reduce((lhs, rhs) => Math.min(lhs, rhs), Infinity);
+  return reduce((lhs, rhs) => Math.min(lhs, rhs), Infinity)
 }

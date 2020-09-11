@@ -1,8 +1,8 @@
-import * as lazy from '.';
+import * as lazy from '.'
 
 it('should export all the things', () => {
-  expect(lazy).toMatchSnapshot();
-});
+  expect(lazy).toMatchSnapshot()
+})
 
 it('should be possible to create a chain of actions and combine them in a nice stream', () => {
   const program = lazy.pipe(
@@ -20,7 +20,7 @@ it('should be possible to create a chain of actions and combine them in a nice s
 
     // To array
     lazy.toArray()
-  );
+  )
 
   expect(program(lazy.range(1_000, 1_000_000))).toEqual([
     3000,
@@ -33,5 +33,5 @@ it('should be possible to create a chain of actions and combine them in a nice s
     3042,
     3048,
     3054,
-  ]);
-});
+  ])
+})

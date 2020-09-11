@@ -1,9 +1,9 @@
-import { pipe } from './pipe';
-import { range } from './range';
-import { map } from './map';
-import { toArray } from './toArray';
-import { where } from './where';
-import { delay } from './delay';
+import { pipe } from './pipe'
+import { range } from './range'
+import { map } from './map'
+import { toArray } from './toArray'
+import { where } from './where'
+import { delay } from './delay'
 
 it('should be possible to get the items containing certain properties', () => {
   const program = pipe(
@@ -11,13 +11,13 @@ it('should be possible to get the items containing certain properties', () => {
     map((x: number) => ({ x, y: x + 1 })),
     where({ x: 3, y: 4 }),
     toArray()
-  );
+  )
 
-  expect(program()).toEqual([{ x: 3, y: 4 }]);
-});
+  expect(program()).toEqual([{ x: 3, y: 4 }])
+})
 
 it('should not crash on values that it does not understand', () => {
-  const program = pipe(where({ include: true }), toArray());
+  const program = pipe(where({ include: true }), toArray())
 
   expect(
     program([
@@ -29,8 +29,8 @@ it('should not crash on values that it does not understand', () => {
       Object.assign(function() {}, { include: false }),
       { include: true, name: 'winner' },
     ])
-  ).toEqual([{ include: true, name: 'winner' }]);
-});
+  ).toEqual([{ include: true, name: 'winner' }])
+})
 
 it('should be possible to get the items containing certain magic properties like array lengths', () => {
   const program = pipe(
@@ -38,15 +38,15 @@ it('should be possible to get the items containing certain magic properties like
     map((x: number) => [x, x]),
     where({ length: 2 }),
     toArray()
-  );
+  )
 
   expect(program()).toEqual([
     [0, 0],
     [1, 1],
     [2, 2],
     [3, 3],
-  ]);
-});
+  ])
+})
 
 it('should be possible to get the items containing certain properties (async)', async () => {
   const program = pipe(
@@ -55,10 +55,10 @@ it('should be possible to get the items containing certain properties (async)', 
     map((x: number) => ({ x, y: x + 1 })),
     where({ x: 3, y: 4 }),
     toArray()
-  );
+  )
 
-  expect(await program()).toEqual([{ x: 3, y: 4 }]);
-});
+  expect(await program()).toEqual([{ x: 3, y: 4 }])
+})
 
 it('should be possible to get the items containing certain magic properties like array lengths (async)', async () => {
   const program = pipe(
@@ -67,15 +67,15 @@ it('should be possible to get the items containing certain magic properties like
     map((x: number) => [x, x]),
     where({ length: 2 }),
     toArray()
-  );
+  )
 
   expect(await program()).toEqual([
     [0, 0],
     [1, 1],
     [2, 2],
     [3, 3],
-  ]);
-});
+  ])
+})
 
 it('should be possible to get the items containing certain properties (Promise async)', async () => {
   const program = pipe(
@@ -83,10 +83,10 @@ it('should be possible to get the items containing certain properties (Promise a
     map((x: number) => ({ x, y: x + 1 })),
     where({ x: 3, y: 4 }),
     toArray()
-  );
+  )
 
-  expect(await program()).toEqual([{ x: 3, y: 4 }]);
-});
+  expect(await program()).toEqual([{ x: 3, y: 4 }])
+})
 
 it('should be possible to get the items containing certain magic properties like array lengths (Promise async)', async () => {
   const program = pipe(
@@ -94,12 +94,12 @@ it('should be possible to get the items containing certain magic properties like
     map((x: number) => [x, x]),
     where({ length: 2 }),
     toArray()
-  );
+  )
 
   expect(await program()).toEqual([
     [0, 0],
     [1, 1],
     [2, 2],
     [3, 3],
-  ]);
-});
+  ])
+})

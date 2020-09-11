@@ -1,33 +1,33 @@
-import { isAsyncIterable } from './utils/iterator';
-import { LazyIterable } from './shared-types';
+import { isAsyncIterable } from './utils/iterator'
+import { LazyIterable } from './shared-types'
 
 export function head<T>() {
   return function headFn(
     data: LazyIterable<T>
   ): T | undefined | Promise<T | undefined> {
     if (data == null) {
-      return;
+      return
     }
 
     if (isAsyncIterable(data) || data instanceof Promise) {
       return (async () => {
-        const stream = data instanceof Promise ? await data : data;
+        const stream = data instanceof Promise ? await data : data
 
         for await (let datum of stream) {
-          return datum;
+          return datum
         }
 
-        return undefined;
-      })();
+        return undefined
+      })()
     }
 
     for (let datum of data) {
-      return datum;
+      return datum
     }
 
-    return undefined;
-  };
+    return undefined
+  }
 }
 
 // Alias
-export const first = head;
+export const first = head

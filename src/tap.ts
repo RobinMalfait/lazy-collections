@@ -1,10 +1,10 @@
-import { map } from './map';
+import { map } from './map'
 
-type Fn<T> = (datum: T, index: number) => void;
+type Fn<T> = (datum: T, index: number) => void
 
 export function tap<T>(fn: Fn<T>) {
   return map<T, T>((datum: T, index) => {
-    fn(datum, index);
-    return datum;
-  });
+    fn(datum, index)
+    return datum
+  })
 }

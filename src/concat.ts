@@ -1,5 +1,5 @@
-import { isAsyncIterable } from './utils/iterator';
-import { LazyIterable } from './shared-types';
+import { isAsyncIterable } from './utils/iterator'
+import { LazyIterable } from './shared-types'
 
 export function concat<T>(...data: LazyIterable<T>[]) {
   if (
@@ -9,17 +9,17 @@ export function concat<T>(...data: LazyIterable<T>[]) {
     return {
       async *[Symbol.asyncIterator]() {
         for await (let datum of await Promise.all(data)) {
-          yield* datum;
+          yield* datum
         }
       },
-    };
+    }
   }
 
   return {
     *[Symbol.iterator]() {
       for (let datum of data as Iterable<T>[]) {
-        yield* datum;
+        yield* datum
       }
     },
-  };
+  }
 }

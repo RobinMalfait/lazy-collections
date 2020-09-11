@@ -1,11 +1,11 @@
-import { reduce } from './reduce';
-import { LazyIterable } from './shared-types';
+import { reduce } from './reduce'
+import { LazyIterable } from './shared-types'
 
 export function toArray<T>() {
   return (data: LazyIterable<T>) => {
     return reduce<T[], T>((acc, current) => {
-      acc.push(current);
-      return acc;
-    }, [])(data);
-  };
+      acc.push(current)
+      return acc
+    }, [])(data)
+  }
 }

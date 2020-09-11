@@ -1,9 +1,9 @@
-import { pipe } from './pipe';
-import { toArray } from './toArray';
-import { zip } from './zip';
-import { take } from './take';
-import { range } from './range';
-import { chunk } from './chunk';
+import { pipe } from './pipe'
+import { toArray } from './toArray'
+import { zip } from './zip'
+import { take } from './take'
+import { range } from './range'
+import { chunk } from './chunk'
 
 it('should be possible to zip data together', () => {
   const program = pipe(
@@ -13,15 +13,15 @@ it('should be possible to zip data together', () => {
     ],
     zip(),
     toArray()
-  );
+  )
 
   expect(program()).toEqual([
     [0, 'A'],
     [1, 'B'],
     [2, 'C'],
     [3, 'D'],
-  ]);
-});
+  ])
+})
 
 it('should be possible to zip data together from a generator', () => {
   const program = pipe(
@@ -31,15 +31,15 @@ it('should be possible to zip data together from a generator', () => {
     zip(),
     take(5),
     toArray()
-  );
+  )
 
   expect(program()).toEqual([
     [0, 4, 8, 12, 16],
     [1, 5, 9, 13, 17],
     [2, 6, 10, 14, 18],
     [3, 7, 11, 15, 19],
-  ]);
-});
+  ])
+})
 
 it('should drop non matchable values', () => {
   // If array A has 3 items and array B has 4 items, the last item of array B
@@ -51,14 +51,14 @@ it('should drop non matchable values', () => {
     ],
     zip(),
     toArray()
-  );
+  )
 
   expect(program()).toEqual([
     [0, 'A'],
     [1, 'B'],
     [2, 'C'],
-  ]);
-});
+  ])
+})
 
 it('should be chainable with a take so that only a few items are zipped', () => {
   const program = pipe(
@@ -69,13 +69,13 @@ it('should be chainable with a take so that only a few items are zipped', () => 
     zip(),
     take(2),
     toArray()
-  );
+  )
 
   expect(program()).toEqual([
     [0, 'A'],
     [1, 'B'],
-  ]);
-});
+  ])
+})
 
 it('should zip multiple iterators together', () => {
   const program = pipe(
@@ -83,7 +83,7 @@ it('should zip multiple iterators together', () => {
     zip(),
     take(5),
     toArray()
-  );
+  )
 
   expect(program()).toEqual([
     [0, 999],
@@ -91,5 +91,5 @@ it('should zip multiple iterators together', () => {
     [2, 997],
     [3, 996],
     [4, 995],
-  ]);
-});
+  ])
+})
