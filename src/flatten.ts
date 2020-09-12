@@ -9,9 +9,7 @@ export function flatten<T>(options: Options = {}) {
   const { shallow = false } = options
 
   return function flattenFn(data: LazyIterable<T>): any {
-    if (data == null) {
-      return
-    }
+    if (data == null) return
 
     if (isAsyncIterable(data) || data instanceof Promise) {
       return {

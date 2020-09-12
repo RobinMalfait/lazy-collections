@@ -27,9 +27,7 @@ export function chunk<T>(size: number) {
 
           // When the chunk is not full yet, but when we are at the end of the data we
           // have to ensure that this one is also yielded
-          if (chunk.length > 0) {
-            yield chunk
-          }
+          if (chunk.length > 0) yield chunk
         },
       }
     }
@@ -55,9 +53,7 @@ export function chunk<T>(size: number) {
 
         // When the chunk is not full yet, but when we are at the end of the data we
         // have to ensure that this one is also yielded
-        if (chunk.length > 0) {
-          yield chunk
-        }
+        if (chunk.length > 0) yield chunk
       },
     }
   }

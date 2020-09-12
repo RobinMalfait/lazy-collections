@@ -12,10 +12,7 @@ export function groupBy<T>(keySelector: KeyFn<T>) {
         let i = 0
         for await (let datum of stream) {
           const key = keySelector(datum, i++)
-          if (map[key] === undefined) {
-            map[key] = []
-          }
-
+          if (map[key] === undefined) map[key] = []
           map[key].push(datum)
         }
 
@@ -27,10 +24,7 @@ export function groupBy<T>(keySelector: KeyFn<T>) {
     let i = 0
     for (let datum of data) {
       const key = keySelector(datum, i++)
-      if (map[key] === undefined) {
-        map[key] = []
-      }
-
+      if (map[key] === undefined) map[key] = []
       map[key].push(datum)
     }
 

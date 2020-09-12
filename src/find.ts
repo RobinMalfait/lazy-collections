@@ -11,9 +11,7 @@ export function find<T>(predicate: Fn<T>) {
 
         let i = 0
         for await (let datum of stream) {
-          if (predicate(datum, i++)) {
-            return datum
-          }
+          if (predicate(datum, i++)) return datum
         }
 
         return undefined
@@ -22,9 +20,7 @@ export function find<T>(predicate: Fn<T>) {
 
     let i = 0
     for (let datum of data) {
-      if (predicate(datum, i++)) {
-        return datum
-      }
+      if (predicate(datum, i++)) return datum
     }
 
     return undefined

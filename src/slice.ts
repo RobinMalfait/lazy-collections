@@ -13,17 +13,12 @@ export function slice<T>(begin = 0, end = Infinity) {
           let local_end = end - local_begin
 
           // Skip the first X values
-          while (local_begin-- > 0) {
-            iterator.next()
-          }
+          while (local_begin-- > 0) iterator.next()
 
           // Loop through the remaining items until the end is reached
           for await (let datum of iterator) {
             yield datum
-
-            if (--local_end < 0) {
-              return
-            }
+            if (--local_end < 0) return
           }
         },
       }
@@ -39,17 +34,12 @@ export function slice<T>(begin = 0, end = Infinity) {
         let local_end = end - local_begin
 
         // Skip the first X values
-        while (local_begin-- > 0) {
-          iterator.next()
-        }
+        while (local_begin-- > 0) iterator.next()
 
         // Loop through the remaining items until the end is reached
         for (let datum of iterator) {
           yield datum
-
-          if (--local_end < 0) {
-            return
-          }
+          if (--local_end < 0) return
         }
       },
     }

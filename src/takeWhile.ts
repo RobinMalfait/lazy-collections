@@ -12,10 +12,7 @@ export function takeWhile<T>(fn: Fn<T>) {
           let i = 0
 
           for await (let datum of stream) {
-            if (!fn(datum, i++)) {
-              return
-            }
-
+            if (!fn(datum, i++)) return
             yield datum
           }
         },
@@ -26,10 +23,7 @@ export function takeWhile<T>(fn: Fn<T>) {
       *[Symbol.iterator]() {
         let i = 0
         for (let datum of data) {
-          if (!fn(datum, i++)) {
-            return
-          }
-
+          if (!fn(datum, i++)) return
           yield datum
         }
       },

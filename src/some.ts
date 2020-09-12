@@ -11,9 +11,7 @@ export function some<T>(predicate: Fn<T>) {
         let i = 0
 
         for await (let datum of stream) {
-          if (predicate(datum, i++)) {
-            return true
-          }
+          if (predicate(datum, i++)) return true
         }
 
         return false
@@ -22,9 +20,7 @@ export function some<T>(predicate: Fn<T>) {
 
     let i = 0
     for (let datum of data) {
-      if (predicate(datum, i++)) {
-        return true
-      }
+      if (predicate(datum, i++)) return true
     }
 
     return false

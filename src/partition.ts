@@ -5,9 +5,7 @@ type Fn<T> = (input: T, index: number) => boolean
 
 export function partition<T>(predicate: Fn<T>) {
   return function partitionFn(data: LazyIterable<T>): MaybePromise<[T[], T[]]> | undefined {
-    if (data == null) {
-      return
-    }
+    if (data == null) return
 
     if (isAsyncIterable(data) || data instanceof Promise) {
       return (async () => {

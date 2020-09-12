@@ -6,9 +6,7 @@ function sleep(ms: number) {
 
 export function delay<T>(ms: number) {
   return async function* delayFn(data: LazyIterable<T>) {
-    if (data == null) {
-      return
-    }
+    if (data == null) return
 
     const stream = data instanceof Promise ? await data : data
 

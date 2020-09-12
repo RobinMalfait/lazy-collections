@@ -13,10 +13,7 @@ export function filter<T>(fn: Fn<T>) {
           let i = 0
           for await (let datum of stream) {
             // Ignore values that do not meet the criteria
-            if (!fn(datum, i++)) {
-              continue
-            }
-
+            if (!fn(datum, i++)) continue
             yield datum
           }
         },
@@ -28,10 +25,7 @@ export function filter<T>(fn: Fn<T>) {
         let i = 0
         for (let datum of data as Iterable<T>) {
           // Ignore values that do not meet the criteria
-          if (!fn(datum, i++)) {
-            continue
-          }
-
+          if (!fn(datum, i++)) continue
           yield datum
         }
       },

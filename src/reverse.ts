@@ -18,9 +18,7 @@ export function reverse<T>() {
           const program = pipe(toArray())
           const array = await program(stream)
 
-          for await (let datum of array.reverse()) {
-            yield datum
-          }
+          for await (let datum of array.reverse()) yield datum
         },
       }
     }
@@ -32,9 +30,7 @@ export function reverse<T>() {
          * (to make it an array), then reverse the whole thing and then start
          * yielding again.
          */
-        for (let datum of Array.from(data).reverse()) {
-          yield datum
-        }
+        for (let datum of Array.from(data).reverse()) yield datum
       },
     }
   }

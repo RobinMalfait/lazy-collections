@@ -8,9 +8,7 @@ export function zip<T>() {
       const values = iterators.map(datum => datum.next())
 
       // Stop once some values are done
-      if (values.some(value => value.done)) {
-        return
-      }
+      if (values.some(value => value.done)) return
 
       // Yield the actual values zipped together
       yield values.map(value => value.value)
