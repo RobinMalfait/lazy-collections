@@ -591,7 +591,7 @@ import { pipe, range, skip, toArray } from 'lazy-collections';
 const program = pipe(range(0, 10), skip(3), toArray());
 
 program();
-// [ 4, 5, 6, 7, 8, 9, 10 ]
+// [ 3, 4, 5, 6, 7, 8, 9, 10 ]
 ```
 
 #### `slice`
