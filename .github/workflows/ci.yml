@@ -23,18 +23,18 @@ jobs:
         uses: actions/cache@v1
         with:
           path: node_modules
-          key: node-modules-${{ hashFiles('**/yarn.lock') }}-${{ matrix.node-version }}
+          key: node-modules-${{ hashFiles('**/package-lock.json') }}-${{ matrix.node-version }}
           restore-keys: |
             node-modules-
 
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: yarn
+        run: npm ci
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: Test
-        run: yarn test
+        run: npm run test
         env:
           FAST_CHECK_RUNS: 1000
