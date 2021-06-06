@@ -20,11 +20,6 @@
   "files": [
     "dist"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
   "prettier": {
     "printWidth": 100,
     "semi": false,
@@ -42,16 +37,13 @@
     "fix-imports-nested": "./scripts/fix-imports.sh ./dist/**/*.js",
     "test": "tsdx test",
     "tdd": "tsdx test --watch",
-    "lint": "tsdx lint",
-    "format": "tsdx lint --fix",
     "prepack": "npm run build && npm run fix-imports && npm run fix-imports-nested"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.13",
-    "fast-check": "^2.3.0",
-    "husky": "^4.3.0",
-    "tsdx": "^0.13.3",
-    "tslib": "^2.0.1",
-    "typescript": "^3.9.7"
+    "@types/jest": "^26.0.23",
+    "fast-check": "^2.16.0",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.2.0",
+    "typescript": "^4.3.2"
   }
 }
