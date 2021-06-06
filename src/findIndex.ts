@@ -7,7 +7,7 @@ export function findIndex<T>(predicate: Fn<T>) {
   return function findIndexFn(data: LazyIterable<T>): number | Promise<number> {
     if (isAsyncIterable(data) || data instanceof Promise) {
       return (async () => {
-        const stream = data instanceof Promise ? await data : data
+        let stream = data instanceof Promise ? await data : data
 
         let i = 0
         for await (let datum of stream) {

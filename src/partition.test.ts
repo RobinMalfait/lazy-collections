@@ -5,7 +5,7 @@ import { partition } from './partition'
 import { delay } from './delay'
 
 it('should partition the data into 2 streams based on the predicate', () => {
-  const program = pipe(
+  let program = pipe(
     range(1, 4),
     partition((x: number) => x % 2 !== 0),
     toArray()
@@ -18,7 +18,7 @@ it('should partition the data into 2 streams based on the predicate', () => {
 })
 
 it('should return undefined when no stream is passing through it', () => {
-  const program = pipe(
+  let program = pipe(
     partition((x: number) => x % 2 !== 0),
     toArray()
   )
@@ -27,7 +27,7 @@ it('should return undefined when no stream is passing through it', () => {
 })
 
 it('should partition the data into 2 streams based on the predicate (async)', async () => {
-  const program = pipe(
+  let program = pipe(
     range(1, 4),
     delay(0),
     partition((x: number) => x % 2 !== 0),
@@ -41,7 +41,7 @@ it('should partition the data into 2 streams based on the predicate (async)', as
 })
 
 it('should partition the data into 2 streams based on the predicate (Promise async)', async () => {
-  const program = pipe(
+  let program = pipe(
     Promise.resolve(range(1, 4)),
     partition((x: number) => x % 2 !== 0),
     toArray()
@@ -54,7 +54,7 @@ it('should partition the data into 2 streams based on the predicate (Promise asy
 })
 
 it('should take the index as second argument', async () => {
-  const program = pipe(
+  let program = pipe(
     Promise.resolve(range(1, 4)),
     partition((_x: number, i) => i % 2 !== 0),
     toArray()

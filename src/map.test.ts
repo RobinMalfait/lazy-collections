@@ -4,7 +4,7 @@ import { toArray } from './toArray'
 import { delay } from './delay'
 
 it('should be possible to map data from A to B', () => {
-  const program = pipe(
+  let program = pipe(
     map((x: number) => x * 2), // Double
     toArray()
   )
@@ -14,7 +14,7 @@ it('should be possible to map data from A to B', () => {
 })
 
 it('should return undefined when no stream is passing through it', () => {
-  const program = pipe(
+  let program = pipe(
     map((x: number) => x * 2), // Double
     toArray()
   )
@@ -24,7 +24,7 @@ it('should return undefined when no stream is passing through it', () => {
 })
 
 it('should be possible to map data from A to B (async)', async () => {
-  const program = pipe(
+  let program = pipe(
     delay(0),
     map((x: number) => x * 2), // Double
     toArray()
@@ -35,7 +35,7 @@ it('should be possible to map data from A to B (async)', async () => {
 })
 
 it('should be possible to map data from A to B (Promise async)', async () => {
-  const program = pipe(
+  let program = pipe(
     delay(0),
     map((x: number) => x * 2), // Double
     toArray()
@@ -46,7 +46,7 @@ it('should be possible to map data from A to B (Promise async)', async () => {
 })
 
 it('should take the index as second argument', () => {
-  const program = pipe(
+  let program = pipe(
     map((_x: number, i) => i),
     toArray()
   )

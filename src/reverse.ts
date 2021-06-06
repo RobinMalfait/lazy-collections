@@ -13,10 +13,10 @@ export function reverse<T>() {
     if (isAsyncIterable(data) || data instanceof Promise) {
       return {
         async *[Symbol.asyncIterator]() {
-          const stream = data instanceof Promise ? await data : data
+          let stream = data instanceof Promise ? await data : data
 
-          const program = pipe(toArray())
-          const array = await program(stream)
+          let program = pipe(toArray())
+          let array = await program(stream)
 
           for await (let datum of array.reverse()) yield datum
         },

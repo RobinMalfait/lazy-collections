@@ -5,7 +5,7 @@ import { range } from './range'
 import { toArray } from './toArray'
 
 it('should be possible to pipe multiple functions', () => {
-  const program = pipe(
+  let program = pipe(
     (a: number, b: number) => `fn1(${a}, ${b})`,
     (a: string) => `fn2(${a})`,
     (a: string) => `fn3(${a})`
@@ -15,13 +15,13 @@ it('should be possible to pipe multiple functions', () => {
 })
 
 it('should be possible to pass a generator as first argument', () => {
-  const program = pipe(generate(Math.random), take(10), toArray())
-  const result = program()
+  let program = pipe(generate(Math.random), take(10), toArray())
+  let result = program()
   expect(result).toHaveLength(10)
 })
 
 it('should be possible to pass a generator as only argument', () => {
-  const program = pipe(range(0, 10))
-  const result = program()
+  let program = pipe(range(0, 10))
+  let result = program()
   expect(Array.from(result)).toHaveLength(11)
 })

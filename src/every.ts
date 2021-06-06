@@ -9,7 +9,7 @@ export function every<T>(predicate: Fn<T>) {
 
     if (isAsyncIterable(data) || data instanceof Promise) {
       return (async () => {
-        const stream = data instanceof Promise ? await data : data
+        let stream = data instanceof Promise ? await data : data
 
         let i = 0
         for await (let datum of stream) {

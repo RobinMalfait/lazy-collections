@@ -10,7 +10,7 @@ function snap(multitude: number, value: number) {
 }
 
 it('should be possible to create a unique stream', () => {
-  const program = pipe(
+  let program = pipe(
     map((x: number) => snap(5, x)),
     unique(),
     toArray()
@@ -20,7 +20,7 @@ it('should be possible to create a unique stream', () => {
 })
 
 it('should be possible to create a unique stream (async)', async () => {
-  const program = pipe(
+  let program = pipe(
     delay(0),
     map((x: number) => snap(5, x)),
     unique(),
@@ -31,7 +31,7 @@ it('should be possible to create a unique stream (async)', async () => {
 })
 
 it('should be possible to create a unique stream (Promise async)', async () => {
-  const program = pipe(unique(), toArray())
+  let program = pipe(unique(), toArray())
 
   expect(await program(Promise.resolve([0, 0, 5, 5, 5, 10, 10]))).toEqual([0, 5, 10])
 })

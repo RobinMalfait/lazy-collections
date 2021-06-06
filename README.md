@@ -28,7 +28,7 @@ the functions uses an `asyncIterator` (for example when you introduce
 [1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterator_protocol
 
 ```js
-const program = pipe(
+let program = pipe(
   map(x => x * 2),
   filter(x => x % 4 === 0),
   filter(x => x % 100 === 0),
@@ -105,7 +105,7 @@ import {
 } from 'lazy-collections';
 
 // Lazy example
-const program = pipe(
+let program = pipe(
   range(0, 10_000_000),
   filter(x => x % 100 === 0),
   filter(x => x % 4 === 0),
@@ -162,7 +162,7 @@ combines all other functions.
 import { compose } from 'lazy-collections';
 
 // Create a program (or a combination of functions)
-const program = compose(fn1, fn2, fn3);
+let program = compose(fn1, fn2, fn3);
 
 program();
 // fn1(fn2(fn3()))
@@ -182,7 +182,7 @@ functions.
 import { pipe } from 'lazy-collections';
 
 // Create a program (or a combination of functions)
-const program = pipe(fn1, fn2, fn3);
+let program = pipe(fn1, fn2, fn3);
 
 program();
 // fn3(fn2(fn1()))
@@ -199,7 +199,7 @@ Concat multiple iterators or arrays into a single iterator.
 ```js
 import { pipe, concat, toArray } from 'lazy-collections';
 
-const program = pipe(
+let program = pipe(
   concat([0, 1, 2], [3, 4, 5], [6, 7, 8], [9, 10]),
   toArray()
 );
@@ -217,7 +217,7 @@ Should return true if all values match the predicate.
 ```js
 import { pipe, every } from 'lazy-collections';
 
-const program = pipe(every(x => x === 2));
+let program = pipe(every(x => x === 2));
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // false
@@ -232,7 +232,7 @@ Filter out values that do not meet the condition.
 ```js
 import { pipe, filter, toArray } from 'lazy-collections';
 
-const program = pipe(
+let program = pipe(
   filter(x => x % 2 === 0),
   toArray()
 );
@@ -250,7 +250,7 @@ Find a value based on the given predicate.
 ```js
 import { pipe, find } from 'lazy-collections';
 
-const program = pipe(find(x => x === 2));
+let program = pipe(find(x => x === 2));
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // 2
@@ -265,7 +265,7 @@ Find an index based on the given predicate.
 ```js
 import { pipe, findIndex } from 'lazy-collections';
 
-const program = pipe(findIndex(x => x === 2));
+let program = pipe(findIndex(x => x === 2));
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // 2
@@ -280,7 +280,7 @@ Map a value from A to B.
 ```js
 import { pipe, map, toArray } from 'lazy-collections';
 
-const program = pipe(
+let program = pipe(
   map(x => x * 2),
   toArray()
 );
@@ -298,7 +298,7 @@ Reduce the data to a single value.
 ```js
 import { pipe, reduce } from 'lazy-collections';
 
-const program = pipe(reduce((total, current) => total + current, 0));
+let program = pipe(reduce((total, current) => total + current, 0));
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // 55
@@ -316,7 +316,7 @@ Reverses the iterator.
 ```js
 import { pipe, reverse, toArray } from 'lazy-collections';
 
-const program = pipe(range(0, 5), reverse(), toArray());
+let program = pipe(range(0, 5), reverse(), toArray());
 
 program();
 // [ 5, 4, 3, 2, 1, 0 ]
@@ -331,7 +331,7 @@ Should return true if some of the values match the predicate.
 ```js
 import { pipe, some } from 'lazy-collections';
 
-const program = pipe(some(x => x === 2));
+let program = pipe(some(x => x === 2));
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // true
@@ -350,7 +350,7 @@ Gets the average of number of values.
 ```js
 import { pipe, average, toArray } from 'lazy-collections';
 
-const program = pipe(average());
+let program = pipe(average());
 
 program([6, 7, 8, 9, 10]);
 // 8
@@ -365,7 +365,7 @@ Find the maximum value of the given list
 ```js
 import { pipe, range, max } from 'lazy-collections';
 
-const program = pipe(range(0, 5), max());
+let program = pipe(range(0, 5), max());
 
 program();
 // 5
@@ -380,7 +380,7 @@ Find the minimum value of the given list
 ```js
 import { pipe, range, min } from 'lazy-collections';
 
-const program = pipe(range(5, 10), min());
+let program = pipe(range(5, 10), min());
 
 program();
 // 5
@@ -395,7 +395,7 @@ Should sum an array or iterator.
 ```js
 import { pipe, sum } from 'lazy-collections';
 
-const program = pipe(sum());
+let program = pipe(sum());
 
 program([1, 1, 2, 3, 2, 4, 5]);
 // 18
@@ -412,7 +412,7 @@ Chunk the data into pieces of a certain size.
 ```js
 import { pipe, chunk, toArray } from 'lazy-collections';
 
-const program = pipe(chunk(3), toArray());
+let program = pipe(chunk(3), toArray());
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ], [ 10 ] ];
@@ -427,7 +427,7 @@ Filters out all falsey values.
 ```js
 import { pipe, compact, toArray } from 'lazy-collections';
 
-const program = pipe(compact(), toArray());
+let program = pipe(compact(), toArray());
 
 program([0, 1, true, false, null, undefined, '', 'test', NaN]);
 // [ 1, true, 'test' ];
@@ -443,7 +443,7 @@ item goes through the stream.
 ```js
 import { pipe, range, delay, map, toArray } from 'lazy-collections';
 
-const program = pipe(
+let program = pipe(
   range(0, 4),
   delay(5000), // 5 seconds
   map(() => new Date().toLocaleTimeString()),
@@ -463,7 +463,7 @@ By default we will flatten recursively deep.
 ```js
 import { pipe, flatten, toArray } from 'lazy-collections';
 
-const program = pipe(flatten(), toArray());
+let program = pipe(flatten(), toArray());
 
 program([1, 2, 3, [4, 5, 6, [7, 8], 9, 10]]);
 // [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
@@ -474,7 +474,7 @@ But you can also just flatten shallowly
 ```js
 import { pipe, flatten, toArray } from 'lazy-collections';
 
-const program = pipe(flatten({ shallow: true }), toArray());
+let program = pipe(flatten({ shallow: true }), toArray());
 
 program([1, 2, 3, [4, 5, 6, [7, 8], 9, 10]]);
 // [ 1, 2, 3, 4, 5, 6, [ 7, 8 ], 9, 10 ]
@@ -491,7 +491,7 @@ will end. For example, you can use `take`, `takeWhile` or `slice`.
 ```js
 import { pipe, generate, take, toArray } from 'lazy-collections';
 
-const program = pipe(generate(Math.random), take(3), toArray());
+let program = pipe(generate(Math.random), take(3), toArray());
 
 program();
 // [ 0.7495421596380878, 0.09819118640607383, 0.2453718461872143 ]
@@ -513,7 +513,7 @@ function snap(multitude: number, value: number) {
   return Math.ceil(value / multitude) * multitude;
 }
 
-const program = pipe(
+let program = pipe(
   range(0, 10),
   groupBy((x: number) => snap(5, x))
 );
@@ -538,7 +538,7 @@ value.
 ```js
 import { pipe, chunk, toArray } from 'lazy-collections';
 
-const program = pipe(head());
+let program = pipe(head());
 
 program([6, 7, 8, 9, 10]);
 // 6
@@ -553,7 +553,7 @@ Partition data into 2 groups based on the predicate.
 ```js
 import { pipe, partition, range, toArray } from 'lazy-collections';
 
-const program = pipe(
+let program = pipe(
   range(1, 4),
   partition(x => x % 2 !== 0),
   toArray()
@@ -573,7 +573,7 @@ optional and defaults to `1`.
 ```js
 import { pipe, range, toArray } from 'lazy-collections';
 
-const program = pipe(range(5, 20, 5), toArray());
+let program = pipe(range(5, 20, 5), toArray());
 
 program();
 // [ 5, 10, 15, 20 ]
@@ -588,7 +588,7 @@ Allows you to skip X values of the input.
 ```js
 import { pipe, range, skip, toArray } from 'lazy-collections';
 
-const program = pipe(range(0, 10), skip(3), toArray());
+let program = pipe(range(0, 10), skip(3), toArray());
 
 program();
 // [ 3, 4, 5, 6, 7, 8, 9, 10 ]
@@ -604,7 +604,7 @@ index.
 ```js
 import { pipe, range, slice, toArray } from 'lazy-collections';
 
-const program = pipe(range(0, 10), slice(3, 5), toArray());
+let program = pipe(range(0, 10), slice(3, 5), toArray());
 
 program();
 // [ 3, 4, 5 ]
@@ -622,7 +622,7 @@ Allows you to take X values of the input.
 ```js
 import { pipe, range, take, toArray } from 'lazy-collections';
 
-const program = pipe(range(0, 10), take(3), toArray());
+let program = pipe(range(0, 10), take(3), toArray());
 
 program();
 // [ 1, 2, 3 ]
@@ -638,7 +638,7 @@ function as a condition.
 ```js
 import { pipe, range, takeWhile, toArray } from 'lazy-collections';
 
-const program = pipe(
+let program = pipe(
   range(0, 10),
   takeWhile(x => x < 5),
   toArray()
@@ -657,7 +657,7 @@ Allows you to tap into the stream, this way you can intercept each value.
 ```js
 import { pipe, range, tap, toArray } from 'lazy-collections';
 
-const program = pipe(
+let program = pipe(
   range(0, 5),
   tap(x => {
     console.log('x:', x);
@@ -684,7 +684,7 @@ Converts an array or an iterator to an actual array.
 ```js
 import { pipe, range, toArray } from 'lazy-collections';
 
-const program = pipe(range(0, 10), toArray());
+let program = pipe(range(0, 10), toArray());
 
 program();
 // [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
@@ -699,7 +699,7 @@ Make your data unique.
 ```js
 import { pipe, unique, toArray } from 'lazy-collections';
 
-const program = pipe(unique(), toArray());
+let program = pipe(unique(), toArray());
 
 program([1, 1, 2, 3, 2, 4, 5]);
 // [ 1, 2, 3, 4, 5 ]
@@ -714,7 +714,7 @@ Filter out values based on the given properties.
 ```js
 import { pipe, where, range, map, where, toArray } from 'lazy-collections';
 
-const program = pipe(
+let program = pipe(
   range(15, 20),
   map(age => ({ age })),
   where({ age: 18 }),
@@ -734,7 +734,7 @@ Zips multiple arrays / iterators together.
 ```js
 import { pipe, zip, toArray } from 'lazy-collections';
 
-const program = pipe(zip(), toArray());
+let program = pipe(zip(), toArray());
 
 program([
   [0, 1, 2],

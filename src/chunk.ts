@@ -6,7 +6,7 @@ export function chunk<T>(size: number) {
     if (isAsyncIterable(data) || data instanceof Promise) {
       return {
         async *[Symbol.asyncIterator]() {
-          const stream = data instanceof Promise ? await data : data
+          let stream = data instanceof Promise ? await data : data
 
           // Let's have a placeholder for our current chunk
           let chunk = []

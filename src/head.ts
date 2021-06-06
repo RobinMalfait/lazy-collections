@@ -7,7 +7,7 @@ export function head<T>() {
 
     if (isAsyncIterable(data) || data instanceof Promise) {
       return (async () => {
-        const stream = data instanceof Promise ? await data : data
+        let stream = data instanceof Promise ? await data : data
 
         for await (let datum of stream) return datum
         return undefined
@@ -20,4 +20,4 @@ export function head<T>() {
 }
 
 // Alias
-export const first = head
+export let first = head

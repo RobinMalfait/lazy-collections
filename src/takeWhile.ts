@@ -8,7 +8,7 @@ export function takeWhile<T>(fn: Fn<T>) {
     if (isAsyncIterable(data) || data instanceof Promise) {
       return {
         async *[Symbol.asyncIterator]() {
-          const stream = data instanceof Promise ? await data : data
+          let stream = data instanceof Promise ? await data : data
           let i = 0
 
           for await (let datum of stream) {

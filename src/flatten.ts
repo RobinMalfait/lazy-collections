@@ -6,7 +6,7 @@ type Options = {
 }
 
 export function flatten<T>(options: Options = {}) {
-  const { shallow = false } = options
+  let { shallow = false } = options
 
   return function flattenFn(data: LazyIterable<T>): any {
     if (data == null) return
@@ -14,7 +14,7 @@ export function flatten<T>(options: Options = {}) {
     if (isAsyncIterable(data) || data instanceof Promise) {
       return {
         async *[Symbol.asyncIterator]() {
-          const stream = data instanceof Promise ? await data : data
+          let stream = data instanceof Promise ? await data : data
 
           for await (let datum of stream) {
             if (shallow) {

@@ -5,7 +5,7 @@ import { toArray } from './toArray'
 import { delay } from './delay'
 
 it('should be possible to take values as long as they meet a certain condition', () => {
-  const program = pipe(
+  let program = pipe(
     takeWhile((x: number) => x < 5),
     toArray()
   )
@@ -14,7 +14,7 @@ it('should be possible to take values as long as they meet a certain condition',
 })
 
 it('should be possible to take values as long as they meet a certain condition (async)', async () => {
-  const program = pipe(
+  let program = pipe(
     delay(0),
     takeWhile((x: number) => x < 5),
     toArray()
@@ -24,7 +24,7 @@ it('should be possible to take values as long as they meet a certain condition (
 })
 
 it('should be possible to take values as long as they meet a certain condition (Promise async)', async () => {
-  const program = pipe(
+  let program = pipe(
     takeWhile((x: number) => x < 5),
     toArray()
   )
@@ -33,7 +33,7 @@ it('should be possible to take values as long as they meet a certain condition (
 })
 
 it('should take the index as second argument', async () => {
-  const program = pipe(
+  let program = pipe(
     takeWhile((_x: number, i) => i < 5),
     toArray()
   )

@@ -5,28 +5,28 @@ import { toArray } from './toArray'
 import { delay } from './delay'
 
 it('should be possible to flatten data (shallow)', () => {
-  const program = pipe(flatten({ shallow: true }), toArray())
+  let program = pipe(flatten({ shallow: true }), toArray())
 
   expect(program([1, [2], range(3, 10)])).toEqual(Array.from(range(1, 10)))
   expect(program([1, [2], range(3, 10)])).toEqual(Array.from(range(1, 10)))
 })
 
 it('should be possible to deep flatten data', () => {
-  const program = pipe(flatten(), toArray())
+  let program = pipe(flatten(), toArray())
 
   expect(program([1, [2, [3, [[[4]], [5]]]]])).toEqual(Array.from(range(1, 5)))
   expect(program([1, [2, [3, [[[4]], [5]]]]])).toEqual(Array.from(range(1, 5)))
 })
 
 it('should be possible to deep flatten data (async)', async () => {
-  const program = pipe(delay(0), flatten(), toArray())
+  let program = pipe(delay(0), flatten(), toArray())
 
   expect(await program([1, [2, [3, [[[4]], [5]]]]])).toEqual(Array.from(range(1, 5)))
   expect(await program([1, [2, [3, [[[4]], [5]]]]])).toEqual(Array.from(range(1, 5)))
 })
 
 it('should be possible to deep flatten data (Promise async)', async () => {
-  const program = pipe(flatten(), toArray())
+  let program = pipe(flatten(), toArray())
 
   expect(await program(Promise.resolve([1, [2, [3, [[[4]], [5]]]]]))).toEqual(
     Array.from(range(1, 5))

@@ -5,8 +5,8 @@ import { tap } from './tap'
 import { delay } from './delay'
 
 it('should be possible to tap into the current sequence', () => {
-  const fn = jest.fn()
-  const program = pipe(
+  let fn = jest.fn()
+  let program = pipe(
     range(0, 5),
     tap(value => {
       fn(value)
@@ -19,8 +19,8 @@ it('should be possible to tap into the current sequence', () => {
 })
 
 it('should be possible to tap into the current sequence (async)', async () => {
-  const fn = jest.fn()
-  const program = pipe(
+  let fn = jest.fn()
+  let program = pipe(
     range(0, 5),
     delay(0),
     tap(value => {
@@ -34,8 +34,8 @@ it('should be possible to tap into the current sequence (async)', async () => {
 })
 
 it('should be possible to tap into the current sequence (Promise async)', async () => {
-  const fn = jest.fn()
-  const program = pipe(
+  let fn = jest.fn()
+  let program = pipe(
     Promise.resolve(range(0, 5)),
     tap(value => {
       fn(value)
@@ -48,8 +48,8 @@ it('should be possible to tap into the current sequence (Promise async)', async 
 })
 
 it('should take the index as second argument', async () => {
-  const fn = jest.fn()
-  const program = pipe(
+  let fn = jest.fn()
+  let program = pipe(
     Promise.resolve(range(0, 5)),
     tap((_value, index) => {
       fn(index)

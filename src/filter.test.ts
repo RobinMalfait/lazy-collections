@@ -4,7 +4,7 @@ import { toArray } from './toArray'
 import { delay } from './delay'
 
 it('should be possible to filter data', () => {
-  const program = pipe(
+  let program = pipe(
     filter((x: number) => x % 2 === 0), // Is even
     toArray()
   )
@@ -14,7 +14,7 @@ it('should be possible to filter data', () => {
 })
 
 it('should be possible to filter data (async)', async () => {
-  const program = pipe(
+  let program = pipe(
     delay(0),
     filter((x: number) => x % 2 === 0), // Is even
     toArray()
@@ -25,7 +25,7 @@ it('should be possible to filter data (async)', async () => {
 })
 
 it('should be possible to filter data (Promise async)', async () => {
-  const program = pipe(
+  let program = pipe(
     filter((x: number) => x % 2 === 0), // Is even
     toArray()
   )
@@ -35,7 +35,7 @@ it('should be possible to filter data (Promise async)', async () => {
 })
 
 it('should take the index as second argument', async () => {
-  const program = pipe(
+  let program = pipe(
     filter((_x: number, i) => i % 2 === 0), // Is even
     toArray()
   )

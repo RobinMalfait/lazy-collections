@@ -8,7 +8,7 @@ function snap(multitude: number, value: number) {
 }
 
 it('should be possible to group an iterator by something', () => {
-  const program = pipe(
+  let program = pipe(
     range(0, 10),
     groupBy((x: number) => snap(5, x))
   )
@@ -21,7 +21,7 @@ it('should be possible to group an iterator by something', () => {
 })
 
 it('should be possible to group an iterator by something (async)', async () => {
-  const program = pipe(
+  let program = pipe(
     range(0, 10),
     delay(0),
     groupBy((x: number) => snap(5, x))
@@ -35,7 +35,7 @@ it('should be possible to group an iterator by something (async)', async () => {
 })
 
 it('should be possible to group an iterator by something (Promise async)', async () => {
-  const program = pipe(
+  let program = pipe(
     Promise.resolve(range(0, 10)),
     groupBy((x: number) => snap(5, x))
   )
@@ -48,7 +48,7 @@ it('should be possible to group an iterator by something (Promise async)', async
 })
 
 it('should take the index as second argument', async () => {
-  const program = pipe(
+  let program = pipe(
     Promise.resolve(range(0, 10)),
     groupBy((_x: number, i) => snap(5, i))
   )

@@ -5,7 +5,7 @@ it('should export all the things', () => {
 })
 
 it('should be possible to create a chain of actions and combine them in a nice stream', () => {
-  const program = lazy.pipe(
+  let program = lazy.pipe(
     // Triple
     lazy.map((x: number) => x * 3),
 

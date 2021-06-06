@@ -6,7 +6,7 @@ import { take } from './take'
 import { toArray } from './toArray'
 
 it('should be possible to create a stream using the generate function', () => {
-  const program = pipe(slice(0, 10), toArray())
+  let program = pipe(slice(0, 10), toArray())
 
   let i = 0
   expect(program(generate(() => i++))).toEqual(Array.from(range(0, 10)))

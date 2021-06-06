@@ -5,7 +5,7 @@ import { pipe } from './pipe'
 import { chunk } from './chunk'
 
 it('should create a range', () => {
-  const program = pipe(take(10), chunk(2))
+  let program = pipe(take(10), chunk(2))
 
   fc.assert(
     fc.property(
@@ -13,12 +13,12 @@ it('should create a range', () => {
       fc.integer(), // Upperbound
       fc.oneof(fc.integer(), fc.constant(undefined)), // Step
       (lowerbound, upperbound, step) => {
-        const data = program(range(lowerbound, upperbound, step))
+        let data = program(range(lowerbound, upperbound, step))
 
         // Verify that it generates an ordered list, ascending or descending
         for (let chunk of data) {
           if (chunk.length === 2) {
-            const [a, b] = chunk
+            let [a, b] = chunk
             if (step === undefined) {
               // We should default to a step of 1
               expect(Math.abs(a - b)).toBe(1)

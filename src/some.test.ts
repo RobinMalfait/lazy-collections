@@ -4,7 +4,7 @@ import { some } from './some'
 import { delay } from './delay'
 
 it('should return true when some value matches the predicate', () => {
-  const program = pipe(
+  let program = pipe(
     range(0, 25),
     some(x => x === 12)
   )
@@ -13,7 +13,7 @@ it('should return true when some value matches the predicate', () => {
 })
 
 it('should return false when non of the values match the predicate', () => {
-  const program = pipe(
+  let program = pipe(
     range(0, 100),
     some((x: number) => x > 100)
   )
@@ -22,7 +22,7 @@ it('should return false when non of the values match the predicate', () => {
 })
 
 it('should return true when some value matches the predicate (async)', async () => {
-  const program = pipe(
+  let program = pipe(
     delay(0),
     some(x => x === 12)
   )
@@ -32,7 +32,7 @@ it('should return true when some value matches the predicate (async)', async () 
 })
 
 it('should return false when non of the values match the predicate (async)', async () => {
-  const program = pipe(
+  let program = pipe(
     delay(0),
     some((x: number) => x > 100)
   )
@@ -42,21 +42,21 @@ it('should return false when non of the values match the predicate (async)', asy
 })
 
 it('should return true when some value matches the predicate (Promise async)', async () => {
-  const program = pipe(some(x => x === 12))
+  let program = pipe(some(x => x === 12))
 
   expect(await program(Promise.resolve(range(0, 25)))).toEqual(true)
   expect(await program(Promise.resolve(range(0, 25)))).toEqual(true)
 })
 
 it('should return false when non of the values match the predicate (Promise async)', async () => {
-  const program = pipe(some((x: number) => x > 100))
+  let program = pipe(some((x: number) => x > 100))
 
   expect(await program(Promise.resolve(range(0, 100)))).toEqual(false)
   expect(await program(Promise.resolve(range(0, 100)))).toEqual(false)
 })
 
 it('should take the index as second argument', async () => {
-  const program = pipe(some((_x: number, i) => i > 100))
+  let program = pipe(some((_x: number, i) => i > 100))
 
   expect(await program(Promise.resolve(range(0, 100)))).toEqual(false)
   expect(await program(Promise.resolve(range(0, 100)))).toEqual(false)

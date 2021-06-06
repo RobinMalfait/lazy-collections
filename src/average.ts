@@ -7,7 +7,7 @@ import { LazyIterable } from './shared-types'
 
 export function average() {
   return function averageFn(data: LazyIterable<number>) {
-    const program = pipe(
+    let program = pipe(
       reduce<[number, number], number>(
         (acc, current) => {
           acc[0] += current
@@ -26,4 +26,4 @@ export function average() {
 }
 
 // Alias
-export const mean = average
+export let mean = average

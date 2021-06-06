@@ -6,8 +6,8 @@ export function slice<T>(begin = 0, end = Infinity) {
     if (isAsyncIterable(data) || data instanceof Promise) {
       return {
         async *[Symbol.asyncIterator]() {
-          const stream = data instanceof Promise ? await data : data
-          const iterator = stream as AsyncIterableIterator<T>
+          let stream = data instanceof Promise ? await data : data
+          let iterator = stream as AsyncIterableIterator<T>
 
           let local_begin = begin
           let local_end = end - local_begin
@@ -26,7 +26,7 @@ export function slice<T>(begin = 0, end = Infinity) {
 
     return {
       *[Symbol.iterator]() {
-        const iterator = Array.isArray(data)
+        let iterator = Array.isArray(data)
           ? (data[Symbol.iterator]() as IterableIterator<T>)
           : (data as IterableIterator<T>)
 

@@ -7,9 +7,9 @@ import { tap } from './tap'
 import { chunk } from './chunk'
 
 it('should delay each value by 100ms', async () => {
-  const counter = jest.fn()
+  let counter = jest.fn()
 
-  const program = pipe(
+  let program = pipe(
     // Create a range of 6 values.
     range(0, 5),
 
@@ -33,7 +33,7 @@ it('should delay each value by 100ms', async () => {
     every((diff: number) => diff >= 100)
   )
 
-  const result = await program()
+  let result = await program()
 
   expect(result).toBe(true)
   expect(counter).toHaveBeenCalledTimes(6)
