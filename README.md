@@ -283,19 +283,19 @@ import { pipe, join } from 'lazy-collections';
 
 let program = pipe(join());
 
-program(['l','a','z','y',' ','c','o','l','l','e','c','t','i','o','n','s']);
-// 'lazy collections'
+program(['foo', 'bar', 'baz']);
+// 'foo,bar,baz'
 ```
 
-Optionally, you can join with a separator:
+Optionally, you can join with a separator string:
 
 ```js
 import { pipe, join } from 'lazy-collections';
 
 let program = pipe(join(' '));
 
-program(['lazy', 'collections']);
-// 'lazy collections'
+program(['foo', 'bar', 'baz']);
+// 'foo bar baz'
 ```
 
 #### `map`
