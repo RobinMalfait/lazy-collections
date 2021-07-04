@@ -17,6 +17,7 @@ Object {
   "generate": [Function],
   "groupBy": [Function],
   "head": [Function],
+  "join": [Function],
   "map": [Function],
   "max": [Function],
   "mean": [Function],

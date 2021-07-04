@@ -52,6 +52,7 @@ program(range(0, 1000000));
     - [`filter`](#filter)
     - [`find`](#find)
     - [`findIndex`](#findindex)
+    - [`join`](#join)
     - [`map`](#map)
     - [`reduce`](#reduce)
     - [`reverse`](#reverse)
@@ -269,6 +270,32 @@ let program = pipe(findIndex(x => x === 2));
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // 2
+```
+
+#### `join`
+
+[Table of contents](#table-of-contents)
+
+Join an array or iterator of strings.
+
+```js
+import { pipe, join } from 'lazy-collections';
+
+let program = pipe(join());
+
+program(['foo', 'bar', 'baz']);
+// 'foo,bar,baz'
+```
+
+Optionally, you can join with a separator string:
+
+```js
+import { pipe, join } from 'lazy-collections';
+
+let program = pipe(join(' '));
+
+program(['foo', 'bar', 'baz']);
+// 'foo bar baz'
 ```
 
 #### `map`
