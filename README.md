@@ -761,7 +761,7 @@ Zips multiple arrays / iterators together.
 ```js
 import { pipe, zip, toArray } from 'lazy-collections';
 
-let program = pipe(zip(), toArray);
+let program = pipe(zip, toArray);
 
 program([
   [0, 1, 2],
