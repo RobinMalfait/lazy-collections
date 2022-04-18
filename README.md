@@ -422,7 +422,7 @@ Should sum an array or iterator.
 ```js
 import { pipe, sum } from 'lazy-collections';
 
-let program = pipe(sum());
+let program = pipe(sum);
 
 program([1, 1, 2, 3, 2, 4, 5]);
 // 18
