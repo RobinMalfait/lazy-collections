@@ -726,7 +726,7 @@ Make your data unique.
 ```js
 import { pipe, unique, toArray } from 'lazy-collections';
 
-let program = pipe(unique(), toArray);
+let program = pipe(unique, toArray);
 
 program([1, 1, 2, 3, 2, 4, 5]);
 // [ 1, 2, 3, 4, 5 ]

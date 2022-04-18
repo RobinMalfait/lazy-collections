@@ -1,8 +1,7 @@
 import { isAsyncIterable } from './utils/iterator'
 import { LazyIterable } from './shared-types'
 
-export function unique<T>() {
-  return function uniqueFn(data: LazyIterable<T>) {
+export function unique<T>(data: LazyIterable<T>) {
     let seen = new Set<T>([])
 
     if (isAsyncIterable(data) || data instanceof Promise) {
@@ -29,6 +28,5 @@ export function unique<T>() {
           }
         }
       },
-    }
   }
 }
