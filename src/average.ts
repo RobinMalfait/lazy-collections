@@ -18,7 +18,7 @@ export function average() {
       ),
       chunk(2),
       map(([sum, count]: [number, number]) => sum / count),
-      head()
+      head
     )
 
     return program(data)

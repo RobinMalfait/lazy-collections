@@ -565,7 +565,7 @@ value.
 ```js
 import { pipe, chunk, toArray } from 'lazy-collections';
 
-let program = pipe(head());
+let program = pipe(head);
 
 program([6, 7, 8, 9, 10]);
 // 6
