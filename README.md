@@ -33,7 +33,7 @@ let program = pipe(
   filter(x => x % 4 === 0),
   filter(x => x % 100 === 0),
   filter(x => x % 400 === 0),
-  toArray()
+  toArray
 );
 
 program(range(0, 1000000));
@@ -113,7 +113,7 @@ let program = pipe(
   filter(x => x % 400 === 0),
   takeWhile(x => x < 1_000),
   slice(0, 1_000),
-  toArray()
+  toArray
 );
 
 program(); // [ 0, 400, 800 ]
@@ -202,7 +202,7 @@ import { pipe, concat, toArray } from 'lazy-collections';
 
 let program = pipe(
   concat([0, 1, 2], [3, 4, 5], [6, 7, 8], [9, 10]),
-  toArray()
+  toArray
 );
 
 program();
@@ -235,7 +235,7 @@ import { pipe, filter, toArray } from 'lazy-collections';
 
 let program = pipe(
   filter(x => x % 2 === 0),
-  toArray()
+  toArray
 );
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -309,7 +309,7 @@ import { pipe, map, toArray } from 'lazy-collections';
 
 let program = pipe(
   map(x => x * 2),
-  toArray()
+  toArray
 );
 
 program([1, 2, 3]);
@@ -343,7 +343,7 @@ Reverses the iterator.
 ```js
 import { pipe, reverse, toArray } from 'lazy-collections';
 
-let program = pipe(range(0, 5), reverse(), toArray());
+let program = pipe(range(0, 5), reverse(), toArray);
 
 program();
 // [ 5, 4, 3, 2, 1, 0 ]
@@ -439,7 +439,7 @@ Chunk the data into pieces of a certain size.
 ```js
 import { pipe, chunk, toArray } from 'lazy-collections';
 
-let program = pipe(chunk(3), toArray());
+let program = pipe(chunk(3), toArray);
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ], [ 10 ] ];
@@ -454,7 +454,7 @@ Filters out all falsey values.
 ```js
 import { pipe, compact, toArray } from 'lazy-collections';
 
-let program = pipe(compact(), toArray());
+let program = pipe(compact(), toArray);
 
 program([0, 1, true, false, null, undefined, '', 'test', NaN]);
 // [ 1, true, 'test' ];
@@ -474,7 +474,7 @@ let program = pipe(
   range(0, 4),
   delay(5000), // 5 seconds
   map(() => new Date().toLocaleTimeString()),
-  toArray()
+  toArray
 );
 
 await program();
@@ -490,7 +490,7 @@ By default we will flatten recursively deep.
 ```js
 import { pipe, flatten, toArray } from 'lazy-collections';
 
-let program = pipe(flatten(), toArray());
+let program = pipe(flatten(), toArray);
 
 program([1, 2, 3, [4, 5, 6, [7, 8], 9, 10]]);
 // [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
@@ -501,7 +501,7 @@ But you can also just flatten shallowly
 ```js
 import { pipe, flatten, toArray } from 'lazy-collections';
 
-let program = pipe(flatten({ shallow: true }), toArray());
+let program = pipe(flatten({ shallow: true }), toArray);
 
 program([1, 2, 3, [4, 5, 6, [7, 8], 9, 10]]);
 // [ 1, 2, 3, 4, 5, 6, [ 7, 8 ], 9, 10 ]
@@ -518,7 +518,7 @@ will end. For example, you can use `take`, `takeWhile` or `slice`.
 ```js
 import { pipe, generate, take, toArray } from 'lazy-collections';
 
-let program = pipe(generate(Math.random), take(3), toArray());
+let program = pipe(generate(Math.random), take(3), toArray);
 
 program();
 // [ 0.7495421596380878, 0.09819118640607383, 0.2453718461872143 ]
@@ -583,7 +583,7 @@ import { pipe, partition, range, toArray } from 'lazy-collections';
 let program = pipe(
   range(1, 4),
   partition(x => x % 2 !== 0),
-  toArray()
+  toArray
 );
 
 program();
@@ -600,7 +600,7 @@ optional and defaults to `1`.
 ```js
 import { pipe, range, toArray } from 'lazy-collections';
 
-let program = pipe(range(5, 20, 5), toArray());
+let program = pipe(range(5, 20, 5), toArray);
 
 program();
 // [ 5, 10, 15, 20 ]
@@ -615,7 +615,7 @@ Allows you to skip X values of the input.
 ```js
 import { pipe, range, skip, toArray } from 'lazy-collections';
 
-let program = pipe(range(0, 10), skip(3), toArray());
+let program = pipe(range(0, 10), skip(3), toArray);
 
 program();
 // [ 3, 4, 5, 6, 7, 8, 9, 10 ]
@@ -631,7 +631,7 @@ index.
 ```js
 import { pipe, range, slice, toArray } from 'lazy-collections';
 
-let program = pipe(range(0, 10), slice(3, 5), toArray());
+let program = pipe(range(0, 10), slice(3, 5), toArray);
 
 program();
 // [ 3, 4, 5 ]
@@ -649,7 +649,7 @@ Allows you to take X values of the input.
 ```js
 import { pipe, range, take, toArray } from 'lazy-collections';
 
-let program = pipe(range(0, 10), take(3), toArray());
+let program = pipe(range(0, 10), take(3), toArray);
 
 program();
 // [ 1, 2, 3 ]
@@ -668,7 +668,7 @@ import { pipe, range, takeWhile, toArray } from 'lazy-collections';
 let program = pipe(
   range(0, 10),
   takeWhile(x => x < 5),
-  toArray()
+  toArray
 );
 
 program();
@@ -689,7 +689,7 @@ let program = pipe(
   tap(x => {
     console.log('x:', x);
   }),
-  toArray()
+  toArray
 );
 
 program();
@@ -711,7 +711,7 @@ Converts an array or an iterator to an actual array.
 ```js
 import { pipe, range, toArray } from 'lazy-collections';
 
-let program = pipe(range(0, 10), toArray());
+let program = pipe(range(0, 10), toArray);
 
 program();
 // [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
@@ -726,7 +726,7 @@ Make your data unique.
 ```js
 import { pipe, unique, toArray } from 'lazy-collections';
 
-let program = pipe(unique(), toArray());
+let program = pipe(unique(), toArray);
 
 program([1, 1, 2, 3, 2, 4, 5]);
 // [ 1, 2, 3, 4, 5 ]
@@ -745,7 +745,7 @@ let program = pipe(
   range(15, 20),
   map(age => ({ age })),
   where({ age: 18 }),
-  toArray()
+  toArray
 );
 
 program();
@@ -761,7 +761,7 @@ Zips multiple arrays / iterators together.
 ```js
 import { pipe, zip, toArray } from 'lazy-collections';
 
-let program = pipe(zip(), toArray());
+let program = pipe(zip(), toArray);
 
 program([
   [0, 1, 2],

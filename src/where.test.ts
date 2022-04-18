@@ -10,14 +10,14 @@ it('should be possible to get the items containing certain properties', () => {
     range(0, 10),
     map((x: number) => ({ x, y: x + 1 })),
     where({ x: 3, y: 4 }),
-    toArray()
+    toArray
   )
 
   expect(program()).toEqual([{ x: 3, y: 4 }])
 })
 
 it('should not crash on values that it does not understand', () => {
-  let program = pipe(where({ include: true }), toArray())
+  let program = pipe(where({ include: true }), toArray)
 
   expect(
     program([
@@ -37,7 +37,7 @@ it('should be possible to get the items containing certain magic properties like
     range(0, 3),
     map((x: number) => [x, x]),
     where({ length: 2 }),
-    toArray()
+    toArray
   )
 
   expect(program()).toEqual([
@@ -54,7 +54,7 @@ it('should be possible to get the items containing certain properties (async)', 
     delay(0),
     map((x: number) => ({ x, y: x + 1 })),
     where({ x: 3, y: 4 }),
-    toArray()
+    toArray
   )
 
   expect(await program()).toEqual([{ x: 3, y: 4 }])
@@ -66,7 +66,7 @@ it('should be possible to get the items containing certain magic properties like
     delay(0),
     map((x: number) => [x, x]),
     where({ length: 2 }),
-    toArray()
+    toArray
   )
 
   expect(await program()).toEqual([
@@ -82,7 +82,7 @@ it('should be possible to get the items containing certain properties (Promise a
     Promise.resolve(range(0, 10)),
     map((x: number) => ({ x, y: x + 1 })),
     where({ x: 3, y: 4 }),
-    toArray()
+    toArray
   )
 
   expect(await program()).toEqual([{ x: 3, y: 4 }])
@@ -93,7 +93,7 @@ it('should be possible to get the items containing certain magic properties like
     Promise.resolve(range(0, 3)),
     map((x: number) => [x, x]),
     where({ length: 2 }),
-    toArray()
+    toArray
   )
 
   expect(await program()).toEqual([

@@ -11,7 +11,7 @@ it('should be possible to tap into the current sequence', () => {
     tap(value => {
       fn(value)
     }),
-    toArray()
+    toArray
   )
 
   expect(program()).toEqual([0, 1, 2, 3, 4, 5])
@@ -26,7 +26,7 @@ it('should be possible to tap into the current sequence (async)', async () => {
     tap(value => {
       fn(value)
     }),
-    toArray()
+    toArray
   )
 
   expect(await program()).toEqual([0, 1, 2, 3, 4, 5])
@@ -40,7 +40,7 @@ it('should be possible to tap into the current sequence (Promise async)', async 
     tap(value => {
       fn(value)
     }),
-    toArray()
+    toArray
   )
 
   expect(await program()).toEqual([0, 1, 2, 3, 4, 5])
@@ -54,7 +54,7 @@ it('should take the index as second argument', async () => {
     tap((_value, index) => {
       fn(index)
     }),
-    toArray()
+    toArray
   )
 
   expect(await program()).toEqual([0, 1, 2, 3, 4, 5])

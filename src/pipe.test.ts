@@ -15,7 +15,7 @@ it('should be possible to pipe multiple functions', () => {
 })
 
 it('should be possible to pass a generator as first argument', () => {
-  let program = pipe(generate(Math.random), take(10), toArray())
+  let program = pipe(generate(Math.random), take(10), toArray)
   let result = program()
   expect(result).toHaveLength(10)
 })

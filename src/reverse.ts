@@ -15,7 +15,7 @@ export function reverse<T>() {
         async *[Symbol.asyncIterator]() {
           let stream = data instanceof Promise ? await data : data
 
-          let program = pipe(toArray())
+          let program = pipe(toArray)
           let array = await program(stream)
 
           for await (let datum of array.reverse()) yield datum

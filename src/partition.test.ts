@@ -8,7 +8,7 @@ it('should partition the data into 2 streams based on the predicate', () => {
   let program = pipe(
     range(1, 4),
     partition((x: number) => x % 2 !== 0),
-    toArray()
+    toArray
   )
 
   expect(program()).toEqual([
@@ -20,7 +20,7 @@ it('should partition the data into 2 streams based on the predicate', () => {
 it('should return undefined when no stream is passing through it', () => {
   let program = pipe(
     partition((x: number) => x % 2 !== 0),
-    toArray()
+    toArray
   )
 
   expect(program()).toEqual(undefined)
@@ -31,7 +31,7 @@ it('should partition the data into 2 streams based on the predicate (async)', as
     range(1, 4),
     delay(0),
     partition((x: number) => x % 2 !== 0),
-    toArray()
+    toArray
   )
 
   expect(await program()).toEqual([
@@ -44,7 +44,7 @@ it('should partition the data into 2 streams based on the predicate (Promise asy
   let program = pipe(
     Promise.resolve(range(1, 4)),
     partition((x: number) => x % 2 !== 0),
-    toArray()
+    toArray
   )
 
   expect(await program()).toEqual([
@@ -57,7 +57,7 @@ it('should take the index as second argument', async () => {
   let program = pipe(
     Promise.resolve(range(1, 4)),
     partition((_x: number, i) => i % 2 !== 0),
-    toArray()
+    toArray
   )
 
   expect(await program()).toEqual([

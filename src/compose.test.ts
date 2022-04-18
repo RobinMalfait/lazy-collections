@@ -15,7 +15,7 @@ it('should be possible to compose multiple functions', () => {
 })
 
 it('should be possible to pass a generator as first argument', () => {
-  let program = compose(toArray(), take(10), generate(Math.random))
+  let program = compose(toArray, take(10), generate(Math.random))
   let result = program()
   expect(result).toHaveLength(10)
 })

@@ -5,7 +5,7 @@ import { toArray } from './toArray'
 import { delay } from './delay'
 
 it('should create chunked items', () => {
-  let program = pipe(chunk(3), toArray())
+  let program = pipe(chunk(3), toArray)
 
   expect(program(range(0, 10))).toEqual([
     [0, 1, 2],
@@ -22,7 +22,7 @@ it('should create chunked items', () => {
 })
 
 it('should create chunked items (async)', async () => {
-  let program = pipe(delay(0), chunk(3), toArray())
+  let program = pipe(delay(0), chunk(3), toArray)
 
   expect(await program(range(0, 10))).toEqual([
     [0, 1, 2],
@@ -39,7 +39,7 @@ it('should create chunked items (async)', async () => {
 })
 
 it('should create chunked items (Promise async)', async () => {
-  let program = pipe(chunk(3), toArray())
+  let program = pipe(chunk(3), toArray)
 
   expect(await program(Promise.resolve(range(0, 10)))).toEqual([
     [0, 1, 2],

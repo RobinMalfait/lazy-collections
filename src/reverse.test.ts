@@ -6,19 +6,19 @@ import { reverse } from './reverse'
 import { delay } from './delay'
 
 it('should be possible to reverse an iterator', () => {
-  let program = pipe(range(0, 1_000), reverse(), take(5), toArray())
+  let program = pipe(range(0, 1_000), reverse(), take(5), toArray)
 
   expect(program()).toEqual([1_000, 1_000 - 1, 1_000 - 2, 1_000 - 3, 1_000 - 4])
 })
 
 it('should be possible to reverse an iterator (async)', async () => {
-  let program = pipe(range(0, 1_000), delay(0), reverse(), take(5), toArray())
+  let program = pipe(range(0, 1_000), delay(0), reverse(), take(5), toArray)
 
   expect(await program()).toEqual([1_000, 1_000 - 1, 1_000 - 2, 1_000 - 3, 1_000 - 4])
 })
 
 it('should be possible to reverse an iterator (Promise async)', async () => {
-  let program = pipe(Promise.resolve(range(0, 1_000)), reverse(), take(5), toArray())
+  let program = pipe(Promise.resolve(range(0, 1_000)), reverse(), take(5), toArray)
 
   expect(await program()).toEqual([1_000, 1_000 - 1, 1_000 - 2, 1_000 - 3, 1_000 - 4])
 })
