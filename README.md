@@ -392,7 +392,7 @@ Find the maximum value of the given list
 ```js
 import { pipe, range, max } from 'lazy-collections';
 
-let program = pipe(range(0, 5), max());
+let program = pipe(range(0, 5), max);
 
 program();
 // 5
