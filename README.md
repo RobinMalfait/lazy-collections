@@ -407,7 +407,7 @@ Find the minimum value of the given list
 ```js
 import { pipe, range, min } from 'lazy-collections';
 
-let program = pipe(range(5, 10), min());
+let program = pipe(range(5, 10), min);
 
 program();
 // 5
