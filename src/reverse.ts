@@ -8,8 +8,7 @@ import { LazyIterable } from './shared-types'
  * (to make it an array), then reverse the whole thing and then start
  * yielding again.
  */
-export function reverse<T>() {
-  return function reverseFn(data: LazyIterable<T>) {
+export function reverse<T>(data: LazyIterable<T>) {
     if (isAsyncIterable(data) || data instanceof Promise) {
       return {
         async *[Symbol.asyncIterator]() {
@@ -33,5 +32,4 @@ export function reverse<T>() {
         for (let datum of Array.from(data).reverse()) yield datum
       },
     }
-  }
 }

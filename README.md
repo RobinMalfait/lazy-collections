@@ -343,7 +343,7 @@ Reverses the iterator.
 ```js
 import { pipe, reverse, toArray } from 'lazy-collections';
 
-let program = pipe(range(0, 5), reverse(), toArray);
+let program = pipe(range(0, 5), reverse, toArray);
 
 program();
 // [ 5, 4, 3, 2, 1, 0 ]
