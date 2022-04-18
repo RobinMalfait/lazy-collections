@@ -454,7 +454,7 @@ Filters out all falsey values.
 ```js
 import { pipe, compact, toArray } from 'lazy-collections';
 
-let program = pipe(compact(), toArray);
+let program = pipe(compact, toArray);
 
 program([0, 1, true, false, null, undefined, '', 'test', NaN]);
 // [ 1, true, 'test' ];
