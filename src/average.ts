@@ -5,8 +5,7 @@ import { head } from './head'
 import { pipe } from './pipe'
 import { LazyIterable } from './shared-types'
 
-export function average() {
-  return function averageFn(data: LazyIterable<number>) {
+export function average(data: LazyIterable<number>) {
     let program = pipe(
       reduce<[number, number], number>(
         (acc, current) => {
@@ -22,7 +21,6 @@ export function average() {
     )
 
     return program(data)
-  }
 }
 
 // Alias

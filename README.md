@@ -377,7 +377,7 @@ Gets the average of number of values.
 ```js
 import { pipe, average, toArray } from 'lazy-collections';
 
-let program = pipe(average());
+let program = pipe(average);
 
 program([6, 7, 8, 9, 10]);
 // 8
