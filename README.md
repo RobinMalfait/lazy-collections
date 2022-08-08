@@ -52,6 +52,7 @@ program(range(0, 1000000));
     - [`filter`](#filter)
     - [`find`](#find)
     - [`findIndex`](#findindex)
+    - [`flatMap`](#flatMap)
     - [`join`](#join)
     - [`map`](#map)
     - [`reduce`](#reduce)
@@ -270,6 +271,24 @@ let program = pipe(findIndex(x => x === 2));
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // 2
+```
+
+#### `flatMap`
+
+[Table of contents](#table-of-contents)
+
+Map a value from A to B and flattens it afterwards.
+
+```js
+import { pipe, flatMap, toArray } from 'lazy-collections';
+
+let program = pipe(
+  flatMap(x => [x * 2, x * 4]),
+  toArray()
+);
+
+program([1, 2, 3]);
+// [ 2, 4, 4, 8, 6, 12 ]
 ```
 
 #### `join`

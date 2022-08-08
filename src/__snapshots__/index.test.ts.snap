@@ -13,6 +13,7 @@ Object {
   "find": [Function],
   "findIndex": [Function],
   "first": [Function],
+  "flatMap": [Function],
   "flatten": [Function],
   "generate": [Function],
   "groupBy": [Function],
