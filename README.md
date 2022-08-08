@@ -81,6 +81,7 @@ program(range(0, 1000000));
     - [`toArray`](#toarray)
     - [`unique`](#unique)
     - [`where`](#where)
+    - [`windows`](#windows)
     - [`zip`](#zip)
 
 ## Benchmark
@@ -769,6 +770,21 @@ let program = pipe(
 
 program();
 // [ { age: 18 } ]
+```
+
+#### `windows`
+
+[Table of contents](#table-of-contents)
+
+Get a sliding window of a certain size, for the given input.
+
+```js
+import { pipe, windows, toArray } from 'lazy-collections';
+
+let program = pipe(windows(2), toArray());
+
+program(['l', 'a', 'z', 'y']);
+// [ [ 'l', 'a' ], [ 'a', 'z' ], [ 'z', 'y' ] ]
 ```
 
 #### `zip`

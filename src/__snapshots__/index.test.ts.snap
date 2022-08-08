@@ -38,6 +38,7 @@ Object {
   "toArray": [Function],
   "unique": [Function],
   "where": [Function],
+  "windows": [Function],
   "zip": [Function],
 }
 `;
