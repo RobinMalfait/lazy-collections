@@ -26,11 +26,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "jest": {
-    "setupFiles": [
-      "./jest.setup.js"
-    ]
-  },
   "scripts": {
     "build": "rm -rf dist && tsc --project tsconfig.json",
     "fix-imports": "./scripts/fix-imports.sh ./dist/*.js",
@@ -40,8 +35,11 @@
     "prepack": "npm run build && npm run fix-imports && npm run fix-imports-nested"
   },
   "devDependencies": {
+    "@swc/core": "^1.2.224",
+    "@swc/jest": "^0.2.22",
     "@types/jest": "^28.1.6",
     "fast-check": "^2.16.0",
+    "jest": "^28.1.3",
     "tsdx": "^0.14.1",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4"
