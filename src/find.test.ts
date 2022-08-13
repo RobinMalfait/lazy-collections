@@ -4,14 +4,14 @@ import { find } from './find'
 import { delay } from './delay'
 
 it('should find a value in the stream', () => {
-  let program = pipe(find(x => x === 2))
+  let program = pipe(find((x) => x === 2))
 
   expect(program(range(0, 100))).toEqual(2)
   expect(program(range(0, 100))).toEqual(2)
 })
 
 it('should return undefined when the value is not found', () => {
-  let program = pipe(find(x => x === 101))
+  let program = pipe(find((x) => x === 101))
 
   expect(program(range(0, 100))).toEqual(undefined)
   expect(program(range(0, 100))).toEqual(undefined)
@@ -20,7 +20,7 @@ it('should return undefined when the value is not found', () => {
 it('should find a value in the stream (async)', async () => {
   let program = pipe(
     delay(0),
-    find(x => x === 2)
+    find((x) => x === 2)
   )
 
   expect(await program(range(0, 100))).toEqual(2)
@@ -30,7 +30,7 @@ it('should find a value in the stream (async)', async () => {
 it('should return undefined when the value is not found (async)', async () => {
   let program = pipe(
     delay(0),
-    find(x => x === 101)
+    find((x) => x === 101)
   )
 
   expect(await program(range(0, 100))).toEqual(undefined)
@@ -38,14 +38,14 @@ it('should return undefined when the value is not found (async)', async () => {
 })
 
 it('should find a value in the stream (Promise async)', async () => {
-  let program = pipe(find(x => x === 2))
+  let program = pipe(find((x) => x === 2))
 
   expect(await program(Promise.resolve(range(0, 100)))).toEqual(2)
   expect(await program(Promise.resolve(range(0, 100)))).toEqual(2)
 })
 
 it('should return undefined when the value is not found (Promise async)', async () => {
-  let program = pipe(find(x => x === 101))
+  let program = pipe(find((x) => x === 101))
 
   expect(await program(Promise.resolve(range(0, 100)))).toEqual(undefined)
   expect(await program(Promise.resolve(range(0, 100)))).toEqual(undefined)

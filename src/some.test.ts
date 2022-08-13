@@ -6,7 +6,7 @@ import { delay } from './delay'
 it('should return true when some value matches the predicate', () => {
   let program = pipe(
     range(0, 25),
-    some(x => x === 12)
+    some((x) => x === 12)
   )
 
   expect(program()).toEqual(true)
@@ -24,7 +24,7 @@ it('should return false when non of the values match the predicate', () => {
 it('should return true when some value matches the predicate (async)', async () => {
   let program = pipe(
     delay(0),
-    some(x => x === 12)
+    some((x) => x === 12)
   )
 
   expect(await program(range(0, 25))).toEqual(true)
@@ -42,7 +42,7 @@ it('should return false when non of the values match the predicate (async)', asy
 })
 
 it('should return true when some value matches the predicate (Promise async)', async () => {
-  let program = pipe(some(x => x === 12))
+  let program = pipe(some((x) => x === 12))
 
   expect(await program(Promise.resolve(range(0, 25)))).toEqual(true)
   expect(await program(Promise.resolve(range(0, 25)))).toEqual(true)

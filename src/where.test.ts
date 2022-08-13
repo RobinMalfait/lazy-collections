@@ -26,7 +26,7 @@ it('should not crash on values that it does not understand', () => {
       true,
       false,
       'hello',
-      Object.assign(function() {}, { include: false }),
+      Object.assign(function () {}, { include: false }),
       { include: true, name: 'winner' },
     ])
   ).toEqual([{ include: true, name: 'winner' }])

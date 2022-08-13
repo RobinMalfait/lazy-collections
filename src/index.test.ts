@@ -23,15 +23,6 @@ it('should be possible to create a chain of actions and combine them in a nice s
   )
 
   expect(program(lazy.range(1_000, 1_000_000))).toEqual([
-    3000,
-    3006,
-    3012,
-    3018,
-    3024,
-    3030,
-    3036,
-    3042,
-    3048,
-    3054,
+    3000, 3006, 3012, 3018, 3024, 3030, 3036, 3042, 3048, 3054,
   ])
 })

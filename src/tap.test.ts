@@ -8,7 +8,7 @@ it('should be possible to tap into the current sequence', () => {
   let fn = jest.fn()
   let program = pipe(
     range(0, 5),
-    tap(value => {
+    tap((value) => {
       fn(value)
     }),
     toArray()
@@ -23,7 +23,7 @@ it('should be possible to tap into the current sequence (async)', async () => {
   let program = pipe(
     range(0, 5),
     delay(0),
-    tap(value => {
+    tap((value) => {
       fn(value)
     }),
     toArray()
@@ -37,7 +37,7 @@ it('should be possible to tap into the current sequence (Promise async)', async 
   let fn = jest.fn()
   let program = pipe(
     Promise.resolve(range(0, 5)),
-    tap(value => {
+    tap((value) => {
       fn(value)
     }),
     toArray()

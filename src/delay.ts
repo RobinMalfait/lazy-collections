@@ -1,7 +1,7 @@
 import { LazyIterable } from './shared-types'
 
 function sleep(ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms))
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 export function delay<T>(ms: number) {
