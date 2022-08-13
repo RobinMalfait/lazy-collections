@@ -26,7 +26,7 @@ it('should delay each value by 100ms', async () => {
     chunk(2),
 
     // Map the chunked values to the difference between the two values.
-    map(([a, b]: [number, number]) => b - a),
+    map(([a, z]: [number, number]) => z - a),
 
     // Verify that the diff is 100ms or more, this way we can validate that
     // there has been a delay of 100ms at minimum.

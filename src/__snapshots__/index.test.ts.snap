@@ -3,6 +3,7 @@
 exports[`should export all the things 1`] = `
 Object {
   "average": [Function],
+  "batch": [Function],
   "chunk": [Function],
   "compact": [Function],
   "compose": [Function],
@@ -37,6 +38,7 @@ Object {
   "tap": [Function],
   "toArray": [Function],
   "unique": [Function],
+  "wait": [Function],
   "where": [Function],
   "windows": [Function],
   "zip": [Function],

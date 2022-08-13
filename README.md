@@ -64,6 +64,7 @@ program(range(0, 1000000))
     - [`min`](#min)
     - [`sum`](#sum)
   - [Utilities](#utilities)
+    - [`batch`](#batch)
     - [`chunk`](#chunk)
     - [`compact`](#compact)
     - [`delay`](#delay)
@@ -80,6 +81,7 @@ program(range(0, 1000000))
     - [`tap`](#tap)
     - [`toArray`](#toarray)
     - [`unique`](#unique)
+    - [`wait`](#wait)
     - [`where`](#where)
     - [`windows`](#windows)
     - [`zip`](#zip)
@@ -347,7 +349,7 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
 Reverses the iterator.
 
-> **note**: This is currently very slow because it has to go through the full
+> **Note**: This is currently very slow because it has to go through the full
 > iterator first!
 
 ```js
@@ -439,6 +441,28 @@ program([1, 1, 2, 3, 2, 4, 5])
 ```
 
 ### Utilities
+
+#### `batch`
+
+[Table of contents](#table-of-contents)
+
+This will call up to `N` amount of items in the stream immediately and wait for them in the correct
+order. If you have a list of API calls, then you can use this method to start calling the API in
+batches of `N` instead of waiting for each API call sequentially.
+
+```js
+import { pipe, range, map, batch, toArray } from 'lazy-collections'
+
+let program = pipe(
+  range(0, 9),
+  map(() => fetch(`/users/${id}`)),
+  batch(5), // Will create 2 "batches" of 5 API calls
+  toArray()
+)
+
+await program()
+// [ User1, User2, User3, User4, User5, User6, User7, User8, User9, User10 ];
+```
 
 #### `chunk`
 
@@ -740,6 +764,31 @@ let program = pipe(unique(), toArray())
 
 program([1, 1, 2, 3, 2, 4, 5])
 // [ 1, 2, 3, 4, 5 ]
+```
+
+#### `wait`
+
+[Table of contents](#table-of-contents)
+
+Will make he whole program async. It is similar to delay, but there is no actual delay involved. If
+your stream contains promises it will resolve those promises instead of possibly resolving to an
+array of pending promises.
+
+> **Note**: This will execute the fetch calls sequentially, it will go to the next call once the
+> first call is done. To prevent this you can use the [`batch`](#batch) function to help with this.
+
+```js
+import { pipe, range, map, wait, toArray } from 'lazy-collections'
+
+let program = pipe(
+  range(0, 4),
+  map((id) => fetch(`/my-api/users/${id}`)),
+  wait(),
+  toArray()
+)
+
+await program()
+// [ User1, User2, User3, User4, User5 ];
 ```
 
 #### `where`
