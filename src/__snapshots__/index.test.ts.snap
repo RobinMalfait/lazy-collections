@@ -3,6 +3,7 @@
 exports[`should export all the things 1`] = `
 Object {
   "average": [Function],
+  "batch": [Function],
   "chunk": [Function],
   "compact": [Function],
   "compose": [Function],

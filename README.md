@@ -64,6 +64,7 @@ program(range(0, 1000000))
     - [`min`](#min)
     - [`sum`](#sum)
   - [Utilities](#utilities)
+    - [`batch`](#batch)
     - [`chunk`](#chunk)
     - [`compact`](#compact)
     - [`delay`](#delay)
@@ -348,7 +349,7 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
 Reverses the iterator.
 
-> **note**: This is currently very slow because it has to go through the full
+> **Note**: This is currently very slow because it has to go through the full
 > iterator first!
 
 ```js
@@ -440,6 +441,28 @@ program([1, 1, 2, 3, 2, 4, 5])
 ```
 
 ### Utilities
+
+#### `batch`
+
+[Table of contents](#table-of-contents)
+
+This will call up to `N` amount of items in the stream immediately and wait for them in the correct
+order. If you have a list of API calls, then you can use this method to start calling the API in
+batches of `N` instead of waiting for each API call sequentially.
+
+```js
+import { pipe, range, map, batch, toArray } from 'lazy-collections'
+
+let program = pipe(
+  range(0, 9),
+  map(() => fetch(`/users/${id}`)),
+  batch(5), // Will create 2 "batches" of 5 API calls
+  toArray()
+)
+
+await program()
+// [ User1, User2, User3, User4, User5, User6, User7, User8, User9, User10 ];
+```
 
 #### `chunk`
 
