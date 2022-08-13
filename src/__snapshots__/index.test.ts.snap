@@ -37,6 +37,7 @@ Object {
   "tap": [Function],
   "toArray": [Function],
   "unique": [Function],
+  "wait": [Function],
   "where": [Function],
   "windows": [Function],
   "zip": [Function],

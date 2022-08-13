@@ -80,6 +80,7 @@ program(range(0, 1000000))
     - [`tap`](#tap)
     - [`toArray`](#toarray)
     - [`unique`](#unique)
+    - [`wait`](#wait)
     - [`where`](#where)
     - [`windows`](#windows)
     - [`zip`](#zip)
@@ -740,6 +741,31 @@ let program = pipe(unique(), toArray())
 
 program([1, 1, 2, 3, 2, 4, 5])
 // [ 1, 2, 3, 4, 5 ]
+```
+
+#### `wait`
+
+[Table of contents](#table-of-contents)
+
+Will make he whole program async. It is similar to delay, but there is no actual delay involved. If
+your stream contains promises it will resolve those promises instead of possibly resolving to an
+array of pending promises.
+
+> **Note**: This will execute the fetch calls sequentially, it will go to the next call once the
+> first call is done. To prevent this you can use the [`batch`](#batch) function to help with this.
+
+```js
+import { pipe, range, map, wait, toArray } from 'lazy-collections'
+
+let program = pipe(
+  range(0, 4),
+  map((id) => fetch(`/my-api/users/${id}`)),
+  wait(),
+  toArray()
+)
+
+await program()
+// [ User1, User2, User3, User4, User5 ];
 ```
 
 #### `where`
