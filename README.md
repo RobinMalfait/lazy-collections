@@ -346,12 +346,11 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
 #### `reverse`
 
+> **Warning**: Performance warning, it has to exhaust the full iterator before it can reverse it!
+
 [Table of contents](#table-of-contents)
 
 Reverses the iterator.
-
-> **Note**: This is currently very slow because it has to go through the full
-> iterator first!
 
 ```js
 import { pipe, reverse, toArray } from 'lazy-collections'
@@ -378,6 +377,8 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 ```
 
 #### `sort`
+
+> **Warning**: Performance warning, it has to exhaust the full iterator before it can sort it!
 
 [Table of contents](#table-of-contents)
 
