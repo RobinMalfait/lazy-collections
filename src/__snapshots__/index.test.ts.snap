@@ -32,6 +32,7 @@ Object {
   "skip": [Function],
   "slice": [Function],
   "some": [Function],
+  "sort": [Function],
   "sum": [Function],
   "take": [Function],
   "takeWhile": [Function],
