@@ -15,6 +15,7 @@ export * from './reduce'
 export * from './reverse'
 export * from './slice'
 export * from './some'
+export * from './sort'
 
 // Useful utilities
 export * from './average'

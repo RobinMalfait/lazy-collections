@@ -58,6 +58,7 @@ program(range(0, 1000000))
     - [`reduce`](#reduce)
     - [`reverse`](#reverse)
     - [`some`](#some)
+    - [`sort`](#sort)
   - [Math / Statistics](#math--statistics)
     - [`average`](#average)
     - [`max`](#max)
@@ -374,6 +375,26 @@ let program = pipe(some((x) => x === 2))
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 // true
+```
+
+#### `sort`
+
+[Table of contents](#table-of-contents)
+
+Should sort the data. You can also provide a comparator function to the `sort` function.
+
+```js
+import { pipe, generate, take, sort, toArray } from 'lazy-collections'
+
+let program = pipe(
+  generate(() => (Math.random() * 100) | 0),
+  take(5),
+  sort(),
+  toArray()
+)
+
+program()
+// [ 11, 18, 24, 27, 83 ] 
 ```
 
 ### Math / Statistics
