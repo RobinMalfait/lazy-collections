@@ -49,6 +49,7 @@ program(range(0, 1000000))
     - [`compose`](#compose)
     - [`pipe`](#pipe)
   - [Known array functions](#known-array-functions)
+    - [`at`](#at)
     - [`concat`](#concat)
     - [`every`](#every)
     - [`filter`](#filter)
@@ -191,6 +192,36 @@ program()
 ```
 
 ### Known array functions
+
+#### `at`
+
+[Table of contents](#table-of-contents)
+
+Returns the value at the given index.
+
+```js
+import { pipe, at } from 'lazy-collections'
+
+let program = pipe(at(2))
+
+program([1, 2, 3, 4])
+
+// 3
+```
+
+You can also pass a negative index to `at` to count back from the end of the array or iterator.
+
+> **Warning**: Performance warning, it has to exhaust the full iterator before it can count backward!
+
+```js
+import { pipe, at } from 'lazy-collections'
+
+let program = pipe(at(-2))
+
+program([1, 2, 3, 4])
+
+// 3
+```
 
 #### `concat`
 
