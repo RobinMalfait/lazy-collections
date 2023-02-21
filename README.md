@@ -53,6 +53,7 @@ program(range(0, 1000000))
     - [`find`](#find)
     - [`findIndex`](#findindex)
     - [`flatMap`](#flatMap)
+    - [`includes`](#includes)
     - [`join`](#join)
     - [`map`](#map)
     - [`reduce`](#reduce)
@@ -283,6 +284,36 @@ let program = pipe(
 
 program([1, 2, 3])
 // [ 2, 4, 4, 8, 6, 12 ]
+```
+
+#### `includes`
+
+[Table of contents](#table-of-contents)
+
+Check if a value is included in an array or iterator.
+
+```js
+import { pipe, includes } from 'lazy-collections'
+
+let program = pipe(includes(1))
+
+program([1, 2, 3, 4])
+
+// true
+```
+
+Values are compared with strict equality.
+
+Optionally, you can start searching from a positive index:
+
+```js
+import { pipe, includes } from 'lazy-collections'
+
+let program = pipe(includes(1, 1))
+
+program([1, 2, 3, 4])
+
+// false
 ```
 
 #### `join`
