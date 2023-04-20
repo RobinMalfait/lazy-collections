@@ -211,7 +211,7 @@ program([1, 2, 3, 4])
 
 You can also pass a negative index to `at` to count back from the end of the array or iterator.
 
-> **Warning**: Performance warning, it has to exhaust the full iterator before it can count backwards!
+> **Warning**: Performance may be degraded because it has to exhaust the full iterator before it can count backwards!
 
 ```js
 import { pipe, at } from 'lazy-collections'
@@ -422,7 +422,7 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
 #### `reverse`
 
-> **Warning**: Performance warning, it has to exhaust the full iterator before it can reverse it!
+> **Warning**: Performance may be degraded because it has to exhaust the full iterator before it can reverse it!
 
 [Table of contents](#table-of-contents)
 
@@ -454,7 +454,7 @@ program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
 #### `sort`
 
-> **Warning**: Performance warning, it has to exhaust the full iterator before it can sort it!
+> **Warning**: Performance may be degraded because it has to exhaust the full iterator before it can sort it!
 
 [Table of contents](#table-of-contents)
 
