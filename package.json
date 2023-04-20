@@ -26,6 +26,14 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
+  "jest": {
+    "setupFiles": [
+      "./jest.setup.js"
+    ],
+    "transform": {
+      "\\.ts$": "@swc/jest"
+    }
+  },
   "scripts": {
     "format": "prettier . --write",
     "build": "rm -rf dist && tsc --project tsconfig.json",
