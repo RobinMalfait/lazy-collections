@@ -2,14 +2,14 @@ import { findIndex } from './findIndex'
 import { isAsyncIterable } from './utils/iterator'
 import { LazyIterable } from './shared-types'
 
-export function includes(searchElement: any, fromIndex?: number) {
+export function includes<T>(searchElement: T, fromIndex?: number) {
   let resolvedFromIndex = fromIndex && fromIndex >= 0 ? fromIndex : 0
-  let predicate: Parameters<typeof findIndex>[0] = (element, index) => {
+  function predicate(element: T, index: number) {
     if (index < resolvedFromIndex) return false
     return Object.is(element, searchElement)
   }
 
-  return function includesFn(data: LazyIterable<any>) {
+  return function includesFn(data: LazyIterable<T>) {
     if (isAsyncIterable(data) || data instanceof Promise) {
       return (async () => {
         let index = await findIndex(predicate)(data)
