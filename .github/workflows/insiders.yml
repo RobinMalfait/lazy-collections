@@ -46,6 +46,6 @@ jobs:
         run: pnpm version 0.0.0-${{ env.RELEASE_CHANNEL }}.${{ env.SHA_SHORT }} --force --no-git-tag-version
 
       - name: Publish
-        run: pnpm publish --tag ${{ env.RELEASE_CHANNEL }}
+        run: pnpm publish --tag ${{ env.RELEASE_CHANNEL }} --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
