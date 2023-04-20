@@ -395,7 +395,7 @@ let program = pipe(
 )
 
 program()
-// [ 11, 18, 24, 27, 83 ] 
+// [ 11, 18, 24, 27, 83 ]
 ```
 
 ### Math / Statistics
