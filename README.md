@@ -304,7 +304,7 @@ program([1, 2, 3, 4])
 // true
 ```
 
-Values are compared using `Object.is`.
+Each value is compared using `Object.is`. This will guarantee that edge cases with `NaN` also work the same as `Array.prototype.includes`.
 
 Optionally, you can start searching from a positive index:
 
