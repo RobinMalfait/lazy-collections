@@ -3,6 +3,7 @@
 !.nvmrc
 !.github
 !.babelrc.js
+!.prettierignore
 
 node_modules/
 coverage/
