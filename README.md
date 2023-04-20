@@ -304,7 +304,7 @@ program([1, 2, 3, 4])
 // true
 ```
 
-Values are compared with strict equality.
+Values are compared using `Object.is`.
 
 Optionally, you can start searching from a positive index:
 
