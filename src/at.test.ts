@@ -14,6 +14,16 @@ it('should return the element at the given index', () => {
   expect(program(range(0, 25))).toBe('Z')
 })
 
+it('should return undefined if the index does not exist', () => {
+  let program = pipe(
+    map((x: number) => String.fromCharCode(x + 65)),
+    at(30)
+  )
+
+  expect(program(range(0, 25))).toBe(undefined)
+  expect(program(range(0, 25))).toBe(undefined)
+})
+
 it('should return undefined when the given index is out of bounds', () => {
   let program = pipe(
     map((x: number) => String.fromCharCode(x + 65)),
