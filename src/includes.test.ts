@@ -50,7 +50,7 @@ it('should return true when the search element is found (async)', async () => {
     map((x: number) => String.fromCharCode(x + 65)),
     includes('Z')
   )
-  
+
   expect(await program(range(0, 25))).toBe(true)
   expect(await program(range(0, 25))).toBe(true)
 })
