@@ -17,7 +17,7 @@ export function flatMap<T, R>(fn: Fn<T, R>) {
           for await (let datum of stream) {
             let result = fn(datum, i++)
             if (isAsyncIterable(result) || result instanceof Promise) {
-              let stream = result instanceof Promise ? await result : result
+              let stream = (result instanceof Promise ? await result : result) as AsyncIterable<R>
               yield* stream
             } else if (isIterable(result)) {
               yield* result
