@@ -6,7 +6,7 @@ export function includes(searchElement: any, fromIndex?: number) {
   let resolvedFromIndex = fromIndex && fromIndex >= 0 ? fromIndex : 0
   let predicate: Parameters<typeof findIndex>[0] = (element, index) => {
     if (index < resolvedFromIndex) return false
-    return element === searchElement
+    return Object.is(element, searchElement)
   }
 
   return function includesFn(data: LazyIterable<any>) {

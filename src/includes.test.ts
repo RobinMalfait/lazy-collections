@@ -14,6 +14,13 @@ it('should return true when the search element is found', () => {
   expect(program(range(0, 25))).toBe(true)
 })
 
+it('should return true when the search element is found and the search element is an edge case (NaN)', () => {
+  let program = pipe(includes(NaN))
+
+  expect(program([1, 2, 3, NaN])).toBe(true)
+  expect(program([1, 2, 3, NaN])).toBe(true)
+})
+
 it('should return false when the search element is not found', () => {
   let program = pipe(
     map((x: number) => String.fromCharCode(x + 65)),
