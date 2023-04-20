@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Nothing yet!
+### Added
+
+- Add `includes` feature ([#24](https://github.com/RobinMalfait/lazy-collections/pull/24), [#29](https://github.com/RobinMalfait/lazy-collections/pull/29))
 
 ## [0.10.0] - 2022-08-27
 
