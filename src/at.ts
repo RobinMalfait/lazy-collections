@@ -7,10 +7,10 @@ import { LazyIterable } from './shared-types'
 export function at<T>(index: number) {
   if (index >= 0) {
     return function atFn(data: LazyIterable<T>) {
-      return find((_, i) => (i === index))(data)
+      return find((_, i) => i === index)(data)
     }
   }
-  
+
   /**
    * To support counting back with a negative index, the whole iteraror has to be
    * converted to an array. Then, `Array.prototype.at` can be used. This is slow,

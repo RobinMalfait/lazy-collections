@@ -40,7 +40,7 @@ it('should return the element at the given index (async)', async () => {
     map((x: number) => String.fromCharCode(x + 65)),
     at(25)
   )
-  
+
   expect(await program(range(0, 25))).toBe('Z')
   expect(await program(range(0, 25))).toBe('Z')
 })
