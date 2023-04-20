@@ -7,9 +7,11 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/lazy-collections"><img src="https://img.shields.io/npm/v/lazy-collections?style=flat-square"></a>
+  <a href="https://github.com/RobinMalfait/lazy-collections/actions"><img src="https://img.shields.io/github/actions/workflow/status/RobinMalfait/lazy-collections/ci.yml?branch=main&style=flat-square"></a>
+  <a href="https://www.npmjs.com/package/lazy-collections"><img src="https://img.shields.io/npm/dt/lazy-collections?style=flat-square"></a>
   <a href="https://www.npmjs.com/package/lazy-collections"><img src="https://img.shields.io/npm/dm/lazy-collections?style=flat-square"></a>
-  <a href="https://github.com/RobinMalfait/lazy-collections/actions"><img src="https://img.shields.io/github/workflow/status/RobinMalfait/lazy-collections/Node%20CI/master?style=flat-square"></a>
+  <a href="https://www.npmjs.com/package/lazy-collections"><img src="https://img.shields.io/npm/v/lazy-collections?style=flat-square"></a>
+  <a href="https://github.com/RobinMalfait/lazy-collections/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/lazy-collections.svg?style=flat-square" alt="License"></a>
 </p>
 
 ---
