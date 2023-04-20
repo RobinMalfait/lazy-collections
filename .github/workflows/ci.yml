@@ -11,30 +11,24 @@ jobs:
         node-version: [13.x, 14.x, 16.x, 18.x, 19.x, 20.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: Use cached node_modules
-        id: cache
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: node-modules-${{ hashFiles('**/package-lock.json') }}-${{ matrix.node-version }}
-          restore-keys: |
-            node-modules-
+          cache: 'pnpm'
 
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm install
+        run: pnpm install
 
       - name: Build
-        run: npm run build
+        run: pnpm build
 
       - name: Test
-        run: npm run test
+        run: pnpm test
         env:
           FAST_CHECK_RUNS: 1000
