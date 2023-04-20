@@ -2,10 +2,9 @@ import { findIndex } from './findIndex'
 import { isAsyncIterable } from './utils/iterator'
 import { LazyIterable } from './shared-types'
 
-export function includes<T>(searchElement: T, fromIndex?: number) {
-  let resolvedFromIndex = fromIndex && fromIndex >= 0 ? fromIndex : 0
+export function includes<T>(searchElement: T, fromIndex = 0) {
   function predicate(element: T, index: number) {
-    if (index < resolvedFromIndex) return false
+    if (index < fromIndex) return false
     return Object.is(element, searchElement)
   }
 
