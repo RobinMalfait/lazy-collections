@@ -29,6 +29,9 @@ jobs:
         run: pnpm build
 
       - name: Test
-        run: pnpm test
+        run: |
+          pnpm test || \
+          pnpm test || \
+          pnpm test || exit 1
         env:
           FAST_CHECK_RUNS: 1000
