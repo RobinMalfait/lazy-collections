@@ -211,7 +211,7 @@ program([1, 2, 3, 4])
 
 You can also pass a negative index to `at` to count back from the end of the array or iterator.
 
-> **Warning**: Performance warning, it has to exhaust the full iterator before it can count backward!
+> **Warning**: Performance warning, it has to exhaust the full iterator before it can count backwards!
 
 ```js
 import { pipe, at } from 'lazy-collections'
@@ -221,6 +221,18 @@ let program = pipe(at(-2))
 program([1, 2, 3, 4])
 
 // 3
+```
+
+If a value can not be found at the given index, then `undefined` will be returned.
+
+```js
+import { pipe, at } from 'lazy-collections'
+
+let program = pipe(at(12))
+
+program([1, 2, 3, 4])
+
+// undefined
 ```
 
 #### `concat`
