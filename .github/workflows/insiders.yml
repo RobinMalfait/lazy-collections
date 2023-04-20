@@ -1,0 +1,51 @@
+name: Release Insiders
+
+on:
+  push:
+    branches: [main]
+
+env:
+  NODE_VERSION: 20
+  RELEASE_CHANNEL: insiders
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      - name: Test
+        run: |
+          pnpm test || \
+          pnpm test || \
+          pnpm test || exit 1
+        env:
+          FAST_CHECK_RUNS: 1000
+
+      - name: Resolve environment variables
+        run: |
+          echo "SHA_SHORT=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: 'Version based on commit: 0.0.0-${{ env.RELEASE_CHANNEL }}.${{ env.SHA_SHORT }}'
+        run: pnpm version 0.0.0-${{ env.RELEASE_CHANNEL }}.${{ env.SHA_SHORT }} --force --no-git-tag-version
+
+      - name: Publish
+        run: pnpm publish --tag ${{ env.RELEASE_CHANNEL }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
