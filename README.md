@@ -87,6 +87,7 @@ program(range(0, 1000000))
     - [`takeWhile`](#takewhile)
     - [`tap`](#tap)
     - [`toArray`](#toarray)
+    - [`toLength`](#tolength)
     - [`toSet`](#toset)
     - [`unique`](#unique)
     - [`wait`](#wait)
@@ -388,6 +389,26 @@ let program = pipe(join(' '))
 
 program(['foo', 'bar', 'baz'])
 // 'foo bar baz'
+```
+
+#### `toLength`
+
+[Table of contents](#table-of-contents)
+
+> **Warning**: Performance warning, it has to exhaust the full iterator before it can calculate length!
+
+Get the length of an array or iterator.
+
+```js
+import { pipe, toLength, filter } from 'lazy-collections'
+
+let program = pipe(
+  filter((x) => x % 2 === 0),
+  toLength()
+)
+
+program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+// 5
 ```
 
 #### `map`
