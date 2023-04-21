@@ -1,7 +1,4 @@
-import { pipe } from './pipe'
-import { flatMap } from './flatMap'
-import { toArray } from './toArray'
-import { delay } from './delay'
+import { pipe, flatMap, toArray, delay } from './'
 
 it('should be possible to flatMap data from A to B', () => {
   let program = pipe(

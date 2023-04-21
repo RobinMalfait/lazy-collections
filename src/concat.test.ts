@@ -1,8 +1,4 @@
-import { pipe } from './pipe'
-import { concat } from './concat'
-import { range } from './range'
-import { toArray } from './toArray'
-import { delay } from './delay'
+import { pipe, concat, range, toArray, delay } from './'
 
 it('should concat arrays', () => {
   let program = pipe(concat([0, 1, 2], [3, 4, 5], [6, 7, 8], [9, 10]), toArray())

@@ -1,8 +1,4 @@
-import { pipe } from './pipe'
-import { range } from './range'
-import { slice } from './slice'
-import { toArray } from './toArray'
-import { delay } from './delay'
+import { pipe, range, slice, toArray, delay } from './'
 
 it.each([
   [0, 10, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]],

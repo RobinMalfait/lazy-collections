@@ -1,8 +1,4 @@
-import { pipe } from './pipe'
-import { range } from './range'
-import { findIndex } from './findIndex'
-import { map } from './map'
-import { delay } from './delay'
+import { pipe, range, findIndex, map, delay } from './'
 
 it('should find the index based on the predicate', () => {
   let program = pipe(

@@ -1,8 +1,4 @@
-import { pipe } from './pipe'
-import { range } from './range'
-import { toArray } from './toArray'
-import { partition } from './partition'
-import { delay } from './delay'
+import { pipe, range, toArray, partition, delay } from './'
 
 it('should partition the data into 2 streams based on the predicate', () => {
   let program = pipe(

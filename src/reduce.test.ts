@@ -1,6 +1,4 @@
-import { reduce } from './reduce'
-import { pipe } from './pipe'
-import { delay } from './delay'
+import { reduce, pipe, delay } from './'
 
 it('should be possible to sum numbers (via reduce)', () => {
   let program = reduce((total, current) => total + current, 0)

@@ -1,7 +1,4 @@
-import { pipe } from './pipe'
-import { sum } from './sum'
-import { range } from './range'
-import { delay } from './delay'
+import { pipe, sum, range, delay } from './'
 
 it('should be possible to sum an array', () => {
   let program = pipe(sum())

@@ -1,9 +1,4 @@
-import { pipe } from './pipe'
-import { range } from './range'
-import { toArray } from './toArray'
-import { take } from './take'
-import { reverse } from './reverse'
-import { delay } from './delay'
+import { pipe, range, toArray, take, reverse, delay } from './'
 
 it('should be possible to reverse an iterator', () => {
   let program = pipe(range(0, 100), reverse(), take(5), toArray())

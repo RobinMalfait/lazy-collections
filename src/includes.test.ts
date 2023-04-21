@@ -1,8 +1,4 @@
-import { pipe } from './pipe'
-import { range } from './range'
-import { includes } from './includes'
-import { map } from './map'
-import { delay } from './delay'
+import { pipe, range, includes, map, delay } from './'
 
 it('should return true when the search element is found', () => {
   let program = pipe(

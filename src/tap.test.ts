@@ -1,8 +1,4 @@
-import { pipe } from './pipe'
-import { toArray } from './toArray'
-import { range } from './range'
-import { tap } from './tap'
-import { delay } from './delay'
+import { pipe, toArray, range, delay, tap } from './'
 
 it('should be possible to tap into the current sequence', () => {
   let fn = jest.fn()

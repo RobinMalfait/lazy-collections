@@ -1,7 +1,4 @@
-import { pipe } from './pipe'
-import { range } from './range'
-import { min } from './min'
-import { delay } from './delay'
+import { pipe, range, min, delay } from './'
 
 it('should find the min value of the iterator', () => {
   let program = pipe(range(5, 10), min())

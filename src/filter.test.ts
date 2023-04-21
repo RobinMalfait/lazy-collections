@@ -1,7 +1,4 @@
-import { pipe } from './pipe'
-import { filter } from './filter'
-import { toArray } from './toArray'
-import { delay } from './delay'
+import { pipe, filter, toArray, delay } from './'
 
 it('should be possible to filter data', () => {
   let program = pipe(

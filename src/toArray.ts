@@ -1,4 +1,5 @@
-import { reduce } from './reduce'
+import { reduce } from './'
+
 import { LazyIterable } from './shared-types'
 
 export function toArray<T>() {

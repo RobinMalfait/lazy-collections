@@ -1,7 +1,4 @@
-import { pipe } from './pipe'
-import { compact } from './compact'
-import { toArray } from './toArray'
-import { delay } from './delay'
+import { pipe, compact, toArray, delay } from './'
 
 it('should remove all falsey values', () => {
   let program = pipe(compact(), toArray())

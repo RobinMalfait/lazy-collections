@@ -1,8 +1,4 @@
-import { pipe } from './pipe'
-import { range } from './range'
-import { take } from './take'
-import { toArray } from './toArray'
-import { delay } from './delay'
+import { pipe, range, take, toArray, delay } from './'
 
 it('should take a only X values', () => {
   let program = pipe(take(5), toArray())

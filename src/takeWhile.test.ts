@@ -1,8 +1,4 @@
-import { pipe } from './pipe'
-import { takeWhile } from './takeWhile'
-import { range } from './range'
-import { toArray } from './toArray'
-import { delay } from './delay'
+import { pipe, takeWhile, range, toArray, delay } from './'
 
 it('should be possible to take values as long as they meet a certain condition', () => {
   let program = pipe(

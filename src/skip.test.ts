@@ -1,9 +1,4 @@
-import { pipe } from './pipe'
-import { range } from './range'
-import { toArray } from './toArray'
-import { skip } from './skip'
-import { take } from './take'
-import { delay } from './delay'
+import { pipe, range, toArray, skip, take, delay } from './'
 
 it('should skip x values', () => {
   let program = pipe(skip(5), toArray())

@@ -1,7 +1,4 @@
-import { pipe } from './pipe'
-import { range } from './range'
-import { every } from './every'
-import { delay } from './delay'
+import { pipe, range, every, delay } from './'
 
 it('should return true when every value matches the predicate', () => {
   let program = pipe(
