@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should export all the things 1`] = `
-{
+Object {
+  "at": [Function],
   "average": [Function],
   "batch": [Function],
   "chunk": [Function],
@@ -19,6 +20,7 @@ exports[`should export all the things 1`] = `
   "generate": [Function],
   "groupBy": [Function],
   "head": [Function],
+  "includes": [Function],
   "join": [Function],
   "map": [Function],
   "max": [Function],
