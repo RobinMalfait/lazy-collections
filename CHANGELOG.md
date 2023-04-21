@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Ensure that the `types` are generated properly ([#32](https://github.com/RobinMalfait/lazy-collections/pull/32))
+- Ensure all (new) functions are exported ([#31](https://github.com/RobinMalfait/lazy-collections/pull/31))
 
 ## [0.10.0] - 2022-08-27
 
