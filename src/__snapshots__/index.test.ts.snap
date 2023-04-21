@@ -28,6 +28,7 @@ exports[`should export all the things 1`] = `
   "min": [Function],
   "partition": [Function],
   "pipe": [Function],
+  "product": [Function],
   "range": [Function],
   "reduce": [Function],
   "reverse": [Function],

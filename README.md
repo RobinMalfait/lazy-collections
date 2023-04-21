@@ -78,6 +78,7 @@ program(range(0, 1000000))
     - [`groupBy`](#groupby)
     - [`head`](#head)
     - [`partition`](#partition)
+    - [`product`](#product)
     - [`range`](#range)
     - [`skip`](#skip)
     - [`slice`](#slice)
@@ -720,6 +721,21 @@ let program = pipe(
 
 program()
 // [ [ 1, 3 ], [ 2, 4 ] ]
+```
+
+#### `product`
+
+[Table of contents](#table-of-contents)
+
+Should multiply an array or iterator.
+
+```js
+import { pipe, product } from 'lazy-collections'
+
+let program = pipe(product())
+
+program([1, 1, 2, 3, 2, 4, 5])
+// 240
 ```
 
 #### `range`
