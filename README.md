@@ -86,6 +86,7 @@ program(range(0, 1000000))
     - [`takeWhile`](#takewhile)
     - [`tap`](#tap)
     - [`toArray`](#toarray)
+    - [`toSet`](#toset)
     - [`unique`](#unique)
     - [`wait`](#wait)
     - [`where`](#where)
@@ -863,6 +864,21 @@ let program = pipe(range(0, 10), toArray())
 
 program()
 // [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+```
+
+#### `toSet`
+
+[Table of contents](#table-of-contents)
+
+Converts an array or an iterator to Set.
+
+```js
+import { pipe, range, toSet } from 'lazy-collections'
+
+let program = pipe(range(0, 10), toSet())
+
+program()
+// Set (11) { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
 ```
 
 #### `unique`
