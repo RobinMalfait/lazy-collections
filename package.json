@@ -36,7 +36,7 @@
   },
   "scripts": {
     "format": "prettier . --write",
-    "build": "tsup ./src/index.ts --format esm --clean --minify",
+    "build": "tsup ./src/index.ts --format esm --clean --minify --dts",
     "test": "jest",
     "tdd": "jest --watchAll",
     "prepack": "npm run build"
