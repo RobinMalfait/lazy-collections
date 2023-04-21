@@ -1,7 +1,4 @@
-import { pipe } from './pipe'
-import { range } from './range'
-import { toArray } from './toArray'
-import { delay } from './delay'
+import { pipe, range, toArray, delay } from './'
 
 it('should convert an iterator to an array', () => {
   let program = pipe(range(0, 10), toArray())

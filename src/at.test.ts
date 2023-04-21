@@ -1,8 +1,4 @@
-import { pipe } from './pipe'
-import { range } from './range'
-import { at } from './at'
-import { map } from './map'
-import { delay } from './delay'
+import { pipe, range, at, map, delay } from './'
 
 it('should return the element at the given index', () => {
   let program = pipe(

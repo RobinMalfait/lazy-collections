@@ -1,7 +1,4 @@
-import { pipe } from './pipe'
-import { range } from './range'
-import { some } from './some'
-import { delay } from './delay'
+import { pipe, range, some, delay } from './'
 
 it('should return true when some value matches the predicate', () => {
   let program = pipe(

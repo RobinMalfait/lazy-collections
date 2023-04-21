@@ -1,9 +1,4 @@
-import { pipe } from './pipe'
-import { range } from './range'
-import { unique } from './unique'
-import { map } from './map'
-import { toArray } from './toArray'
-import { delay } from './delay'
+import { pipe, range, unique, map, toArray, delay } from './'
 
 function snap(multitude: number, value: number) {
   return Math.ceil(value / multitude) * multitude

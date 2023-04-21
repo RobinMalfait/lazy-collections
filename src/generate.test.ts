@@ -1,9 +1,4 @@
-import { pipe } from './pipe'
-import { generate } from './generate'
-import { slice } from './slice'
-import { range } from './range'
-import { take } from './take'
-import { toArray } from './toArray'
+import { pipe, generate, slice, range, take, toArray } from './'
 
 it('should be possible to create a stream using the generate function', () => {
   let program = pipe(slice(0, 10), toArray())

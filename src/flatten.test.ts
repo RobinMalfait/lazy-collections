@@ -1,8 +1,4 @@
-import { pipe } from './pipe'
-import { flatten } from './flatten'
-import { range } from './range'
-import { toArray } from './toArray'
-import { delay } from './delay'
+import { pipe, flatten, range, toArray, delay } from './'
 
 it('should be possible to flatten data (shallow)', () => {
   let program = pipe(flatten({ shallow: true }), toArray())

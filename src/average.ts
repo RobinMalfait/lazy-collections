@@ -1,8 +1,5 @@
-import { reduce } from './reduce'
-import { chunk } from './chunk'
-import { map } from './map'
-import { head } from './head'
-import { pipe } from './pipe'
+import { reduce, chunk, map, head, pipe } from './'
+
 import { LazyIterable } from './shared-types'
 
 export function average() {

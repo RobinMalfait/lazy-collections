@@ -1,6 +1,4 @@
-import { pipe } from './pipe'
-import { average } from './average'
-import { delay } from './delay'
+import { pipe, average, delay } from './'
 
 it('should be possible to get an average of all the values', () => {
   let program = pipe(average())

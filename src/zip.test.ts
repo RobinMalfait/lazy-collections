@@ -1,9 +1,4 @@
-import { pipe } from './pipe'
-import { toArray } from './toArray'
-import { zip } from './zip'
-import { take } from './take'
-import { range } from './range'
-import { chunk } from './chunk'
+import { pipe, toArray, zip, take, range, chunk } from './'
 
 it('should be possible to zip data together', () => {
   let program = pipe(

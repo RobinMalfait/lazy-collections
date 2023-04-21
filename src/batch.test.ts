@@ -1,13 +1,4 @@
-import { pipe } from './pipe'
-import { batch } from './batch'
-import { map } from './map'
-import { delay, wait } from './delay'
-import { toArray } from './toArray'
-import { generate } from './generate'
-import { take } from './take'
-import { chunk } from './chunk'
-import { average } from './average'
-import { tap } from './tap'
+import { pipe, batch, map, wait, toArray, generate, take, chunk, average } from './'
 
 async function bench(cb: Function) {
   let start = process.hrtime.bigint()

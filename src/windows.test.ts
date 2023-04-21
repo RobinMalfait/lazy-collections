@@ -1,6 +1,4 @@
-import { pipe } from './pipe'
-import { toArray } from './toArray'
-import { windows } from './windows'
+import { pipe, toArray, windows } from './'
 
 it('should result in a sliding window', () => {
   let program = pipe(windows(2), toArray())

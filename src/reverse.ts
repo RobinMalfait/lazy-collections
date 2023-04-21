@@ -1,6 +1,6 @@
+import { pipe, toArray } from './'
+
 import { isAsyncIterable } from './utils/iterator'
-import { pipe } from './pipe'
-import { toArray } from './toArray'
 import { LazyIterable } from './shared-types'
 
 /**

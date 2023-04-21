@@ -1,4 +1,4 @@
-import { map } from './map'
+import { map } from './'
 
 type Fn<T> = (datum: T, index: number) => void
 

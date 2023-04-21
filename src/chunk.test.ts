@@ -1,8 +1,4 @@
-import { pipe } from './pipe'
-import { range } from './range'
-import { chunk } from './chunk'
-import { toArray } from './toArray'
-import { delay } from './delay'
+import { pipe, range, chunk, toArray, delay } from './'
 
 it('should create chunked items', () => {
   let program = pipe(chunk(3), toArray())

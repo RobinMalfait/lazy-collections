@@ -1,7 +1,4 @@
-import { pipe } from './pipe'
-import { range } from './range'
-import { head, first } from './head'
-import { delay } from './delay'
+import { pipe, range, head, first, delay } from './'
 
 it('should return the first element of the iterator', () => {
   let program = pipe(range(20, 25), head())

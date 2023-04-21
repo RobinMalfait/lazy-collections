@@ -1,8 +1,5 @@
 import * as fc from 'fast-check'
-import { range } from './range'
-import { take } from './take'
-import { pipe } from './pipe'
-import { chunk } from './chunk'
+import { range, take, pipe, chunk } from './'
 
 it('should create a range', () => {
   let program = pipe(take(10), chunk(2))

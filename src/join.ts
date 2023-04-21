@@ -1,4 +1,4 @@
-import { reduce } from './reduce'
+import { reduce } from './'
 
 export function join(separator: string = ',') {
   return reduce(

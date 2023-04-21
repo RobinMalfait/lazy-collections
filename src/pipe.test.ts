@@ -1,8 +1,4 @@
-import { pipe } from './pipe'
-import { generate } from './generate'
-import { take } from './take'
-import { range } from './range'
-import { toArray } from './toArray'
+import { pipe, generate, take, range, toArray } from './'
 
 it('should be possible to pipe multiple functions', () => {
   let program = pipe(

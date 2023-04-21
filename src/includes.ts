@@ -1,4 +1,5 @@
-import { findIndex } from './findIndex'
+import { findIndex } from './'
+
 import { isAsyncIterable } from './utils/iterator'
 import { LazyIterable } from './shared-types'
 

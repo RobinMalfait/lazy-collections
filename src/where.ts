@@ -1,4 +1,4 @@
-import { filter } from './filter'
+import { filter } from './'
 
 export function where<T>(properties: Record<string | number, any>) {
   let entries = Object.entries(properties)

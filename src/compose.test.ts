@@ -1,8 +1,4 @@
-import { compose } from './compose'
-import { generate } from './generate'
-import { take } from './take'
-import { range } from './range'
-import { toArray } from './toArray'
+import { compose, generate, take, range, toArray } from './'
 
 it('should be possible to compose multiple functions', () => {
   let program = compose(

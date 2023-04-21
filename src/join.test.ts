@@ -1,7 +1,4 @@
-import { pipe } from './pipe'
-import { join } from './join'
-import { delay } from './delay'
-import { concat } from './concat'
+import { pipe, join, delay, concat } from './'
 
 it('should be possible to join an array', () => {
   let program = pipe(join())

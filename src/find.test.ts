@@ -1,7 +1,4 @@
-import { pipe } from './pipe'
-import { range } from './range'
-import { find } from './find'
-import { delay } from './delay'
+import { pipe, range, find, delay } from './'
 
 it('should find a value in the stream', () => {
   let program = pipe(find((x) => x === 2))

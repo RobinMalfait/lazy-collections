@@ -1,7 +1,4 @@
-import { pipe } from './pipe'
-import { toArray } from './toArray'
-import { sort } from './sort'
-import { delay } from './delay'
+import { pipe, toArray, sort, delay } from './'
 
 it('should be possible to sort a stream of numbers', () => {
   let program = pipe(

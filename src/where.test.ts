@@ -1,9 +1,4 @@
-import { pipe } from './pipe'
-import { range } from './range'
-import { map } from './map'
-import { toArray } from './toArray'
-import { where } from './where'
-import { delay } from './delay'
+import { pipe, range, map, toArray, where, delay } from './'
 
 it('should be possible to get the items containing certain properties', () => {
   let program = pipe(
