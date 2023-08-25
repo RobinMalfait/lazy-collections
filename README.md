@@ -60,6 +60,7 @@ program(range(0, 1000000))
     - [`join`](#join)
     - [`map`](#map)
     - [`reduce`](#reduce)
+    - [`replace`](#replace)
     - [`reverse`](#reverse)
     - [`some`](#some)
     - [`sort`](#sort)
@@ -420,6 +421,21 @@ let program = pipe(reduce((total, current) => total + current, 0))
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 // 55
+```
+
+#### `replace`
+
+[Table of contents](#table-of-contents)
+
+Replace an item at a given index with a new value.
+
+```js
+import { pipe, replace } from 'lazy-collections'
+
+let program = pipe(replace(2, 42))
+
+program([1, 2, 3, 4])
+// [ 1, 2, 42, 4 ]
 ```
 
 #### `reverse`
