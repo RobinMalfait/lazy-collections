@@ -312,7 +312,7 @@ import { pipe, findIndex } from 'lazy-collections'
 let program = pipe(findIndex((x) => x === 2))
 
 program([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-// 2
+// 1
 ```
 
 #### `flatMap`
@@ -801,7 +801,7 @@ import { pipe, range, take, toArray } from 'lazy-collections'
 let program = pipe(range(0, 10), take(3), toArray())
 
 program()
-// [ 1, 2, 3 ]
+// [ 0, 1, 2 ]
 ```
 
 #### `takeWhile`
