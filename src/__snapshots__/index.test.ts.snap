@@ -41,6 +41,7 @@ exports[`should export all the things 1`] = `
   "takeWhile": [Function],
   "tap": [Function],
   "toArray": [Function],
+  "toLength": [Function],
   "toSet": [Function],
   "unique": [Function],
   "wait": [Function],
