@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Nothing yet!
+### Fixed
+
+- Fix order of arguments in `toLength` ([a49c24b](https://github.com/RobinMalfait/lazy-collections/commit/a49c24b7758d85042554bca66c1346c4a808eda8))
 
 ## [0.11.1] - 2023-09-09
 
