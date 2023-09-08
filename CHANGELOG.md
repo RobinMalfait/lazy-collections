@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Nothing yet!
+
+## [0.11.0] - 2023-09-09
+
 ### Added
 
 - Add `includes` feature ([#24](https://github.com/RobinMalfait/lazy-collections/pull/24), [#29](https://github.com/RobinMalfait/lazy-collections/pull/29))
@@ -25,5 +29,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Everything!
 
-[unreleased]: https://github.com/RobinMalfait/lazy-collections/compare/v0.10.0...HEAD
+[unreleased]: https://github.com/RobinMalfait/lazy-collections/compare/v0.11.0...HEAD
+[0.11.0]: https://github.com/RobinMalfait/lazy-collections/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/RobinMalfait/lazy-collections/releases/tag/v0.10.0
