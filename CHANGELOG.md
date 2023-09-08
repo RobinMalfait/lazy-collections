@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Nothing yet!
+
+## [0.11.1] - 2023-09-09
+
 ### Fixed
 
 - Expose `toLength` ([81863b4](https://github.com/RobinMalfait/lazy-collections/commit/81863b4be918d757392319d990bbb2643b5bfa7d))
@@ -31,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Everything!
 
-[unreleased]: https://github.com/RobinMalfait/lazy-collections/compare/v0.11.0...HEAD
+[unreleased]: https://github.com/RobinMalfait/lazy-collections/compare/v0.11.1...HEAD
+[0.11.1]: https://github.com/RobinMalfait/lazy-collections/compare/v0.11.0...v0.11.1
 [0.11.0]: https://github.com/RobinMalfait/lazy-collections/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/RobinMalfait/lazy-collections/releases/tag/v0.10.0
