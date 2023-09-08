@@ -27,7 +27,7 @@ it('should delay each value by 50ms', async () => {
 
     // Ensure that each item took at least DELAY ms to be processed, and can't exceed DELAY * 2.
     // This also ensures that they are truly handled sequentially.
-    every((current, i) => current >= DELAY * i && current <= DELAY * (i + 1))
+    every((current: number, i) => current >= DELAY * i && current <= DELAY * (i + 1))
   )
 
   let result = await program()
